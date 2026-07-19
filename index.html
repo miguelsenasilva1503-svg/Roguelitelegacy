@@ -110,6 +110,90 @@
         border-color: rgba(52,152,219,0.65);
     }
     .levelup-card:hover, .trail-card:hover, .pass-reward-card:hover { transform: translateY(-6px); box-shadow: 0 20px 34px rgba(0,0,0,0.55); }
+    .trail-focus-card {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 26px 24px !important;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(45, 53, 82, 0.98), rgba(17, 21, 35, 0.98));
+        border: 1px solid rgba(241,196,15,0.25);
+        box-shadow: 0 20px 36px rgba(0,0,0,0.48), inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .trail-focus-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+    .trail-focus-badge {
+        flex: 0 0 auto;
+        width: 86px;
+        height: 86px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .trail-focus-copy { flex: 1; min-width: 0; }
+    .trail-focus-kicker {
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #b9c4d0;
+        margin-bottom: 4px;
+    }
+    .trail-focus-title {
+        margin: 0;
+        color: #fff;
+        font-size: 30px;
+        line-height: 1.02;
+        text-shadow: 2px 2px 0 #000;
+        word-break: break-word;
+    }
+    .trail-focus-sub {
+        margin: 6px 0 0;
+        color: #d9e2ea;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+    .trail-focus-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 12px 14px;
+        border-radius: 18px;
+        background: rgba(0,0,0,0.22);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    .trail-focus-meta .meta-line {
+        font-size: 13px;
+        color: #d9e2ea;
+        font-weight: 700;
+    }
+    .trail-focus-meta .meta-line strong {
+        color: var(--btn-yellow);
+    }
+    .trail-focus-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+    }
+    .trail-focus-actions button {
+        flex: 1 1 180px;
+        min-width: 0;
+    }
+    .trail-focus-card .pass-bar { margin: 0; height: 22px; }
 
     .card-icon {
         width: 58px;
@@ -236,95 +320,6 @@
     .mission-actions { display:flex; justify-content:flex-end; margin-top: 12px; }
     .mission-claim { background: #e67e22; border: 3px solid #d35400 !important; padding: 10px 14px; font-size: 14px; border-radius: 999px; }
     .mission-claim.done { background: #2ecc71; border-color: #27ae60 !important; color: #111; }
-    .food-event-shell {
-        width: min(100%, 980px);
-        margin: 0 auto;
-        padding-bottom: 40px;
-    }
-    .food-event-header {
-        background: rgba(0,0,0,0.22);
-        border: 1px solid rgba(255,255,255,0.10);
-        border-radius: 22px;
-        padding: 16px;
-        box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-    }
-    .food-event-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-bottom: 12px;
-    }
-    .food-event-progress-wrap {
-        margin: 12px auto 0;
-        max-width: 860px;
-    }
-    .food-event-progress-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-        color: #fff;
-        font-weight: 900;
-        margin-bottom: 8px;
-    }
-    .food-event-progress {
-        height: 18px;
-        border-radius: 999px;
-        overflow: hidden;
-        background: rgba(0,0,0,0.45);
-        border: 2px solid rgba(255,255,255,0.12);
-    }
-    .food-event-progress-fill {
-        width: 0%;
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, #e67e22, #f1c40f);
-        transition: width .25s ease;
-    }
-    .food-event-note {
-        margin-top: 10px;
-        color: #d9e2ea;
-        font-size: 13px;
-        line-height: 1.4;
-        text-align: center;
-    }
-    .food-event-final {
-        margin: 18px auto 0;
-        max-width: 860px;
-        padding: 16px;
-        border-radius: 22px;
-        background: linear-gradient(180deg, rgba(34, 41, 63, 0.98), rgba(16, 20, 33, 0.98));
-        border: 1px solid rgba(255,255,255,0.10);
-        box-shadow: 0 16px 30px rgba(0,0,0,0.35);
-        text-align: center;
-    }
-    .food-event-final-title {
-        color: var(--btn-yellow);
-        font-size: 20px;
-        font-weight: 900;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-    }
-    .food-event-reward-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
-    .food-event-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.12);
-        color: #fff;
-        font-size: 12px;
-        font-weight: 900;
-    }
-    .food-event-badge.locked { opacity: 0.55; }
     .achievement-card { background: linear-gradient(135deg, #1d2b3a, #101820); border: 3px solid #5dade2; border-radius: 16px; padding: 16px; color: white; text-align: left; box-shadow: 0 10px 20px rgba(0,0,0,0.35); position: relative; overflow: hidden; }
     .achievement-card.done { border-color: #f1c40f; }
     .achievement-title { font-size: 18px; font-weight: 900; color: #9ad6ff; margin: 0 0 8px 0; }
@@ -342,6 +337,95 @@
     .gacha-box-anim { font-size: 100px; animation: bounce 1.5s infinite; cursor: pointer; user-select: none; }
     .gacha-item { font-size: 22px; margin: 8px 0; font-weight: bold; animation: popIn 0.5s ease-out forwards; opacity: 0; transform: scale(0.5); color: #ffffff; text-shadow: 2px 2px 4px #000; }
     .gacha-win-banner { font-size: 28px; font-weight: 900; text-transform: uppercase; color: var(--btn-yellow); text-shadow: 0 0 10px rgba(255,255,255,0.35), 2px 2px 0 #000; margin: 10px 0 18px; animation: winPop 0.65s ease-out both; }
+    .gacha-reveal-wrap { width: min(92vw, 520px); display: flex; justify-content: center; align-items: center; min-height: 220px; margin: 0 auto; }
+    .gacha-reveal-card {
+        width: min(100%, 520px);
+        min-height: 220px;
+        border-radius: 26px;
+        background: linear-gradient(180deg, rgba(34,41,63,0.98), rgba(16,20,33,0.98));
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 18px 34px rgba(0,0,0,0.44);
+        padding: 18px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        animation: popIn 0.28s ease-out both;
+    }
+    .gacha-reveal-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid rgba(255,255,255,0.05);
+        pointer-events: none;
+    }
+    .gacha-drop-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+    }
+    .gacha-drop-emoji,
+    .gacha-drop-ball {
+        width: 76px;
+        height: 76px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        flex: 0 0 76px;
+    }
+    .gacha-drop-ball {
+        background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+        border-radius: 50%;
+        font-size: 36px;
+    }
+    .gacha-drop-body { flex: 1; min-width: 0; }
+    .gacha-drop-title { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #b9c4d0; font-weight: 900; margin-bottom: 4px; }
+    .gacha-drop-name { font-size: 28px; line-height: 1.05; font-weight: 900; color: #fff; text-shadow: 2px 2px 0 #000; word-break: break-word; }
+    .gacha-drop-amount { margin-top: 8px; font-size: 20px; color: var(--btn-yellow); font-weight: 900; }
+    .gacha-drop-rarity { margin-top: 8px; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+    .gacha-drop-rarity.rarity-common { color: #bdc3c7; }
+    .gacha-drop-rarity.rarity-rare { color: #5dade2; }
+    .gacha-drop-rarity.rarity-epic { color: #b06cd9; }
+    .gacha-drop-rarity.rarity-legendary { color: #f1c40f; }
+    .gacha-drop-rarity.rarity-mythic { color: #ff6b6b; }
+    .gacha-final-list { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 520px; margin: 0 auto; }
+    .gacha-final-list .gacha-item {
+        margin: 0;
+        opacity: 1;
+        transform: none;
+        animation: none;
+        font-size: 18px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06);
+        text-shadow: 1px 1px 0 #000;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    .gacha-drop-count {
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        z-index: 2;
+        min-width: 72px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.45);
+        border: 1px solid rgba(255,255,255,0.12);
+        font-size: 13px;
+        font-weight: 900;
+        color: #fff;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
     @keyframes winPop { 0% { opacity: 0; transform: scale(0.4) translateY(-10px); } 60% { opacity: 1; transform: scale(1.15) translateY(0); } 100% { opacity: 1; transform: scale(1); } }
     @keyframes popIn { to { opacity: 1; transform: scale(1); } }
     
@@ -824,6 +908,61 @@
     #screen-shop .chip-card { min-height: 190px; }
     #screen-shop .chip-card p { min-height: 48px; }
     #screen-shop .card-item::after, #screen-shop .chip-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; border: 1px solid rgba(255,255,255,0.06); }
+    .shop-tabs {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        margin: 14px 0 16px;
+        padding: 8px;
+        position: relative;
+        z-index: 2;
+        overflow: visible;
+        background: rgba(0,0,0,0.12);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+        box-sizing: border-box;
+    }
+    #screen-shop .shop-tabs .shop-tab {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        height: 78px !important;
+        margin: 0 !important;
+        padding: 8px 4px !important;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border-radius: 16px;
+        text-align: center;
+        line-height: 1.05;
+        white-space: normal;
+        box-sizing: border-box;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.22);
+    }
+    #screen-shop .shop-tabs .shop-tab .tab-emoji { font-size: 20px; line-height: 1; }
+    #screen-shop .shop-tabs .shop-tab .tab-label { font-size: 10px; line-height: 1.1; font-weight: 900; word-break: break-word; }
+    #screen-shop .shop-tabs .shop-tab.active { background: var(--btn-yellow); color: #222; border-color: var(--btn-yellow-border) !important; text-shadow: none; }
+    @media (max-width: 480px) {
+        .shop-tabs {
+            gap: 6px;
+            padding: 6px;
+            margin-bottom: 14px;
+        }
+        #screen-shop .shop-tabs .shop-tab {
+            height: 66px !important;
+            padding: 6px 2px !important;
+            border-radius: 14px;
+        }
+        #screen-shop .shop-tabs .shop-tab .tab-emoji { font-size: 18px; }
+        #screen-shop .shop-tabs .shop-tab .tab-label { font-size: 9px; }
+    }
+    .shop-panel { scroll-margin-top: 120px; position: relative; z-index: 1; clear: both; width: 100%; box-sizing: border-box; }
+    #screen-shop .shop-panel:first-of-type { margin-top: 4px; }
+    .shop-panel + .shop-panel { margin-top: 18px; }
 
     /* Pause Polish */
     .pause-panel { background: rgba(30, 40, 60, 0.95); border: 4px solid var(--btn-blue); border-radius: 15px; padding: 25px; width: 90%; max-width: 500px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 0 30px rgba(0,0,0,0.8); }
@@ -891,6 +1030,406 @@
     }
     .chip-slot.equipped::before { top: -3px; }
     .chip-slot.equipped::after { bottom: -3px; }
+    /* Main menu repaginated */
+    #screen-main {
+        background:
+            radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 32%),
+            linear-gradient(180deg, #171721 0%, #0f1118 100%);
+    }
+    #screen-main .main-menu-shell {
+        width: min(1120px, 100%);
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 0;
+    }
+    #screen-main .main-top-row {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 12px;
+        min-height: 68px;
+        padding-top: 2px;
+    }
+    #screen-main .main-resources {
+        margin: 0 auto;
+        justify-content: center;
+        width: fit-content;
+        max-width: 100%;
+    }
+    .btn-profile {
+        left: 20px;
+        right: auto;
+        background-color: #7f8c8d;
+        border-color: #2c3e50 !important;
+    }
+    #screen-main .main-center {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        text-align: center;
+        min-height: 0;
+        padding: 26px 0 8px;
+    }
+    #screen-main .main-center h1 {
+        margin-top: 18px;
+        margin-bottom: 0;
+    }
+    #screen-main .main-greeting {
+        font-size: 20px;
+        color: #fff;
+        margin: 0;
+        line-height: 1.25;
+    }
+    #screen-main .main-scoreboard {
+        min-width: 220px;
+        padding: 12px 16px;
+        border-radius: 18px;
+        background: rgba(0,0,0,0.34);
+        border: 1px solid rgba(255,255,255,0.10);
+        box-shadow: 0 10px 22px rgba(0,0,0,0.24);
+    }
+    #screen-main .main-scoreboard .label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #b9c4d0;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+    }
+    #screen-main .main-scoreboard .value {
+        display: block;
+        margin-top: 4px;
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--btn-yellow);
+    }
+    #screen-main .main-actions {
+        position: absolute;
+        left: 4px;
+        right: 4px;
+        bottom: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 14px;
+        width: auto;
+        margin-top: 0;
+        padding: 0;
+        z-index: 2;
+    }
+    #screen-main .main-left-actions,
+    #screen-main .main-right-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: auto;
+        min-width: 0;
+    }
+    #screen-main .main-left-actions {
+        align-items: flex-start;
+    }
+    #screen-main .main-right-actions {
+        align-items: flex-end;
+    }
+    #screen-main .main-stack-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-top: 0;
+    }
+    #screen-main .main-nav-row {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        width: 100%;
+        margin-top: 0;
+    }
+    #screen-main .stack-label,
+    #screen-main .main-nav-label {
+        font-size: 14px;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 1px 1px 0 #000;
+        white-space: nowrap;
+    }
+    .emoji-nav-btn {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        padding: 0 !important;
+        width: auto;
+        height: auto;
+        line-height: 1;
+        cursor: pointer;
+        color: inherit;
+        transition: transform 0.1s, filter 0.1s;
+    }
+    .emoji-nav-btn:hover,
+    .emoji-nav-btn:active {
+        transform: none;
+        box-shadow: none;
+        filter: brightness(1.14);
+    }
+    .emoji-nav-pass,
+    .emoji-nav-missions,
+    .emoji-nav-event {
+        font-size: 50px;
+    }
+    #screen-main .main-left-actions .main-nav-row {
+        justify-content: flex-start;
+    }
+    #screen-main .main-nav-row-left .emoji-nav-btn { order: 0; }
+    #screen-main .main-nav-row-left .main-nav-label { order: 1; }
+    .event-tabs { margin-bottom: 16px; }
+    .event-hero-card {
+        flex: 1 1 320px;
+        min-width: min(100%, 320px);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(0,0,0,0.18);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    .event-progress-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(241,196,15,0.16);
+        border: 1px solid rgba(241,196,15,0.28);
+        color: #fff;
+        font-weight: 900;
+        min-height: 44px;
+    }
+    .event-major-icon,
+    .event-graffit-ball,
+    .promo-offer-ball {
+        width: 74px;
+        height: 74px;
+        flex: 0 0 74px;
+        border-radius: 50%;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 8px 18px rgba(0,0,0,0.24);
+        border: 1px solid rgba(255,255,255,0.12);
+        position: relative;
+        overflow: hidden;
+    }
+    .event-major-icon {
+        background:
+            radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.10) 48%),
+            linear-gradient(180deg, #8ca45a, #38451f);
+    }
+    .event-major-icon::before,
+    .event-graffit-ball::before,
+    .promo-offer-ball::before {
+        content: '';
+        position: absolute;
+        inset: 13px 16px 36px 16px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.18);
+        filter: blur(1px);
+    }
+    .event-major-icon::after,
+    .event-graffit-ball::after,
+    .promo-offer-ball::after {
+        content: '';
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 10px;
+        height: 12px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.22);
+        opacity: 0.9;
+    }
+    .event-graffit-ball {
+        background:
+            radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.10) 48%),
+            linear-gradient(180deg, #ff8adf, #912f73);
+    }
+    .event-mission-card { text-align: left; }
+    .event-mission-done {
+        border-color: rgba(46,204,113,0.75) !important;
+        box-shadow: 0 0 0 1px rgba(46,204,113,0.14), 0 10px 20px rgba(0,0,0,0.35);
+    }
+    .event-mission-lock { opacity: 0.72; filter: grayscale(0.08); }
+    .promo-price-wrap {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        flex-wrap:wrap;
+        margin-top: 8px;
+    }
+    .promo-price-old {
+        text-decoration: line-through;
+        color: #cfd8dc;
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    .promo-price-new {
+        color: var(--btn-yellow);
+        font-weight: 900;
+        font-size: 16px;
+    }
+    .promo-level-note {
+        color: #ddd;
+        font-size: 12px;
+        line-height: 1.35;
+        margin-top: 8px;
+    }
+    .emoji-nav-chars,
+    .emoji-nav-shop,
+    .emoji-nav-trail {
+        font-size: 46px;
+    }
+
+    #overlay-profile .popup-box {
+        max-width: 940px;
+        width: 94%;
+        max-height: 88vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 10px;
+        margin: 8px 0 12px;
+    }
+    .profile-stat {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 12px;
+        text-align: left;
+    }
+    .profile-stat .label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #b9c4d0;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+    }
+    .profile-stat .value {
+        display: block;
+        margin-top: 5px;
+        font-size: 18px;
+        color: #fff;
+        font-weight: 900;
+        word-break: break-word;
+    }
+    .profile-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0 12px;
+    }
+    .profile-title-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 10px;
+        overflow-y: auto;
+        padding-right: 4px;
+        max-height: 42vh;
+    }
+    .profile-title-card {
+        background: rgba(0,0,0,0.24);
+        border: 1px solid rgba(255,255,255,0.09);
+        border-radius: 16px;
+        padding: 12px;
+        text-align: left;
+        color: #fff;
+    }
+    .profile-title-card h4 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        color: var(--btn-yellow);
+    }
+    .profile-title-card p {
+        margin: 0;
+        font-size: 13px;
+        color: #e8edf2;
+        line-height: 1.4;
+    }
+    .profile-empty {
+        color: #cfd8dc;
+        text-align: center;
+        padding: 14px;
+    }
+
+    #overlay-rotate .popup-box {
+        max-width: 420px;
+    }
+    #overlay-rotate h2 {
+        color: var(--btn-yellow);
+    }
+    #overlay-rotate p {
+        color: #d9e2ea;
+        font-size: 15px;
+        line-height: 1.45;
+        margin: 8px 0 0;
+    }
+
+    @media (max-width: 900px) {
+        #screen-main .main-actions {
+            left: 0;
+            right: 0;
+            bottom: 14px;
+            gap: 10px;
+            padding: 0 2px;
+        }
+        #screen-main .main-left-actions,
+        #screen-main .main-right-actions {
+            width: auto;
+        }
+        #screen-main .main-right-actions {
+            align-items: flex-end;
+        }
+        #screen-main .main-nav-row {
+            justify-content: flex-end;
+        }
+    }
+
+    @media (max-width: 720px) {
+        #screen-main .main-scoreboard {
+            min-width: 180px;
+            width: 100%;
+            max-width: 320px;
+        }
+        #screen-main .main-greeting {
+            font-size: 18px;
+        }
+        #screen-main .main-center {
+            padding-top: 22px;
+        }
+        #screen-main .emoji-nav-pass,
+        #screen-main .emoji-nav-missions {
+            font-size: 44px;
+        }
+        #screen-main .emoji-nav-chars,
+        #screen-main .emoji-nav-shop,
+        #screen-main .emoji-nav-trail {
+            font-size: 40px;
+        }
+    }
+
 </style>
 </head>
 <body>
@@ -929,6 +1468,40 @@
     </div>
 </div>
 
+<div id="overlay-profile" class="overlay hidden" style="z-index: 9996;">
+    <div class="popup-box profile-box">
+        <h2 style="color: var(--btn-yellow); margin-bottom: 4px;">Perfil</h2>
+        <p style="color: #ddd; font-size: 14px; margin: 0 0 10px 0;">Aqui ficam seu nickname, os títulos desbloqueados e sua melhor pontuação.</p>
+        <div class="profile-summary">
+            <div class="profile-stat">
+                <span class="label">Nickname</span>
+                <span class="value" id="profile-nickname">Jogador</span>
+            </div>
+            <div class="profile-stat">
+                <span class="label">Melhor Pontuação</span>
+                <span class="value" id="profile-best-score">0</span>
+            </div>
+            <div class="profile-stat">
+                <span class="label">Títulos desbloqueados</span>
+                <span class="value" id="profile-title-count">0</span>
+            </div>
+        </div>
+        <div class="profile-actions">
+            <button class="btn-menu" onclick="changeNickname()">✏️ Alterar Nome</button>
+            <button class="btn-menu" onclick="changeTitle()">🏷️ Alterar Título</button>
+            <button class="btn-action" onclick="closeProfile()">Fechar</button>
+        </div>
+        <div id="profile-title-list" class="profile-title-list"></div>
+    </div>
+</div>
+
+<div id="overlay-rotate" class="overlay hidden" style="z-index: 99995;">
+    <div class="popup-box">
+        <h2>Vire o celular</h2>
+        <p>O menu principal foi feito para landscape. Gire o aparelho para continuar.</p>
+    </div>
+</div>
+
 <div id="overlay-account-transfer" class="overlay hidden" style="z-index: 9997;">
     <div class="popup-box" style="max-width: 860px; width: 94%; max-height: 88vh; overflow: hidden; display: flex; flex-direction: column;">
         <h2 id="account-transfer-title" style="color: var(--btn-green); margin-bottom: 4px;">Importar / Exportar Conta</h2>
@@ -956,25 +1529,59 @@
 </div>
 
 <div id="screen-main" class="screen">
+    <button class="btn-top-corner btn-profile" onclick="openProfile()">👤 Perfil</button>
     <button class="btn-top-corner btn-settings" onclick="showScreen('screen-settings')">⚙️ Config</button>
-    <div class="top-bar" style="margin-right: 120px;">
-        <div class="resource">🪙 <span id="menu-coins">0</span></div>
-        <div class="resource">💎 <span id="menu-gems">0</span></div>
-        <div class="resource">🧬 <span id="menu-evo">0</span></div>
-    </div>
-    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-        <h1>Roguelite Legacy</h1>
-        <h2 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Olá, <span id="display-nickname" style="color:var(--btn-green);">Jogador</span>! <span id="display-fame"></span></h2>
-        <div id="display-title" class="title-display hidden"></div>
-        <button class="btn-play" onclick="showModeSelect()">Jogar</button>
-        
-        <div class="menu-grid" style="margin-top: 30px;">
-            <button class="btn-menu btn-stacked" onclick="showScreen('screen-chars')"><span>👤</span><span>Personagens</span></button>
-            <button class="btn-menu btn-stacked" onclick="showScreen('screen-shop')"><span>💰</span><span>Loja</span></button>
-            <button class="btn-menu btn-stacked btn-missions" onclick="showMissions()"><span>📜</span><span>Missões</span></button>
-            <button class="btn-menu btn-stacked" style="background-color:#e67e22; border-color:#b84a00 !important;" onclick="showScreen('screen-food-event')"><span>🍔</span><span>Rebelião da Comida</span></button>
-            <button class="btn-menu btn-stacked" onclick="showScreen('screen-pass')"><span>🎫</span><span>Passe</span></button>
-            <button class="btn-menu btn-stacked" style="background-color:#9b59b6; border-color:#8e44ad !important;" onclick="showScreen('screen-trail')"><span>🔩</span><span>Oficina</span></button>
+
+    <div class="main-menu-shell">
+        <div class="main-top-row">
+            <div class="top-bar main-resources">
+                <div class="resource">🪙 <span id="menu-coins">0</span></div>
+                <div class="resource">💎 <span id="menu-gems">0</span></div>
+                <div class="resource">🧬 <span id="menu-evo">0</span></div>
+            </div>
+        </div>
+
+        <div class="main-center">
+            <h1>Roguelite Legacy</h1>
+            <h2 class="main-greeting">Olá, <span id="display-nickname" style="color:var(--btn-green);">Jogador</span>! <span id="display-fame"></span></h2>
+            <div id="display-title" class="title-display hidden"></div>
+            <button class="btn-play" onclick="showModeSelect()">Jogar</button>
+            <div class="main-scoreboard">
+                <span class="label">Melhor Pontuação</span>
+                <span class="value" id="display-best-score">0</span>
+            </div>
+        </div>
+
+        <div class="main-actions">
+            <div class="main-left-actions">
+                <div class="main-nav-row main-nav-row-left">
+                    <span class="main-nav-label">Evento</span>
+                    <button class="emoji-nav-btn emoji-nav-event" onclick="renderEvents(); showScreen('screen-event')">⭐</button>
+                </div>
+                <div class="main-nav-row main-nav-row-left">
+                    <span class="main-nav-label">Passe</span>
+                    <button class="emoji-nav-btn emoji-nav-pass" onclick="showScreen('screen-pass')">🎫</button>
+                </div>
+                <div class="main-nav-row main-nav-row-left">
+                    <span class="main-nav-label">Missões</span>
+                    <button class="emoji-nav-btn emoji-nav-missions" onclick="showMissions()">📜</button>
+                </div>
+            </div>
+
+            <div class="main-right-actions">
+                <div class="main-nav-row">
+                    <span class="main-nav-label">Personagens</span>
+                    <button class="emoji-nav-btn emoji-nav-chars" onclick="showScreen('screen-chars')">👤</button>
+                </div>
+                <div class="main-nav-row">
+                    <span class="main-nav-label">Loja</span>
+                    <button class="emoji-nav-btn emoji-nav-shop" onclick="showScreen('screen-shop')">💰</button>
+                </div>
+                <div class="main-nav-row">
+                    <span class="main-nav-label">Oficina</span>
+                    <button class="emoji-nav-btn emoji-nav-trail" onclick="showScreen('screen-trail')">🔩</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -1015,8 +1622,6 @@
         <div class="settings-section">
             <div class="settings-section-title">Acessibilidade</div>
             <div class="settings-grid">
-                <button class="btn-menu settings-option" onclick="changeNickname()">✏️ Alterar Nome</button>
-                <button class="btn-menu settings-option" onclick="changeTitle()">🏷️ Alterar Título</button>
                 <button class="btn-menu settings-option" onclick="toggleSetting('showHpBar')">Barra de Vida: <br><span id="set-hpbar" style="color:var(--btn-red)">Desativado</span></button>
                 <div class="settings-card settings-card--wide">
                     <div class="zoom-control">
@@ -1181,30 +1786,137 @@
         <div class="resource">🔩 <span id="shop-scrap">0</span></div>
     </div>
     <h2>Loja</h2>
-    <div id="daily-reward-container" style="text-align:center; margin-bottom: 20px;"><button class="btn-action" style="font-size: 16px;" onclick="claimDailyReward()">🎁 Resgatar Diária</button></div>
-    
-    <div class="shop-section"><h3>Pacotes Aleatórios (Rotaciona 1h)</h3><div id="shop-bundles" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section"><h3>Chips de Melhoria (Compra Direta)</h3><div id="shop-chips" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section"><h3>Pacotes de Caixas</h3><div id="shop-boxes" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section"><h3>Comprar Recursos (Moedas)</h3><div id="shop-resources-coins" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section"><h3>Comprar Recursos (Pontos Evo)</h3><div id="shop-resources-evo" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section"><h3>Comprar Recursos (Sucatas)</h3><div id="shop-resources-scraps" class="menu-grid shop-grid"></div></div>
-    <div class="shop-section">
-        <h3>Personagens Diretos &amp; VIP</h3>
-        <div id="shop-chars" class="menu-grid shop-grid"></div>
+    <div id="daily-reward-container" style="text-align:center; margin-bottom: 12px;"><button class="btn-action" style="font-size: 16px;" onclick="claimDailyReward()">🎁 Resgatar Diária</button></div>
+
+    <div class="shop-tabs">
+        <button class="btn-menu shop-tab active" data-section="offers" onclick="showShopSection('offers')"><span class="tab-emoji">🎁</span><span class="tab-label">Ofertas</span></button>
+        <button class="btn-menu shop-tab" data-section="resources" onclick="showShopSection('resources')"><span class="tab-emoji">💰</span><span class="tab-label">Recursos</span></button>
+        <button class="btn-menu shop-tab" data-section="chips" onclick="showShopSection('chips')"><span class="tab-emoji">🧩</span><span class="tab-label">Chips</span></button>
+        <button class="btn-menu shop-tab" data-section="boxes" onclick="showShopSection('boxes')"><span class="tab-emoji">📦</span><span class="tab-label">Caixas</span></button>
+        <button class="btn-menu shop-tab" data-section="chars" onclick="showShopSection('chars')"><span class="tab-emoji">👤</span><span class="tab-label">Personagens</span></button>
+    </div>
+
+    <div id="shop-section-offers" class="shop-section shop-panel">
+        <h3>Ofertas</h3>
+        <div class="shop-section" style="margin-top:0;">
+            <h3>Pacotes Aleatórios (Rotaciona 1h)</h3>
+            <div id="shop-bundles" class="menu-grid shop-grid"></div>
+        </div>
         <div class="menu-grid" style="margin-top:15px;">
-        <div class="card-item rarity-legendary" id="vip-shop-card">
-            <div style="font-size: 40px;">👑</div>
-            <h5>Passe VIP (31 Dias)</h5>
-            <p style="font-size:12px; color:#aaa;">Mais ofertas, vitórias diárias, prêmios em dobro e megacaixas.</p>
-            <div id="vip-shop-discount"></div>
-            <button id="vip-buy-btn" style="padding:5px;font-size:12px;background:var(--gem)" onclick="buyVIP()">💎 499</button>
+            <div class="card-item rarity-legendary" id="vip-shop-card">
+                <div style="font-size: 40px;">👑</div>
+                <h5>Passe VIP (31 Dias)</h5>
+                <p style="font-size:12px; color:#aaa;">Mais ofertas, vitórias diárias, prêmios em dobro e megacaixas.</p>
+                <div id="vip-shop-discount"></div>
+                <button id="vip-buy-btn" style="padding:5px;font-size:12px;background:var(--gem)" onclick="buyVIP()">💎 499</button>
+            </div>
+        </div>
+        <div class="shop-section">
+            <h3>Oferta Vitalícia</h3>
+            <div id="shop-lifetime-offer" class="menu-grid shop-grid"></div>
         </div>
     </div>
+
+    <div id="shop-section-resources" class="shop-section shop-panel hidden">
+        <h3>Recursos</h3>
+        <div class="shop-section" style="margin-top:0;">
+            <h3>Moedas</h3>
+            <div id="shop-resources-coins" class="menu-grid shop-grid"></div>
+        </div>
+        <div class="shop-section">
+            <h3>Pontos Evo</h3>
+            <div id="shop-resources-evo" class="menu-grid shop-grid"></div>
+        </div>
+        <div class="shop-section">
+            <h3>Sucatas</h3>
+            <div id="shop-resources-scraps" class="menu-grid shop-grid"></div>
+        </div>
     </div>
-    <div class="shop-section">
-        <h3>Oferta Vitalícia</h3>
-        <div id="shop-lifetime-offer" class="menu-grid shop-grid"></div>
+
+    <div id="shop-section-chips" class="shop-section shop-panel hidden">
+        <h3>Chips</h3>
+        <div id="shop-chips" class="menu-grid shop-grid"></div>
+    </div>
+
+    <div id="shop-section-boxes" class="shop-section shop-panel hidden">
+        <h3>Caixas</h3>
+        <div class="shop-section" style="margin-top:0;">
+            <h3>Caixas Normais</h3>
+            <div id="shop-boxes-normal" class="menu-grid shop-grid"></div>
+        </div>
+        <div class="shop-section">
+            <h3>Mega Caixas</h3>
+            <div id="shop-boxes-mega" class="menu-grid shop-grid"></div>
+        </div>
+        <div class="shop-section">
+            <h3>Pacotes</h3>
+            <div id="shop-boxes-pacote" class="menu-grid shop-grid"></div>
+        </div>
+    </div>
+
+    <div id="shop-section-chars" class="shop-section shop-panel hidden">
+        <h3>Personagens</h3>
+        <div class="shop-section" style="margin-top:0;">
+            <h3>Promoções</h3>
+            <div id="shop-char-promos" class="menu-grid shop-grid"></div>
+        </div>
+        <div class="shop-section">
+            <h3>Lista normal</h3>
+            <div id="shop-chars" class="menu-grid shop-grid"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="screen-event" class="screen scrollable hidden">
+    <button class="btn-top-corner btn-back" onclick="showScreen('screen-main')">⬅️ Voltar</button>
+    <h2 style="margin-top: 40px;">Evento ⭐</h2>
+    <p style="text-align:center; color:#ddd; margin: 0 0 12px 0;">Complete desafios especiais para liberar Major Briggs, Graffit e ofertas da loja.</p>
+
+    <div class="shop-tabs event-tabs">
+        <button class="btn-menu shop-tab active" data-section="major" onclick="showEventSection('major')"><span class="tab-emoji">🛡️</span><span class="tab-label">Major Briggs</span></button>
+        <button class="btn-menu shop-tab" data-section="graffit" onclick="showEventSection('graffit')"><span class="tab-emoji">🎨</span><span class="tab-label">Graffit</span></button>
+        <button class="btn-menu shop-tab" data-section="store" onclick="showEventSection('store')"><span class="tab-emoji">🛍</span><span class="tab-label">Loja</span></button>
+    </div>
+
+    <div id="event-section-major" class="shop-section shop-panel">
+        <h3>Major Briggs</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
+            <div class="event-hero-card">
+                <div class="event-major-icon" aria-hidden="true"></div>
+                <div>
+                    <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Major Briggs</h4>
+                    <p style="margin:6px 0 0; color:#d9e2ea;">20 missões não entrelaçadas. Fez, conta.</p>
+                </div>
+            </div>
+            <div class="event-progress-pill"><span id="event-major-count">0</span>/20 concluídas</div>
+            <button id="event-major-claim" class="btn-action" onclick="claimEventCharacter('major')">🎁 Resgatar Major Briggs</button>
+        </div>
+        <div id="event-major-list" class="menu-grid shop-grid"></div>
+    </div>
+
+    <div id="event-section-graffit" class="shop-section shop-panel hidden">
+        <h3>Graffit</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
+            <div class="event-hero-card">
+                <div class="event-graffit-ball" aria-hidden="true"></div>
+                <div>
+                    <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Graffit</h4>
+                    <p style="margin:6px 0 0; color:#d9e2ea;">22 missões não entrelaçadas. Fez, conta.</p>
+                </div>
+            </div>
+            <div class="event-progress-pill"><span id="event-graffit-count">0</span>/22 concluídas</div>
+            <button id="event-graffit-claim" class="btn-action" onclick="claimEventCharacter('graffit')">🎁 Resgatar Graffit</button>
+        </div>
+        <div id="event-graffit-list" class="menu-grid shop-grid"></div>
+    </div>
+
+    <div id="event-section-store" class="shop-section shop-panel hidden">
+        <h3>Loja do Evento</h3>
+        <div class="shop-section" style="margin-top:0;">
+            <h3>Personagens em promoção</h3>
+            <div id="event-promo-list" class="menu-grid shop-grid"></div>
+        </div>
     </div>
 </div>
 
@@ -1276,42 +1988,6 @@
         <div class="resource" style="display:inline-flex; background: rgba(0,0,0,0.35);">🏆 <span id="achievements-count">0/30</span></div>
     </div>
     <div id="achievements-list" class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 900px; margin: 0 auto; width: 100%;"></div>
-</div>
-
-<div id="screen-food-event" class="screen scrollable hidden">
-    <button class="btn-top-corner btn-back" onclick="showScreen('screen-main')">⬅️ Voltar</button>
-    <h2 style="margin-top: 40px;">Rebelião da Comida</h2>
-    <p style="text-align:center; color:#ddd; margin: 0 0 12px 0;">A cozinha entrou em guerra. Complete as 20 missões permanentes, sem reroll, e pegue só a recompensa final.</p>
-    <div class="food-event-shell">
-        <div class="food-event-header">
-            <div class="food-event-meta">
-                <span class="card-pill">🎁 Recompensa final: Lunch + 3 Mega Caixas</span>
-                <span class="card-pill">🔁 Sem reroll</span>
-                <span class="card-pill">📌 Até o fim do evento</span>
-            </div>
-            <div class="food-event-progress-wrap">
-                <div class="food-event-progress-top">
-                    <span>Missões coletadas</span>
-                    <span id="food-event-progress-text">0/0</span>
-                </div>
-                <div class="food-event-progress"><div id="food-event-progress-fill" class="food-event-progress-fill"></div></div>
-            </div>
-            <div class="food-event-note">
-                As missões ficam permanentes até o fim do evento. Não existe reroll aqui, e nada é entregue antes de fechar as 20.
-            </div>
-        </div>
-        <div id="food-event-list" class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 980px; margin: 18px auto 0; width: 100%;"></div>
-        <div class="food-event-final">
-            <div class="food-event-final-title">Recompensa final da rebelião</div>
-            <div class="food-event-reward-row">
-                <span class="food-event-badge">👤 Lunch</span>
-                <span class="food-event-badge">🗳 3 Mega caixas</span>
-            </div>
-            <div style="margin-top:12px;">
-                <button class="btn-action" style="min-width:min(100%, 360px);" onclick="claimFoodRebellionFinal()">Coletar recompensa final</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 <canvas id="gameCanvas"></canvas>
@@ -1397,14 +2073,15 @@
     <button class="btn-play" style="margin-top: 20px;" onclick="returnToMenu()">Voltar ao Menu</button>
 </div>
 
-<div id="overlay-gacha-intro" class="overlay hidden" style="z-index: 1205;">
-    <div class="gacha-box-anim" id="gacha-intro-emoji" onclick="tapToOpenBox()">📦</div>
+<div id="overlay-gacha-intro" class="overlay hidden" style="z-index: 1205; cursor: pointer;" onclick="tapToOpenBox()">
+    <div class="gacha-box-anim" id="gacha-intro-emoji">📦</div>
     <h2 style="margin-top: 30px; animation: pulse 1.5s infinite;">Toque para abrir!</h2>
 </div>
 <div id="overlay-gacha" class="overlay hidden" style="z-index: 1205;">
     <h1 id="gacha-title">Recompensas</h1>
+    <div id="gacha-counter" class="gacha-drop-count">0/0</div>
     <div id="gacha-result"></div>
-    <button class="btn-action" style="margin-top: 30px;" onclick="processNextGacha()">Continuar</button>
+    <button id="gacha-continue-btn" class="btn-action" style="margin-top: 30px;" onclick="processNextGacha()">Continuar</button>
 </div>
 
 <div id="overlay-chips-inventory" class="overlay hidden" style="z-index: 50;">
@@ -1431,7 +2108,7 @@ const CHARACTERS = {
 Um militar experiente que resolve tudo na base da pólvora e precisão. Strike dispara tiros rápidos com sua pistola tática, mantendo pressão constante nos inimigos. Ele age como um verdadeiro soldado profissional… até começar a comemorar cedo demais.
 
 “Missão concluída! …pera, ainda tem inimigo?”` },
-    fasty: { id: 'fasty', class: 'Algoz', name: 'Fasty', rarity: 'common', cost: 29, hp: 80, speed: 5, dmg: 13, fireRate: 25, range: 200, color: '#e67e22', weapon: 'energy', desc: `“Fasty corre tão rápido que às vezes chega na batalha antes da própria ideia.”
+    fasty: { id: 'fasty', class: 'Algoz', name: 'Fasty', rarity: 'common', cost: 29, hp: 80, speed: 5, dmg: 13, fireRate: 32, range: 200, color: '#e67e22', weapon: 'energy', desc: `“Fasty corre tão rápido que às vezes chega na batalha antes da própria ideia.”
 
 Uma garota elétrica e veloz que domina o campo com movimentos imprevisíveis. Seus ataques rápidos deixam os adversários perdidos enquanto ela atravessa o mapa em segundos. O maior desafio dela é ficar parada por mais de três segundos.
 
@@ -1446,7 +2123,7 @@ Uma atiradora habilidosa que dispara projéteis capazes de empurrar adversários
 Especialista em destruição pesada, Hank domina áreas inteiras usando o poder bruto do seu tanque. Seus disparos explosivos afastam qualquer inimigo imprudente o suficiente pra chegar perto. Ele trata toda batalha como se fosse uma operação militar séria… mesmo derrubando paredes sem querer.
 
 “Isso foi estratégico! Acho.”` },
-    bold: { id: 'bold', class: 'Tiro preciso', name: 'Bold', rarity: 'rare', cost: 79, hp: 110, speed: 3.2, dmg: 8, fireRate: 15, range: 280, color: '#16a085', weapon: 'machinegun', desc: `“Bold acredita que ‘recuar’ é só uma palavra inventada por covardes.”
+    bold: { id: 'bold', class: 'Tiro preciso', name: 'Bold', rarity: 'rare', cost: 79, hp: 110, speed: 3.2, dmg: 4, fireRate: 15, range: 280, color: '#16a085', weapon: 'machinegun', desc: `“Bold acredita que ‘recuar’ é só uma palavra inventada por covardes.”
 
 Um militar agressivo equipado com uma metralhadora pesada capaz de encher o campo de balas em segundos. Rival direto de Strike, Bold prefere resolver qualquer discussão atirando primeiro, perguntando depois… e às vezes nunca perguntando.
 
@@ -1653,6 +2330,11 @@ Uma criatura gigante e peluda que prefere resolver problemas do jeito mais simpl
 Uma entidade enigmática capaz de manipular forças que ninguém deveria controlar. Echo distorce o espaço ao seu redor, atraindo tudo para o centro de seus ataques enquanto estranhas anomalias surgem pelo campo de batalha. Alguns cientistas acreditam que ele descobriu segredos do universo. Outros acreditam que o universo está tentando se livrar dele.
 
 “Quanto mais você resiste... mais perto chega.”` },
+    graffit: { id: 'graffit', class: 'Controle', name: 'Graffit', rarity: 'mythic', cost: 569, hp: 102, speed: 3.45, dmg: 17, fireRate: 54, range: 255, color: '#ff7ad9', weapon: 'graffit', desc: `“Graffit enxerga qualquer muro em branco como um pedido educado para ser pintado.”
+
+Um artista de rua rebelde que transforma a cidade em sua tela. Armado com latas de spray e uma criatividade sem limites, Graffit deixa sua marca por onde passa, ignorando placas de “proibido”. Entre uma pintura e outra, ele prova que arte e confusão podem andar perfeitamente juntas.
+
+“Ei... essa parede tava sem graça.”` },
     eel: { id: 'eel', class: 'Controle', name: 'Eel', rarity: 'legendary', cost: 349, hp: 118, speed: 3.15, dmg: 18, fireRate: 52, range: 265, color: '#3ec7ff', weapon: 'eel_lash', desc: `“Eel jurou que surfar durante uma tempestade era uma boa ideia. Foi assim que começou sua... ligação chocante com enguias elétricas.”
 
 Um surfista destemido que vive em perfeita sintonia com o oceano e suas criaturas mais perigosas. Sempre acompanhado por misteriosas enguias elétricas, Eel desliza pelas batalhas com a mesma tranquilidade de quem está pegando a onda perfeita. Só não encoste nele... as enguias também não gostam de visitas.
@@ -1673,7 +2355,11 @@ Um engenheiro eletricista brilhante que adora criar invenções tão úteis quan
 Curioso, inteligente e cheio de energia, Axel cresceu cercado por invenções malucas e acabou se acostumando com elas. Seu inseparável drone o acompanha para todo lado, monitorando seus movimentos e garantindo que ele esteja sempre seguro... ou pelo menos tentando. Afinal, com pais como Flex e Meekah, até um simples sistema de proteção acaba vindo equipado para combate.
 
 “Meu drone disse que eu tô ganhando!”` },
+    major_briggs: { id: 'major_briggs', class: 'Tiro preciso', name: 'Major Briggs', rarity: 'legendary', cost: 349, hp: 118, speed: 3.25, dmg: 18, fireRate: 62, range: 260, color: '#6a7d3b', weapon: 'major_briggs', desc: `“Major Briggs já sobreviveu a guerras, invasões, missões impossíveis e incontáveis relatórios. Os relatórios foram a pior parte.”
 
+Um veterano lendário da Frota 001, conhecido tanto por sua experiência em combate quanto por seu senso de humor questionável. Briggs encara situações perigosas com um sorriso sarcástico no rosto e uma piada pronta na ponta da língua. Fora das batalhas, sua maior obsessão é colecionar armas de todos os tipos, o que explica por que seus aposentos parecem mais um arsenal do que uma casa.
+
+“Tenho uma arma perfeita pra isso. Na verdade, tenho umas cinquenta.”` },
 };
 const CHARACTER_SUMMARIES = {
     ripper: `Ripper: dispara MICROFONES que mudam de efeito conforme a cor.
@@ -1685,6 +2371,21 @@ ROXO: empurra inimigos.
 
 ESPECIAL: MICROFONES têm 15% de chance de, ao colidirem com inimigos, criarem uma onda sonora que empurra inimigos.
 ESPECIAL: começa as partidas com uma caixa de som exclusiva que dispara ondas sonoras e se reposiciona a cada 2 waves.`,
+    major_briggs: `Major Briggs: dispara 1 projétil pra frente, mas evolui a arma conforme elimina inimigos no mesmo run.
+
+1: 1 tiro pra frente.
+2: 2 tiros com baixa dispersão.
+3: 3 tiros com baixa dispersão.
+4: 5 tiros com baixa dispersão.
+5: 1 tiro heavy no centro e 2 tiros nas laterais com baixa dispersão.
+6: 3 lasers com baixa dispersão.`,
+    graffit: `Graffit: dispara uma lata de spray que, ao atingir um inimigo, dispersa spray de tinta em 360° e ENVENENANDO os inimigos atingidos pela fumaça.
+
+ESPECIAL: ao derrotar um inimigo, deixa uma marca de grafite no chão. Cada cor de marca dá um efeito diferente quando Graffit fica em cima dela.
+AZUL: mais resistência nessa área.
+VERMELHO: mais dano nessa área.
+AMARELO: inimigos que passam por ela tomam dano.
+VERDE: você se cura quando fica em cima.`,
     lunch: `Lunch: dispara 3 molhos diferentes.
 
 KETCHUP: dano bruto.
@@ -1699,7 +2400,7 @@ ESPECIAL: quando KETCHUP, MAIONESE e MOSTARDA acertam o mesmo inimigo em até 0,
     fasty: `Fasty: troca vida e dano por velocidade e cadência, dispara bolas energéticas.`,
     hank: `Hank: dispara projéteis pesados, tem mais vida mas é mais lento.`,
     cherry: `Cherry: dispara projéteis que empurram inimigos.`,
-    bold: `Bold: dispara uma rajada de 6 projéteis e, após isso, tem uma recarga de 1 segundo.`,
+    bold: `Bold: dispara uma rajada de 5 projéteis e, após isso, tem uma recarga de 1 segundo.`,
     bombman: `Bombeiro: dispara bombas que explodem em área.`,
     kayo: `Kayo: soca inimigos em um curto alcance.
 
@@ -2021,7 +2722,7 @@ const UHC_MODIFIERS = {
 
 const ENEMY_TYPES = ["Básico", "Gigante", "Tanque", "Boss", "Ninja", "Kamikaze", "Líder", "Colosso", "Elite Master", "Líder Elite"];
 
-const FIXED_COINS = [300, 600, 900, 1200, 2400, 5000]; const FIXED_EVO = [40, 80, 120, 240, 500]; const FIXED_SCRAPS = [100, 250, 500, 750, 1000];
+const FIXED_COINS = [300, 600, 900, 1200, 2400, 5000]; const FIXED_EVO = [40, 80, 120, 240, 500]; const FIXED_SCRAPS = [100, 250, 500, 750, 1000]; const FIXED_XP = [150, 300, 650, 1000];
 const FIXED_BOXES = [ { type: 'normal', qtd: 1, baseCost: 10 }, { type: 'normal', qtd: 3, baseCost: 28 }, { type: 'normal', qtd: 5, baseCost: 45 }, { type: 'mega', qtd: 1, baseCost: 40 }, { type: 'mega', qtd: 2, baseCost: 75 }, { type: 'pacote', qtd: 1, baseCost: 10 }, { type: 'pacote', qtd: 3, baseCost: 28 }, { type: 'pacote', qtd: 5, baseCost: 45 }, { type: 'pacote', qtd: 10, baseCost: 85 } ];
 const PATENTE_LEVELS = [
     { name: 'Sem patente', label: '', cost: 0, slug: 'none' },
@@ -2043,6 +2744,74 @@ function getPatenteBadge(level, compact = false) {
     const patente = getPatenteInfo(level);
     if (!patente || !patente.label) return '';
     return `<span class="patente-chip${compact ? ' patente-chip--compact' : ''}"><span class="patente-emblem patente-${patente.slug}"></span><span>${patente.label}</span></span>`;
+}
+
+function getCharByDisplayName(displayName) {
+    const target = String(displayName || '').trim().toLowerCase();
+    return Object.values(CHARACTERS).find(c => String(decodeHtmlEntities(c.name || '')).trim().toLowerCase() === target) || null;
+}
+
+function getGachaRewardRenderData(rawText) {
+    const text = String(rawText || '').trim();
+    const charMatch = text.match(/NOVO PERSONAGEM:\s*(.+?)(?:!|\(|$)/i);
+    if (charMatch) {
+        const charName = charMatch[1].trim();
+        const char = getCharByDisplayName(charName);
+        const rarity = char?.rarity || 'rare';
+        const rarityNames = { common: 'Comum', rare: 'Raro', epic: 'Épico', legendary: 'Lendário', mythic: 'Mítico' };
+        const rarityLabel = char ? (rarityNames[rarity] || rarity) : 'personagem';
+        const icon = char?.emoji || '⚽';
+        return {
+            type: 'char',
+            icon,
+            name: char?.name || charName,
+            rarity,
+            rarityLabel,
+            ballColor: char?.color || '#8e44ad',
+            title: 'Novo personagem',
+            amount: 'Desbloqueado'
+        };
+    }
+
+    const repeatedChar = text.match(/Repetido:\s*(.+?)\)?$/i);
+    const firstSpace = text.indexOf(' ');
+    const icon = firstSpace > 0 ? text.slice(0, firstSpace).trim() : '✨';
+    const rest = firstSpace > 0 ? text.slice(firstSpace + 1).trim() : text;
+    const amountMatch = rest.match(/^[+-]?\d+(?:[.,]\d+)?/);
+    const amount = amountMatch ? amountMatch[0] : '';
+    let label = amount ? rest.slice(amount.length).trim() : rest;
+    label = label.replace(/^\+/, '').trim();
+    if (!label) label = 'Recompensa';
+    return {
+        type: 'resource',
+        icon,
+        title: repeatedChar ? 'Recompensa repetida' : label,
+        name: repeatedChar ? label : label.replace(/\s*\(.*\)$/, '').trim(),
+        amount: amount ? `+${amount.replace(/^\+/, '')}` : ''
+    };
+}
+
+function renderGachaRevealHtml(rawText) {
+    const data = getGachaRewardRenderData(rawText);
+    if (data.type === 'char') {
+        const ballStyle = data.ballColor ? ` style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 48%), ${data.ballColor};"` : '';
+        return `<div class="gacha-drop-card gacha-drop-card-char">
+            <div class="gacha-drop-ball"${ballStyle}></div>
+            <div class="gacha-drop-body">
+                <div class="gacha-drop-title">${escapeHtmlText(data.title)}</div>
+                <div class="gacha-drop-name">${escapeHtmlText(decodeHtmlEntities(data.name))}</div>
+                <div class="gacha-drop-rarity rarity-${escapeHtmlText(data.rarity)}">${escapeHtmlText(data.rarityLabel)}</div>
+            </div>
+        </div>`;
+    }
+    return `<div class="gacha-drop-card">
+        <div class="gacha-drop-emoji">${escapeHtmlText(data.icon)}</div>
+        <div class="gacha-drop-body">
+            <div class="gacha-drop-title">${escapeHtmlText(data.title)}</div>
+            <div class="gacha-drop-name">${escapeHtmlText(data.name)}</div>
+            <div class="gacha-drop-amount">${escapeHtmlText(data.amount)}</div>
+        </div>
+    </div>`;
 }
 
 const DEFAULT_KEYBINDS = { up: 'w', down: 's', left: 'a', right: 'd', special: 'p', pause: 'escape' };
@@ -2128,7 +2897,7 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('blur', pauseMusicOnFocusLoss);
 window.addEventListener('focus', resumeMusicOnFocusGain);
 
-let pd = { coins: 500, gems: 50, evo: 40, sucatas: 0, nickname: null, chars: { strike: { level: 1, slots: 2, chips: [null, null] } }, selectedChar: 'strike', passXp: 0, passLevel: 1, passClaimed: 0, passClaimedTiers: [], passRewardSeed: 0, passRewardCache: {}, passResetAt: 0, shopState: { lastRotation: 0, items: {} }, lastDaily: "", dailyWins: {date: "", count: 0}, vip: { activeUntil: 0, inventory: 0 }, hardcoreBans: { lastRotation: 0, chars: [] }, settings: { ...DEFAULT_SETTINGS }, trail: { target: null, fameLevel: 0 }, missions: { date: '', list: [], weekly: { weekKey: '', mission: null }, rerolls: { date: '', used: 0 } }, foodRebellion: { claimed: [], finalClaimed: false, progress: { waves: 0, bosses: 0 } }, passOverflowXp: 0, passOverflowBoxes: 0, chipsInventory: {}, chipCrafting: null, achievements: { stats: { gamesStarted: 0, wins: 0, hardcoreWins: 0, uhcWins: 0, totalKills: 0, bossKills: 0, bestWave: 0, charsUnlocked: 1, charsUpgraded: 0, chipsEquipped: 0, boxesOpened: 0, missionClaims: 0, weeklyClaims: 0, passClaims: 0, overflowBoxes: 0, rerollsUsed: 0, vipPurchases: 0, lunchDamage: 0 }, claimed: [] }, debug: { infiniteGems: false } };
+let pd = { coins: 500, gems: 50, evo: 40, sucatas: 0, nickname: null, chars: { strike: { level: 1, slots: 2, chips: [null, null] } }, selectedChar: 'strike', passXp: 0, passLevel: 1, passClaimed: 0, passClaimedTiers: [], passRewardSeed: 0, passRewardCache: {}, passResetAt: 0, shopState: { lastRotation: 0, items: {} }, lastDaily: "", dailyWins: {date: "", count: 0}, vip: { activeUntil: 0, inventory: 0 }, hardcoreBans: { lastRotation: 0, chars: [] }, settings: { ...DEFAULT_SETTINGS }, trail: { target: null, fameLevel: 0 }, profile: { title: null, emblem: null }, events: { major: { claimed: false }, graffit: { claimed: false } }, missions: { date: '', list: [], weekly: { weekKey: '', mission: null }, rerolls: { date: '', used: 0 } }, passOverflowXp: 0, passOverflowBoxes: 0, chipsInventory: {}, chipCrafting: null, achievements: { stats: { gamesStarted: 0, wins: 0, hardcoreWins: 0, uhcWins: 0, totalKills: 0, bossKills: 0, bestWave: 0, charsUnlocked: 1, charsUpgraded: 0, chipsEquipped: 0, boxesOpened: 0, missionClaims: 0, weeklyClaims: 0, passClaims: 0, overflowBoxes: 0, rerollsUsed: 0, vipPurchases: 0, lunchDamage: 0 }, claimed: [] }, debug: { infiniteGems: false } };
 window.isHardcoreMode = false; window.gachaQueue = []; window.tempBoxData = null; window.currentMap = 0; window.currentDetailCharId = null; window.currentChipEquipSlot = null; window.debugInfiniteGems = false;
 
 const PD_TEMPLATE = JSON.parse(JSON.stringify(pd));
@@ -2220,6 +2989,13 @@ function normalizeSaveData(rawSave) {
 
     if (!next.profile || typeof next.profile !== 'object') next.profile = { title: null };
     if (typeof next.profile.title === 'undefined') next.profile.title = null;
+    if (!next.events || typeof next.events !== 'object') next.events = { major: { claimed: false, baseStats: null }, graffit: { claimed: false, baseStats: null } };
+    if (!next.events.major) next.events.major = { claimed: false, baseStats: null };
+    if (!next.events.graffit) next.events.graffit = { claimed: false, baseStats: null };
+    if (typeof next.events.major.claimed === 'undefined') next.events.major.claimed = false;
+    if (typeof next.events.graffit.claimed === 'undefined') next.events.graffit.claimed = false;
+    if (typeof next.events.major.baseStats === 'undefined') next.events.major.baseStats = null;
+    if (typeof next.events.graffit.baseStats === 'undefined') next.events.graffit.baseStats = null;
 
     if (!next.run || typeof next.run !== 'object') next.run = { charId: next.selectedChar || 'strike', medals: 0 };
     if (typeof next.run.charId !== 'string' || !next.run.charId) next.run.charId = next.selectedChar || 'strike';
@@ -2341,6 +3117,13 @@ function load() {
 
     if (!pd.profile || typeof pd.profile !== 'object') pd.profile = { title: null };
     if (typeof pd.profile.title === 'undefined') pd.profile.title = null;
+    if (!pd.events || typeof pd.events !== 'object') pd.events = { major: { claimed: false, baseStats: null }, graffit: { claimed: false, baseStats: null } };
+    if (!pd.events.major) pd.events.major = { claimed: false, baseStats: null };
+    if (!pd.events.graffit) pd.events.graffit = { claimed: false, baseStats: null };
+    if (typeof pd.events.major.claimed === 'undefined') pd.events.major.claimed = false;
+    if (typeof pd.events.graffit.claimed === 'undefined') pd.events.graffit.claimed = false;
+    if (typeof pd.events.major.baseStats === 'undefined') pd.events.major.baseStats = null;
+    if (typeof pd.events.graffit.baseStats === 'undefined') pd.events.graffit.baseStats = null;
     if (!pd.run || typeof pd.run !== 'object') pd.run = { charId: pd.selectedChar || 'strike', medals: 0 };
     if (typeof pd.run.charId !== 'string' || !pd.run.charId) pd.run.charId = pd.selectedChar || 'strike';
     if (typeof pd.run.medals !== 'number' || !isFinite(pd.run.medals) || pd.run.medals < 0) pd.run.medals = 0;
@@ -2431,6 +3214,7 @@ const SUMMARY_NOTES = {
     "QUEIMADURA": { color: "#e67e22", title: "QUEIMADURA", msg: "Quer dizer que o inimigo passa a tomar dano com o tempo." },
     "ENVENENA": { color: "#2ecc71", title: "ENVENENAR", msg: "Quer dizer que o inimigo passa a tomar dano com o tempo." },
     "ENVENENAR": { color: "#2ecc71", title: "ENVENENAR", msg: "Quer dizer que o inimigo passa a tomar dano com o tempo." },
+    "ENVENENANDO": { color: "#2ecc71", title: "ENVENENAR", msg: "Quer dizer que o inimigo passa a tomar dano com o tempo." },
     "ENVENENADO": { color: "#2ecc71", title: "ENVENENAR", msg: "Quer dizer que o inimigo passa a tomar dano com o tempo." },
     "CONGELAR": { color: "#74b9ff", title: "CONGELAR", msg: "Quer dizer que o inimigo fica paralisado." },
     "CONGELA": { color: "#74b9ff", title: "CONGELAR", msg: "Quer dizer que o inimigo fica paralisado." },
@@ -2528,6 +3312,7 @@ const CHARACTER_TITLES = {
     eel: 'Chocado',
     flex: 'Fio desencapado',
     kaisen: 'Monitoramento familiar',
+    graffit: 'Arte rebelde',
     vampyrus: 'Sangue-suga',
     cybertron: '100% máquina',
     frost: '"Você quer brincar na neve?"',
@@ -2662,6 +3447,44 @@ function getCharacterSummary(id) {
     return data.default || '';
 }
 
+function renderGraffitSummary(text) {
+    const raw = decodeHtmlEntities(String(text || '')).replace(/\r\n/g, '\n');
+    const pattern = /(^|[^A-Za-zÀ-ÿ0-9_])(ENVENENANDO|ESPECIAL|AZUL|VERMELHO|AMARELO|VERDE)(?=$|[^A-Za-zÀ-ÿ0-9_])/giu;
+    const colors = {
+        ENVENENANDO: '#2ecc71',
+        AZUL: '#3498db',
+        VERMELHO: '#e74c3c',
+        AMARELO: '#f1c40f',
+        VERDE: '#2ecc71'
+    };
+
+    let result = '';
+    let lastIndex = 0;
+    let match;
+
+    while ((match = pattern.exec(raw)) !== null) {
+        const fullMatch = match[0];
+        const prefix = match[1] || '';
+        const term = match[2];
+        const start = match.index;
+
+        result += escapeHtmlText(raw.slice(lastIndex, start));
+
+        if (term === 'ESPECIAL') {
+            result += escapeHtmlText(prefix) + '<span class="summary-special">ESPECIAL</span>';
+        } else if (term === 'ENVENENANDO') {
+            result += escapeHtmlText(prefix) + `<span class="summary-term" style="color:${colors[term]};" onclick="showSummaryNote('ENVENENANDO')">ENVENENANDO</span>`;
+        } else {
+            result += escapeHtmlText(prefix) + `<span style="color:${colors[term]}; font-weight:900;">${term}</span>`;
+        }
+
+        lastIndex = start + fullMatch.length;
+    }
+
+    result += escapeHtmlText(raw.slice(lastIndex));
+    return result;
+}
+
 function renderCharacterSummary(id) {
     const text = getCharacterSummary(id);
     const el = document.getElementById('detail-summary');
@@ -2675,6 +3498,10 @@ function renderCharacterSummary(id) {
     el.classList.remove('hidden');
     if (id === 'lunch') {
         el.innerHTML = renderLunchSummary(normalized).replace(/\n/g, '<br>');
+        return;
+    }
+    if (id === 'graffit') {
+        el.innerHTML = renderGraffitSummary(normalized).replace(/\n/g, '<br>');
         return;
     }
     el.innerHTML = highlightSummaryText(normalized, id === 'ripper' ? ['VERMELHO', 'AZUL', 'VERDE', 'ROXO'] : []).replace(/\n/g, '<br>');
@@ -3037,6 +3864,55 @@ if (document.addEventListener) {
 
 function saveNickname() { const input = document.getElementById('nick-input').value.trim(); if(input.length > 0) { pd.nickname = input; save(); document.getElementById('overlay-nickname').classList.add('hidden'); updateNicknameDisplay(); showScreen('screen-main'); updateUI(); updateSettingsUI(); } else { showAlert("Por favor, insira um nome válido!"); } }
 function changeNickname() { const el = document.getElementById('nick-input'); if (el) { el.value = pd.nickname || ''; document.getElementById('overlay-nickname').classList.remove('hidden'); setTimeout(() => { try { el.focus(); el.select(); } catch (e) {} }, 0); } else { document.getElementById('overlay-nickname').classList.remove('hidden'); } }
+
+function getBestScoreValue() {
+    return Math.max(0, Math.floor(Number(pd?.achievements?.stats?.bestWave) || 0));
+}
+
+function updateBestScoreDisplay() {
+    const scoreText = formatCompactNumber(getBestScoreValue());
+    const mainScore = document.getElementById('display-best-score');
+    if (mainScore) mainScore.textContent = scoreText;
+    const profileScore = document.getElementById('profile-best-score');
+    if (profileScore) profileScore.textContent = scoreText;
+}
+
+function renderProfile() {
+    const titleList = document.getElementById('profile-title-list');
+    const titleCount = document.getElementById('profile-title-count');
+    if (!titleList || !titleCount) return;
+
+    const nick = (pd.nickname && String(pd.nickname).trim()) ? pd.nickname : 'Jogador';
+    const bestScore = formatCompactNumber(getBestScoreValue());
+    const unlocked = getUnlockedTitles();
+
+    const cards = unlocked.map((id) => {
+        const medals = Math.max(0, Math.floor(Number(pd.chars?.[id]?.medals?.total) || 0));
+        const title = CHARACTER_TITLES[id] || '—';
+        const charName = escapeHtmlText(decodeHtmlEntities(CHARACTERS[id]?.name || id));
+        return `<div class="profile-title-card"><h4>${charName}</h4><p><strong>Título:</strong> ${escapeHtmlText(decodeHtmlEntities(title))}<br><strong>Medalhas:</strong> ${medals}</p></div>`;
+    }).join('');
+
+    titleCount.textContent = String(unlocked.length);
+    const profileNick = document.getElementById('profile-nickname');
+    if (profileNick) profileNick.textContent = nick;
+    const profileScore = document.getElementById('profile-best-score');
+    if (profileScore) profileScore.textContent = bestScore;
+
+    titleList.innerHTML = cards || '<div class="profile-empty">Nenhum título desbloqueado ainda. Cada título exige 275 medalhas no personagem correspondente.</div>';
+}
+
+function openProfile() {
+
+
+    renderProfile();
+    document.getElementById('overlay-profile')?.classList.remove('hidden');
+}
+
+function closeProfile() {
+    document.getElementById('overlay-profile')?.classList.add('hidden');
+}
+
 function updateNicknameDisplay() { 
     syncCharacterProgressState();
     const el = document.getElementById('display-nickname'); if(el) el.innerHTML = (pd.nickname && String(pd.nickname).trim()) ? pd.nickname : 'Jogador'; 
@@ -3045,8 +3921,17 @@ function updateNicknameDisplay() {
     const fameEl = document.getElementById('display-fame');
     if (fameEl) fameEl.innerHTML = fName; 
     updateTitleDisplay();
+    updateBestScoreDisplay();
+    if (!document.getElementById('overlay-profile')?.classList.contains('hidden')) renderProfile();
 }
 function changeTitle() { openTitlePicker(); }
+
+function updateOrientationGate() {
+    const overlay = document.getElementById('overlay-rotate');
+    if (!overlay) return;
+    const show = isTouchDevice() && window.innerHeight > window.innerWidth;
+    overlay.classList.toggle('hidden', !show);
+}
 
 function isTouchDevice() {
     return ('ontouchstart' in window) || (navigator.maxTouchPoints || 0) > 0;
@@ -3131,7 +4016,7 @@ function toggleSetting(key) {
     save(); updateSettingsUI(); refreshModeSelectUI(); applyControlLayout();
 }
 function setScreenZoom(value) {
-    const zoom = Math.min(1.5, Math.max(0.75, Number(value) || 1));
+    const zoom = Math.min(1.5, Math.max(0.5, Number(value) || 1));
     pd.settings.screenZoom = zoom;
     applyScreenZoom();
     save();
@@ -3139,7 +4024,7 @@ function setScreenZoom(value) {
 }
 
 function applyScreenZoom() {
-    const zoom = Math.min(1.5, Math.max(0.75, Number(pd.settings?.screenZoom) || 1));
+    const zoom = Math.min(1.5, Math.max(0.5, Number(pd.settings?.screenZoom) || 1));
     document.body.style.zoom = zoom;
     document.body.style.transformOrigin = 'top center';
 }
@@ -3375,9 +4260,24 @@ function setMapChoiceFromUI() {
     syncMapSelectUI();
 }
 
+let currentShopSection = 'offers';
+
+function showShopSection(section) {
+    currentShopSection = section;
+    const screen = document.getElementById('screen-shop');
+    if (!screen) return;
+    screen.querySelectorAll('.shop-panel').forEach(panel => {
+        panel.classList.toggle('hidden', panel.id !== `shop-section-${section}`);
+    });
+    screen.querySelectorAll('.shop-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.section === section);
+    });
+    screen.scrollTop = 0;
+}
+
 function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
-    ['custom-popup', 'overlay-mode-select', 'overlay-pregame-shop', 'overlay-book', 'overlay-title-picker'].forEach(overlayId => {
+    ['custom-popup', 'overlay-mode-select', 'overlay-pregame-shop', 'overlay-book', 'overlay-title-picker', 'overlay-profile'].forEach(overlayId => {
         const overlay = document.getElementById(overlayId);
         if (overlay && id !== overlayId) overlay.classList.add('hidden');
     });
@@ -3398,12 +4298,11 @@ function showScreen(id) {
             if (list) list.innerHTML = '<p style="color:#ffb3b3; text-align:center; padding:20px;">Não foi possível carregar os personagens.</p>';
         }
     }
-    if (id === 'screen-shop') renderShop();
+    if (id === 'screen-shop') { renderShop(); showShopSection(currentShopSection || 'offers'); }
     if (id === 'screen-pass') renderPass();
     if (id === 'screen-trail') renderTrail();
     if (id === 'screen-missions') renderMissions();
     if (id === 'screen-achievements') renderAchievements();
-    if (id === 'screen-food-event') renderFoodRebellion();
     updateUI();
 }
 
@@ -3422,8 +4321,275 @@ function updateUI() {
         const sc = document.getElementById(`${prefix}-scrap`);
         if (sc) sc.textContent = formatCompactNumber(scrap);
     });
+    if (typeof updateBestScoreDisplay === 'function') updateBestScoreDisplay();
 }
 checkChipCrafting();
+
+
+let currentEventSection = 'major';
+
+const EVENT_CHARACTER_PROGRESS = {
+    major: { id: 'major_briggs', label: 'Major Briggs', goal: 20, missions: [
+        { id: 'm1', title: 'Abertura tática', desc: 'Complete 1 partida.', stat: 'gamesStarted', goal: 1 },
+        { id: 'm2', title: 'Primeira patrulha', desc: 'Complete 3 partidas.', stat: 'gamesStarted', goal: 3 },
+        { id: 'm3', title: 'Linha de frente', desc: 'Derrote 100 inimigos.', stat: 'totalKills', goal: 100 },
+        { id: 'm4', title: 'Carga pesada', desc: 'Derrote 500 inimigos.', stat: 'totalKills', goal: 500 },
+        { id: 'm5', title: 'Olho no mapa', desc: 'Alcance wave 5.', stat: 'bestWave', goal: 5 },
+        { id: 'm6', title: 'Avanço seguro', desc: 'Alcance wave 10.', stat: 'bestWave', goal: 10 },
+        { id: 'm7', title: 'Queda do líder', desc: 'Derrote 1 Boss.', stat: 'bossKills', goal: 1 },
+        { id: 'm8', title: 'Pressão total', desc: 'Derrote 3 Bosses.', stat: 'bossKills', goal: 3 },
+        { id: 'm9', title: 'Equipe em campo', desc: 'Desbloqueie 5 personagens.', stat: 'charsUnlocked', goal: 5 },
+        { id: 'm10', title: 'Ajuste fino', desc: 'Evolua 5 personagens.', stat: 'charsUpgraded', goal: 5 },
+        { id: 'm11', title: 'Circuito carregado', desc: 'Equipe 5 chips.', stat: 'chipsEquipped', goal: 5 },
+        { id: 'm12', title: 'Caixa aberta', desc: 'Abra 10 caixas.', stat: 'boxesOpened', goal: 10 },
+        { id: 'm13', title: 'Caixa demais', desc: 'Abra 25 caixas.', stat: 'boxesOpened', goal: 25 },
+        { id: 'm14', title: 'Mão firme', desc: 'Resgate 10 missões.', stat: 'missionClaims', goal: 10 },
+        { id: 'm15', title: 'Agenda lotada', desc: 'Resgate 5 missões semanais.', stat: 'weeklyClaims', goal: 5 },
+        { id: 'm16', title: 'Passe avançado', desc: 'Resgate 10 recompensas do passe.', stat: 'passClaims', goal: 10 },
+        { id: 'm17', title: 'Troca rápida', desc: 'Troque 5 missões.', stat: 'rerollsUsed', goal: 5 },
+        { id: 'm18', title: 'Vitória dura', desc: 'Vença 3 partidas.', stat: 'wins', goal: 3 },
+        { id: 'm19', title: 'Veterano', desc: 'Alcance wave 20.', stat: 'bestWave', goal: 20 },
+        { id: 'm20', title: 'Comandante Briggs', desc: 'Derrote 10 Bosses no total.', stat: 'bossKills', goal: 10 }
+    ]},
+    graffit: { id: 'graffit', label: 'Graffit', goal: 22, missions: [
+        { id: 'g1', title: 'Traço inicial', desc: 'Complete 2 partidas.', stat: 'gamesStarted', goal: 2 },
+        { id: 'g2', title: 'Parede marcada', desc: 'Complete 5 partidas.', stat: 'gamesStarted', goal: 5 },
+        { id: 'g3', title: 'Spray básico', desc: 'Derrote 200 inimigos.', stat: 'totalKills', goal: 200 },
+        { id: 'g4', title: 'Spray pesado', desc: 'Derrote 750 inimigos.', stat: 'totalKills', goal: 750 },
+        { id: 'g5', title: 'Estilo urbano', desc: 'Vença 5 partidas.', stat: 'wins', goal: 5 },
+        { id: 'g6', title: 'Noite inteira', desc: 'Alcance wave 8.', stat: 'bestWave', goal: 8 },
+        { id: 'g7', title: 'Pico do talento', desc: 'Alcance wave 15.', stat: 'bestWave', goal: 15 },
+        { id: 'g8', title: 'Luta de rua', desc: 'Derrote 2 Bosses.', stat: 'bossKills', goal: 2 },
+        { id: 'g9', title: 'Cidade em festa', desc: 'Derrote 6 Bosses.', stat: 'bossKills', goal: 6 },
+        { id: 'g10', title: 'Galeria cheia', desc: 'Desbloqueie 8 personagens.', stat: 'charsUnlocked', goal: 8 },
+        { id: 'g11', title: 'Traço evoluído', desc: 'Evolua 8 personagens.', stat: 'charsUpgraded', goal: 8 },
+        { id: 'g12', title: 'Chips na parede', desc: 'Equipe 8 chips.', stat: 'chipsEquipped', goal: 8 },
+        { id: 'g13', title: 'Caça de caixas', desc: 'Abra 20 caixas.', stat: 'boxesOpened', goal: 20 },
+        { id: 'g14', title: 'Acervo completo', desc: 'Abra 40 caixas.', stat: 'boxesOpened', goal: 40 },
+        { id: 'g15', title: 'Mão no gatilho', desc: 'Resgate 15 missões.', stat: 'missionClaims', goal: 15 },
+        { id: 'g16', title: 'Semana cheia', desc: 'Resgate 8 missões semanais.', stat: 'weeklyClaims', goal: 8 },
+        { id: 'g17', title: 'Passe colado', desc: 'Resgate 15 recompensas do passe.', stat: 'passClaims', goal: 15 },
+        { id: 'g18', title: 'Ritmo de rua', desc: 'Troque 8 missões.', stat: 'rerollsUsed', goal: 8 },
+        { id: 'g19', title: 'Pegada forte', desc: 'Vença 10 partidas.', stat: 'wins', goal: 10 },
+        { id: 'g20', title: 'Paredão', desc: 'Alcance wave 25.', stat: 'bestWave', goal: 25 },
+        { id: 'g21', title: 'Mural vivo', desc: 'Derrote 1.500 inimigos.', stat: 'totalKills', goal: 1500 },
+        { id: 'g22', title: 'Nome nos muros', desc: 'Derrote 12 Bosses no total.', stat: 'bossKills', goal: 12 }
+    ]}
+};
+
+const EVENT_PROMOS = [
+    { id: 'major_briggs', label: 'Major Briggs', oldCost: 349, promoCost: 149, level8Cost: 879, rarity: 'legendary', icon: '🛡️' },
+    { id: 'graffit', label: 'Graffit', oldCost: 569, promoCost: 349, level8Cost: 1099, rarity: 'mythic', icon: '🎨' },
+    { id: 'ripper', label: 'Ripper', oldCost: 149, promoCost: 79, rarity: 'epic', icon: '🎤' },
+    { id: 'rex', label: 'Rex', oldCost: 149, promoCost: 79, rarity: 'epic', icon: '🐊' },
+    { id: 'meekah', label: 'Meekah', oldCost: 149, promoCost: 79, rarity: 'epic', icon: '⚡' },
+    { id: 'flex', label: 'Flex', oldCost: 349, promoCost: 149, rarity: 'legendary', icon: '🔧' },
+    { id: 'axel', label: 'Axel', oldCost: 349, promoCost: 149, rarity: 'legendary', icon: '🌀' }
+];
+
+function getEventBaseSnapshot() {
+    const stats = pd?.achievements?.stats || {};
+    const snapshot = {};
+    const keys = new Set();
+    Object.values(EVENT_CHARACTER_PROGRESS).forEach(section => {
+        (section.missions || []).forEach(m => keys.add(m.stat));
+    });
+    keys.forEach(key => { snapshot[key] = Math.max(0, Math.floor(Number(stats[key]) || 0)); });
+    return snapshot;
+}
+function ensureEventState() {
+    if (!pd.events || typeof pd.events !== 'object') pd.events = { major: { claimed: false, baseStats: null }, graffit: { claimed: false, baseStats: null } };
+    if (!pd.events.major) pd.events.major = { claimed: false, baseStats: null };
+    if (!pd.events.graffit) pd.events.graffit = { claimed: false, baseStats: null };
+    if (typeof pd.events.major.claimed === 'undefined') pd.events.major.claimed = false;
+    if (typeof pd.events.graffit.claimed === 'undefined') pd.events.graffit.claimed = false;
+    if (typeof pd.events.major.baseStats === 'undefined' || pd.events.major.baseStats === null) pd.events.major.baseStats = getEventBaseSnapshot();
+    if (typeof pd.events.graffit.baseStats === 'undefined' || pd.events.graffit.baseStats === null) pd.events.graffit.baseStats = getEventBaseSnapshot();
+}
+function getEventStatsValue(sectionId, stat) {
+    ensureEventState();
+    const stats = pd?.achievements?.stats || {};
+    const current = Math.max(0, Math.floor(Number(stats[stat]) || 0));
+    const base = Math.max(0, Math.floor(Number(pd.events?.[sectionId]?.baseStats?.[stat]) || 0));
+    return Math.max(0, current - base);
+}
+function getEventCompletedCount(sectionId) {
+    const section = EVENT_CHARACTER_PROGRESS[sectionId];
+    if (!section) return 0;
+    return section.missions.filter(m => getEventStatsValue(sectionId, m.stat) >= m.goal).length;
+}
+function getEventBallClass(sectionId) {
+    return sectionId === 'graffit' ? 'event-graffit-ball' : 'event-major-icon';
+}
+function renderEventMissionCard(sectionId, mission) {
+    const done = getEventStatsValue(sectionId, mission.stat) >= mission.goal;
+    const current = Math.min(getEventStatsValue(sectionId, mission.stat), mission.goal);
+    const ballClass = getEventBallClass(sectionId);
+    return `<div class="mission-card event-mission-card ${done ? 'event-mission-done' : 'event-mission-lock'} ${done ? 'completed' : ''}">
+        <div class="event-mission-head">
+            <div class="${ballClass}" aria-hidden="true"></div>
+            <div class="event-mission-copy">
+                <div class="mission-title">${escapeHtmlText(decodeHtmlEntities(mission.title))}</div>
+                <div class="mission-desc">${escapeHtmlText(decodeHtmlEntities(mission.desc))}</div>
+            </div>
+        </div>
+        <div class="mission-meta">
+            <span>Progresso: <strong>${current}/${mission.goal}</strong></span>
+            <span>Status: <strong>${done ? 'Concluída' : 'Em andamento'}</strong></span>
+        </div>
+        <div class="mission-progress"><div class="mission-progress-fill ${done ? 'done' : ''}" style="width:${Math.min(100, (current / mission.goal) * 100)}%"></div></div>
+    </div>`;
+}
+
+function getPromoBallColor(promo) {
+    const c = CHARACTERS[promo.id];
+    return c?.color || ({ common: '#3498db', rare: '#5dade2', epic: '#9b59b6', legendary: '#f1c40f', mythic: '#ff4d4d' }[promo.rarity] || '#8e44ad');
+}
+function darkenHexColor(hex, factor = 0.28) {
+    const match = /^#([0-9a-f]{6})$/i.exec(String(hex || '').trim());
+    if (!match) return 'rgb(40, 40, 40)';
+    const num = parseInt(match[1], 16);
+    const r = Math.max(0, Math.min(255, Math.round(((num >> 16) & 255) * (1 - factor))));
+    const g = Math.max(0, Math.min(255, Math.round(((num >> 8) & 255) * (1 - factor))));
+    const b = Math.max(0, Math.min(255, Math.round((num & 255) * (1 - factor))));
+    return `rgb(${r}, ${g}, ${b})`;
+}
+function renderPromoBall(promo) {
+    const ballColor = getPromoBallColor(promo);
+    const darker = darkenHexColor(ballColor, 0.36);
+    return `<div class="promo-offer-ball" style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.10) 48%), linear-gradient(180deg, ${ballColor}, ${darker});"></div>`;
+}
+function renderEventPromoOfferCard(promo, mode) {
+    const c = CHARACTERS[promo.id];
+    if (!c) return '';
+    const owned = !!pd.chars[promo.id];
+    const currentLevel = Number(pd.chars?.[promo.id]?.level) || 0;
+    if (owned) return '';
+    if (mode === 'level8' && currentLevel >= 8) return '';
+    const ball = renderPromoBall(promo);
+    if (mode === 'level8') {
+        return `<div class="card-item rarity-${promo.rarity} promo-offer-card">
+            ${ball}
+            <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))} Lv. 8</div>
+            <div class="promo-offer-sub">Já vem no nível máximo.</div>
+            <div class="promo-offer-price"><span class="promo-offer-new">${promo.level8Cost} gemas</span></div>
+            <button class="btn-action promo-offer-btn" type="button" onclick="event.stopPropagation(); buyPromoCharacterOffer('${promo.id}', ${promo.level8Cost}, 8)">Comprar no máximo</button>
+        </div>`;
+    }
+    return `<div class="card-item rarity-${promo.rarity} promo-offer-card">
+        ${ball}
+        <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))}</div>
+        <div class="promo-offer-sub">Oferta normal do evento.</div>
+        <div class="promo-offer-price"><span class="promo-offer-old">${promo.oldCost} gemas</span><span class="promo-offer-new">${promo.promoCost} gemas</span></div>
+        <button class="btn-action promo-offer-btn" type="button" onclick="event.stopPropagation(); buyPromoCharacterOffer('${promo.id}', ${promo.promoCost}, 1)">Comprar personagem</button>
+    </div>`;
+}
+function renderEventPromoCard(promo) {
+    const c = CHARACTERS[promo.id];
+    if (!c) return '';
+    const owned = !!pd.chars[promo.id];
+    const currentLevel = Number(pd.chars?.[promo.id]?.level) || 0;
+    const cards = [];
+    if (!owned) cards.push(renderEventPromoOfferCard(promo, 'regular'));
+    if (promo.level8Cost && currentLevel < 8) cards.push(renderEventPromoOfferCard(promo, 'level8'));
+    return cards.join('');
+}
+function renderEvents() {
+    ensureEventState();
+    const majorList = document.getElementById('event-major-list');
+    const graffitList = document.getElementById('event-graffit-list');
+    const promoList = document.getElementById('event-promo-list');
+    const majorCount = document.getElementById('event-major-count');
+    const graffitCount = document.getElementById('event-graffit-count');
+    const majorClaim = document.getElementById('event-major-claim');
+    const graffitClaim = document.getElementById('event-graffit-claim');
+    const major = EVENT_CHARACTER_PROGRESS.major;
+    const graffit = EVENT_CHARACTER_PROGRESS.graffit;
+    const majorDone = getEventCompletedCount('major');
+    const graffitDone = getEventCompletedCount('graffit');
+    if (majorCount) majorCount.textContent = String(majorDone);
+    if (graffitCount) graffitCount.textContent = String(graffitDone);
+    if (majorClaim) {
+        const ready = majorDone >= major.goal;
+        majorClaim.disabled = !ready || !!pd.events.major.claimed;
+        majorClaim.textContent = pd.events.major.claimed ? '✅ Resgatado' : `🎁 Resgatar ${major.label}`;
+    }
+    if (graffitClaim) {
+        const ready = graffitDone >= graffit.goal;
+        graffitClaim.disabled = !ready || !!pd.events.graffit.claimed;
+        graffitClaim.textContent = pd.events.graffit.claimed ? '✅ Resgatado' : `🎁 Resgatar ${graffit.label}`;
+    }
+    if (majorList) majorList.innerHTML = major.missions.map(m => renderEventMissionCard('major', m)).join('');
+    if (graffitList) graffitList.innerHTML = graffit.missions.map(m => renderEventMissionCard('graffit', m)).join('');
+    if (promoList) promoList.innerHTML = EVENT_PROMOS.map(renderEventPromoCard).join('');
+}
+function showEventSection(section) {
+    currentEventSection = section;
+    document.querySelectorAll('#screen-event .shop-panel').forEach(el => el.classList.add('hidden'));
+    const target = document.getElementById(`event-section-${section}`);
+    if (target) target.classList.remove('hidden');
+    document.querySelectorAll('#screen-event .shop-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.section === section);
+    });
+}
+function claimEventCharacter(sectionId) {
+    ensureEventState();
+    const section = EVENT_CHARACTER_PROGRESS[sectionId];
+    if (!section) return;
+    const done = getEventCompletedCount(sectionId);
+    if (done < section.goal) {
+        showAlert(`Faltam mais ${section.goal - done} missões.`);
+        return;
+    }
+    if (pd.events[sectionId].claimed) {
+        showAlert('Recompensa já resgatada.');
+        return;
+    }
+    pd.events[sectionId].claimed = true;
+    pd.chars[section.id] = pd.chars[section.id] || { level: 1, slots: 2, chips: [null, null] };
+    save();
+    renderEvents();
+    renderShop();
+    renderChars?.();
+    startGachaQueue([{ type: 'instant', title: 'Evento concluído', contents: [`👤 NOVO PERSONAGEM: ${section.label}!`] }]);
+    notify(`${section.label} liberado!`);
+}
+function buyPromoCharacterOffer(id, cost, targetLevel = 1) {
+    const c = CHARACTERS[id];
+    if (!c) return;
+    const owned = !!pd.chars[id];
+    const currentLevel = Number(pd.chars?.[id]?.level) || 0;
+    const isMaxOffer = Number(targetLevel) >= 8;
+    const safeCost = Number(cost);
+    if (!Number.isFinite(safeCost) || safeCost <= 0) return;
+    if (!isMaxOffer && owned) {
+        showAlert('Você já possui esse personagem.');
+        return;
+    }
+    if (isMaxOffer && currentLevel >= 8) {
+        showAlert('Esse personagem já está no nível máximo.');
+        return;
+    }
+    if (pd.gems < safeCost) {
+        showAlert('Gemas insuficientes!');
+        return;
+    }
+    const label = isMaxOffer ? `${c.name} nível 8` : c.name;
+    showConfirm('Quer comprar essa oferta?', `Deseja comprar ${label} por ${safeCost} gemas?`, (res) => {
+        if(!res) return;
+        pd.gems -= safeCost;
+        if (!owned) pd.chars[id] = { level: 1, slots: 2, chips: [null, null] };
+        if (isMaxOffer) {
+            pd.chars[id].level = Math.max(Number(pd.chars[id].level) || 1, 8);
+        }
+        save();
+        renderShop();
+        renderEvents();
+        renderChars?.();
+        showCharDetail?.(id);
+        startGachaQueue([{ type: 'instant', title: 'Você ganhou!', contents: [`👤 NOVO PERSONAGEM: ${c.name}!`] }]);
+    });
+}
 
 const MISSION_TEMPLATES = [
     { kind: 'kills', label: (n) => `Mate ${n} inimigos`, min: 60, max: 180, reward: 100 },
@@ -3472,6 +4638,17 @@ function enemyMissionName(type) {
 function characterMissionName(id) {
     const c = CHARACTERS[id];
     return c ? c.name : 'personagem';
+}
+
+function getMajorBriggsWeaponStage(killCount = 0) {
+    const kills = Math.max(0, Math.floor(Number(killCount) || 0));
+    if (kills >= 60) return 6;
+    if (kills >= 50) return 5;
+    if (kills >= 40) return 4;
+    if (kills >= 30) return 3;
+    if (kills >= 20) return 2;
+    if (kills >= 10) return 1;
+    return 1;
 }
 
 function missionRewardByGoal(goal, kind) {
@@ -3713,7 +4890,6 @@ function awardAchievementStat(key, amount = 1) {
     if (!pd.achievements.stats || typeof pd.achievements.stats !== 'object') pd.achievements.stats = {};
     const v = Number(pd.achievements.stats[key]) || 0;
     pd.achievements.stats[key] = Math.max(0, v + (Number(amount) || 0));
-    refreshFoodRebellionUI();
 }
 function renderAchievements() {
     const list = document.getElementById('achievements-list');
@@ -3924,21 +5100,14 @@ function rerollMission(index) {
 function trackMissionProgress(kind, amount = 1, meta = {}) {
     ensureMissionState();
     let changed = false;
-    let foodChanged = false;
     pd.missions.list.forEach(m => {
         if (applyMissionProgress(m, kind, amount, meta)) changed = true;
     });
     const weekly = getWeeklyMissionState();
     if (applyMissionProgress(weekly, kind, amount, meta)) changed = true;
-    if (pd.foodRebellion && typeof pd.foodRebellion === 'object') {
-        ensureFoodRebellionState();
-        if (kind === 'waves') { pd.foodRebellion.progress.waves = Math.max(0, (Number(pd.foodRebellion.progress.waves) || 0) + (Number(amount) || 0)); foodChanged = true; }
-        if (kind === 'bosses') { pd.foodRebellion.progress.bosses = Math.max(0, (Number(pd.foodRebellion.progress.bosses) || 0) + (Number(amount) || 0)); foodChanged = true; }
-    }
-    if(changed || foodChanged) {
+    if(changed) {
         save();
         if(!document.getElementById('screen-missions').classList.contains('hidden')) renderMissions();
-        refreshFoodRebellionUI();
     }
 }
 
@@ -3950,279 +5119,6 @@ function trackMissionDamage(amount) {
 function showMissions() {
     ensureMissionState();
     showScreen('screen-missions');
-}
-
-function ensureFoodRebellionState() {
-    if (!pd.foodRebellion || typeof pd.foodRebellion !== 'object') {
-        pd.foodRebellion = { claimed: [], finalClaimed: false, progress: { waves: 0, bosses: 0 } };
-    }
-    if (!Array.isArray(pd.foodRebellion.claimed)) pd.foodRebellion.claimed = [];
-    if (!pd.foodRebellion.progress || typeof pd.foodRebellion.progress !== 'object') {
-        pd.foodRebellion.progress = { waves: 0, bosses: 0 };
-    }
-    if (typeof pd.foodRebellion.finalClaimed !== 'boolean') pd.foodRebellion.finalClaimed = false;
-    if (typeof pd.foodRebellion.progress.waves !== 'number' || !isFinite(pd.foodRebellion.progress.waves)) pd.foodRebellion.progress.waves = 0;
-    if (typeof pd.foodRebellion.progress.bosses !== 'number' || !isFinite(pd.foodRebellion.progress.bosses)) pd.foodRebellion.progress.bosses = 0;
-}
-
-function getFoodRebellionMissionDefs() {
-    return [
-        {
-            id: 'games',
-            title: 'Linha de produção',
-            desc: 'Jogue 4 partidas para iniciar a revolta.',
-            goal: 4,
-            value: () => Number(pd?.achievements?.stats?.gamesStarted) || 0
-        },
-        {
-            id: 'kills',
-            title: 'Caça ao hambúrguer',
-            desc: 'Derrote 320 inimigos em qualquer modo.',
-            goal: 320,
-            value: () => Number(pd?.achievements?.stats?.totalKills) || 0
-        },
-        {
-            id: 'waves',
-            title: 'Marcha da cozinha',
-            desc: 'Complete 14 waves nesta guerra de fast food.',
-            goal: 14,
-            value: () => Number(pd?.foodRebellion?.progress?.waves) || 0
-        },
-        {
-            id: 'bosses',
-            title: 'Refrigerante derramado',
-            desc: 'Derrote 4 bosses.',
-            goal: 4,
-            value: () => Number(pd?.foodRebellion?.progress?.bosses) || 0
-        },
-        {
-            id: 'boxes',
-            title: 'Estoque do drive-thru',
-            desc: 'Abra 10 caixas.',
-            goal: 10,
-            value: () => Number(pd?.achievements?.stats?.boxesOpened) || 0
-        },
-        {
-            id: 'missions',
-            title: 'Cliente fiel',
-            desc: 'Resgate 7 missões normais ou semanais.',
-            goal: 7,
-            value: () => (Number(pd?.achievements?.stats?.missionClaims) || 0) + (Number(pd?.achievements?.stats?.weeklyClaims) || 0)
-        },
-        {
-            id: 'wins',
-            title: 'No pão certo',
-            desc: 'Vença 4 partidas em qualquer modo.',
-            goal: 4,
-            value: () => Number(pd?.achievements?.stats?.wins) || 0
-        },
-        {
-            id: 'hardcore_wins',
-            title: 'Fritura pesada',
-            desc: 'Vença 2 partidas no Hardcore.',
-            goal: 2,
-            value: () => Number(pd?.achievements?.stats?.hardcoreWins) || 0
-        },
-        {
-            id: 'uhc_wins',
-            title: 'Molho extremo',
-            desc: 'Vença 1 partida no UHC.',
-            goal: 1,
-            value: () => Number(pd?.achievements?.stats?.uhcWins) || 0
-        },
-        {
-            id: 'best_wave',
-            title: 'Suculento demais',
-            desc: 'Chegue à wave 20 em uma run.',
-            goal: 20,
-            value: () => Number(pd?.achievements?.stats?.bestWave) || 0
-        },
-        {
-            id: 'chars',
-            title: 'Equipe montada',
-            desc: 'Desbloqueie 8 personagens.',
-            goal: 8,
-            value: () => Number(pd?.achievements?.stats?.charsUnlocked) || 0
-        },
-        {
-            id: 'upgrades',
-            title: 'Cozinha reforçada',
-            desc: 'Evolua 10 personagens.',
-            goal: 10,
-            value: () => Number(pd?.achievements?.stats?.charsUpgraded) || 0
-        },
-        {
-            id: 'chips',
-            title: 'Circuito temperado',
-            desc: 'Equipe 8 chips no total.',
-            goal: 8,
-            value: () => Number(pd?.achievements?.stats?.chipsEquipped) || 0
-        },
-        {
-            id: 'pass',
-            title: 'Cartão da cantina',
-            desc: 'Resgate 8 recompensas do passe.',
-            goal: 8,
-            value: () => Number(pd?.achievements?.stats?.passClaims) || 0
-        },
-        {
-            id: 'boxes_2',
-            title: 'Entrega extra',
-            desc: 'Abra 20 caixas no total.',
-            goal: 20,
-            value: () => Number(pd?.achievements?.stats?.boxesOpened) || 0
-        },
-        {
-            id: 'kills_2',
-            title: 'Fome sem fim',
-            desc: 'Derrote 700 inimigos no total.',
-            goal: 700,
-            value: () => Number(pd?.achievements?.stats?.totalKills) || 0
-        },
-        {
-            id: 'games_2',
-            title: 'Turno dobrado',
-            desc: 'Jogue 12 partidas no total.',
-            goal: 12,
-            value: () => Number(pd?.achievements?.stats?.gamesStarted) || 0
-        },
-        {
-            id: 'boss_kills',
-            title: 'Chefão na chapa',
-            desc: 'Derrote 8 bosses no total.',
-            goal: 8,
-            value: () => Number(pd?.achievements?.stats?.bossKills) || 0
-        },
-        {
-            id: 'wins_2',
-            title: 'Serviço completo',
-            desc: 'Vença 10 partidas no total.',
-            goal: 10,
-            value: () => Number(pd?.achievements?.stats?.wins) || 0
-        },
-        {
-            id: 'best_wave_2',
-            title: 'Último prato',
-            desc: 'Chegue à sua melhor wave 35.',
-            goal: 35,
-            value: () => Number(pd?.achievements?.stats?.bestWave) || 0
-        }
-    ];
-}
-
-function getFoodRewardSummary(items = []) {
-    return (items || []).map(item => {
-        if (!item) return '';
-        if (item.type === 'coins') return `🪙 ${item.amount}`;
-        if (item.type === 'scrap') return `🔩 ${item.amount}`;
-        if (item.type === 'gems') return `💎 ${item.amount}`;
-        if (item.type === 'box') return `${item.amount}x ${item.kind === 'mega' ? 'Mega Caixa' : 'Caixa'}`;
-        return '';
-    }).filter(Boolean).join(' • ');
-}
-
-function getFoodRebellionState() {
-    ensureFoodRebellionState();
-    return getFoodRebellionMissionDefs().map(def => {
-        const current = Math.max(0, Number(def.value()) || 0);
-        return { ...def, current, done: current >= def.goal };
-    });
-}
-
-function renderFoodRebellion() {
-    ensureFoodRebellionState();
-    const list = document.getElementById('food-event-list');
-    const progressText = document.getElementById('food-event-progress-text');
-    const progressFill = document.getElementById('food-event-progress-fill');
-    if (!list || !progressText || !progressFill) return;
-
-    const missions = getFoodRebellionState();
-    const claimedCount = missions.filter(m => pd.foodRebellion.claimed.includes(m.id)).length;
-    const total = missions.length;
-    const pct = total ? (claimedCount / total) * 100 : 0;
-    progressText.textContent = `${claimedCount}/${total}`;
-    progressFill.style.width = `${pct}%`;
-
-    list.innerHTML = '';
-    missions.forEach((m, idx) => {
-        const claimed = pd.foodRebellion.claimed.includes(m.id);
-        const card = document.createElement('div');
-        card.className = `mission-card ${m.done ? 'completed' : ''} ${claimed ? 'claimed' : ''}`;
-        card.innerHTML = `
-            <div class="mission-title">${claimed ? '✅ ' : (m.done ? '🎉 ' : '🍔 ')}${m.title}</div>
-            <div class="mission-desc">${m.desc}</div>
-            <div class="mission-meta">
-                <span>Progresso: <strong>${Math.floor(m.current)}/${m.goal}</strong></span>
-                <span>${claimed ? 'Missão coletada' : (m.done ? 'Pronta para coletar' : 'Permanente até o fim do evento')}</span>
-            </div>
-            <div class="mission-progress"><div class="mission-progress-fill ${m.done ? 'done' : ''}" style="width:${Math.min(100, (m.current / m.goal) * 100)}%"></div></div>
-            <div class="mission-actions">
-                ${claimed ? `<button class="btn-menu mission-claim done" disabled>Coletada</button>` : m.done ? `<button class="btn-menu mission-claim" onclick="collectFoodRebellionMission(${idx})">Coletar</button>` : `<button class="btn-menu mission-claim" disabled style="opacity:0.55;">Em andamento</button>`}
-            </div>
-        `;
-        list.appendChild(card);
-    });
-
-    const allClaimed = claimedCount >= total;
-    const finalBtn = document.querySelector('#screen-food-event .food-event-final button');
-    if (finalBtn) {
-        finalBtn.disabled = pd.foodRebellion.finalClaimed || !allClaimed;
-        finalBtn.style.opacity = (pd.foodRebellion.finalClaimed || allClaimed) ? '1' : '0.55';
-        finalBtn.textContent = pd.foodRebellion.finalClaimed ? 'Recompensa coletada' : (allClaimed ? 'Coletar recompensa final' : 'Colete as 20 missões');
-    }
-    const finalTitle = document.querySelector('#screen-food-event .food-event-final-title');
-    if (finalTitle) finalTitle.textContent = allClaimed ? 'Recompensa final da rebelião pronta' : 'Recompensa final da rebelião';
-}
-
-function collectFoodRebellionMission(index) {
-    ensureFoodRebellionState();
-    const missions = getFoodRebellionState();
-    const m = missions[index];
-    if (!m || !m.done || pd.foodRebellion.claimed.includes(m.id)) return;
-    pd.foodRebellion.claimed.push(m.id);
-    save();
-    renderFoodRebellion();
-    notify(`Missão do evento coletada: ${m.title}`);
-}
-
-function claimFoodRebellionFinal() {
-    ensureFoodRebellionState();
-    const missions = getFoodRebellionState();
-    const claimedCount = missions.filter(m => pd.foodRebellion.claimed.includes(m.id)).length;
-    const total = missions.length;
-    if (claimedCount < total) {
-        showAlert('Colete as 20 missões antes de pegar a recompensa final.');
-        return;
-    }
-    if (pd.foodRebellion.finalClaimed) {
-        showAlert('Essa recompensa já foi coletada.');
-        return;
-    }
-
-    pd.foodRebellion.finalClaimed = true;
-
-    const rewardQueue = createMissionRewardQueue([
-        { type: 'box', kind: 'mega', amount: 3 }
-    ]);
-
-    const instant = [];
-    if (!pd.chars.lunch) {
-        pd.chars.lunch = { level: 1, slots: 2, chips: [null, null] };
-        instant.push('👤 NOVO PERSONAGEM: Lunch');
-    }
-    if (instant.length) rewardQueue.unshift({ type: 'instant', title: 'Rebelião da Comida', contents: instant });
-
-    save();
-    renderFoodRebellion();
-    renderChars();
-    updateUI();
-    if (rewardQueue.length) startGachaQueue(rewardQueue);
-    notify('Recompensa final coletada!');
-}
-
-function refreshFoodRebellionUI() {
-    const screen = document.getElementById('screen-food-event');
-    if (screen && !screen.classList.contains('hidden')) renderFoodRebellion();
 }
 
 function ensureShopState() {
@@ -4242,6 +5138,7 @@ function ensureShopState() {
     ensureArr('coins', FIXED_COINS.length);
     ensureArr('evo', FIXED_EVO.length);
     ensureArr('scraps', FIXED_SCRAPS.length);
+    ensureArr('xp', FIXED_XP.length);
 }
 
 function getUpgradeCost(lvl) { let e=0, c=0; if(lvl==1) e=20; else if(lvl==2) e=40; else if(lvl==3) {e=60; c=100;} else if(lvl==4) {e=80; c=250;} else if(lvl==5) {e=100; c=500;} else if(lvl==6) {e=150; c=1000;} else if(lvl==7) {e=200; c=2000;} return {evo:e, coins:c}; }
@@ -4615,7 +5512,6 @@ function generateBundles() {
             let r = Math.random();
             if(r < 0.25) { b.items.coins = 500 + Math.floor(Math.random()*500); costG += Math.floor(b.items.coins/50); }
             else if(r < 0.50) { b.items.evo = 20 + Math.floor(Math.random()*30); costG += Math.floor(b.items.evo/2.5); }
-            else if(r < 0.75) { b.items.passXp = 100 + Math.floor(Math.random()*200); costG += Math.floor(b.items.passXp/10); } 
             else { b.items.scrap = 50 + Math.floor(Math.random()*150); costG += Math.floor(b.items.scrap/5); }
         }
         if(Math.random() < 0.30) {
@@ -4638,11 +5534,12 @@ function updateShopRotation() {
     if(now - pd.shopState.lastRotation > 1 * 60 * 60 * 1000) {
         pd.shopState.lastRotation = now; pd.shopState.bundles = generateBundles(); pd.shopState.bundlesBadge = pd.shopState.bundles.map(()=>true);
         pd.shopState.vipOfferDiscount = Math.random() < 0.55 ? (Math.random() < 0.5 ? 0.1 : 0.2) : 0;
-        pd.shopState.items = { boxes: [], coins: [], evo: [], scraps: [] };
+        pd.shopState.items = { boxes: [], coins: [], evo: [], scraps: [], xp: [] };
         FIXED_BOXES.forEach(b => pd.shopState.items.boxes.push({ discount: getRandomDiscount() }));
         FIXED_COINS.forEach(c => pd.shopState.items.coins.push({ discount: getRandomDiscount() }));
         FIXED_EVO.forEach(e => pd.shopState.items.evo.push({ discount: getRandomDiscount() }));
-        FIXED_SCRAPS.forEach(s => pd.shopState.items.scraps.push({ discount: getRandomDiscount() })); save();
+        FIXED_SCRAPS.forEach(s => pd.shopState.items.scraps.push({ discount: getRandomDiscount() }));
+        FIXED_XP.forEach(x => pd.shopState.items.xp.push({ discount: getRandomDiscount() })); save();
     }
 }
 
@@ -4682,7 +5579,6 @@ function renderShop() {
             if(b.items.coins > 0) desc += `🪙 ${b.items.coins} Moedas<br>`;
             if(b.items.evo > 0) desc += `🧬 ${b.items.evo} Evo<br>`;
             if(b.items.scrap > 0) desc += `🔩 ${b.items.scrap} Sucatas<br>`;
-            if(b.items.passXp > 0) desc += `🎫 ${b.items.passXp} XP Passe<br>`;
 
             let finalCost = Math.max(1, Math.floor(b.baseCost * (1 - b.discount)));
             let discountHtml = b.discount > 0 ? `<div class="shop-discount">-${b.discount*100}%</div>` : '';
@@ -4703,21 +5599,6 @@ function renderShop() {
             div.className = `chip-card`;
             div.innerHTML = `<div class="chip-emoji">${c.emoji}</div><h4>${escapeHtmlText(decodeHtmlEntities(c.name))}</h4><p style="font-size:12px;">${escapeHtmlText(decodeHtmlEntities(c.desc))}</p><button style="padding:5px;font-size:12px;background:var(--gem); width:100%; margin-top:5px;" onclick="buyChip('${id}', 30)">💎 30</button>`;
             chipsList.appendChild(div);
-        });
-    }
-
-    const bxList = document.getElementById('shop-boxes');
-    if (bxList) {
-        bxList.innerHTML = '';
-        FIXED_BOXES.forEach((b, index) => {
-            const div = document.createElement('div');
-            div.className = `card-item`;
-            const dData = (pd.shopState.items.boxes && pd.shopState.items.boxes[index]) ? pd.shopState.items.boxes[index] : { discount: 0 };
-            let finalCost = Math.max(1, Math.floor(b.baseCost * (1 - dData.discount)));
-            let tags = dData.discount > 0 ? `<div class="shop-discount">-${dData.discount*100}%</div>` : '';
-            let icon = b.type==='normal' ? '📦' : (b.type==='mega' ? '🗳' : '🧧');
-            div.innerHTML = `${tags}<div style="font-size: 40px;">${icon}</div><h4>${b.qtd}x ${b.type==='normal' ? 'Normal' : (b.type==='mega' ? 'Mega' : 'Pacote')}</h4><button style="padding:5px;font-size:12px;background:var(--gem)" onclick="buyMultipleBoxes('${b.type}', ${b.qtd}, ${finalCost})">💎 ${finalCost}</button>`;
-            bxList.appendChild(div);
         });
     }
 
@@ -4763,6 +5644,60 @@ function renderShop() {
             let tags = dData.discount > 0 ? `<div class="shop-discount">-${dData.discount*100}%</div>` : '';
             div.innerHTML = `${tags}<h4>🔩 ${amount}</h4><button style="padding:5px;font-size:12px;background:var(--gem)" onclick="buyResource('scrap', ${amount}, ${finalCost})">💎 ${finalCost}</button>`;
             sList.appendChild(div);
+        });
+    }
+
+
+    const renderBoxGrid = (targetId, type) => {
+        const list = document.getElementById(targetId);
+        if (!list) return;
+        list.innerHTML = '';
+        FIXED_BOXES.map((b, index) => ({ b, index })).filter(entry => entry.b.type === type).forEach(({ b, index }) => {
+            const div = document.createElement('div');
+            div.className = 'card-item';
+            const dData = (pd.shopState.items.boxes && pd.shopState.items.boxes[index]) ? pd.shopState.items.boxes[index] : { discount: 0 };
+            let finalCost = Math.max(1, Math.floor(b.baseCost * (1 - dData.discount)));
+            let tags = dData.discount > 0 ? `<div class="shop-discount">-${dData.discount*100}%</div>` : '';
+            let icon = b.type==='normal' ? '📦' : (b.type==='mega' ? '🗳' : '🧧');
+            div.innerHTML = `${tags}<div style="font-size: 40px;">${icon}</div><h4>${b.qtd}x ${b.type==='normal' ? 'Normal' : (b.type==='mega' ? 'Mega' : 'Pacote')}</h4><button style="padding:5px;font-size:12px;background:var(--gem)" onclick="buyMultipleBoxes('${b.type}', ${b.qtd}, ${finalCost})">💎 ${finalCost}</button>`;
+            list.appendChild(div);
+        });
+    };
+    renderBoxGrid('shop-boxes-normal', 'normal');
+    renderBoxGrid('shop-boxes-mega', 'mega');
+    renderBoxGrid('shop-boxes-pacote', 'pacote');
+
+    const promoList = document.getElementById('shop-char-promos');
+    if (promoList) {
+        promoList.innerHTML = '';
+        EVENT_PROMOS.forEach(promo => {
+            const rarity = promo.rarity || 'epic';
+            const owned = !!pd.chars[promo.id];
+            const level = Number(pd.chars?.[promo.id]?.level) || 0;
+            if (owned) return;
+
+            const cards = [];
+            cards.push(`
+                <div class="card-item rarity-${rarity} promo-offer-card">
+                    ${renderPromoBall(promo)}
+                    <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))}</div>
+                    <div class="promo-offer-sub">Promoção da loja.</div>
+                    <div class="promo-offer-price"><span class="promo-offer-old">${promo.oldCost} gemas</span><span class="promo-offer-new">${promo.promoCost} gemas</span></div>
+                    <button class="btn-action promo-offer-btn" type="button" onclick="event.stopPropagation(); buyPromoCharacterOffer('${promo.id}', ${promo.promoCost}, 1)">Comprar personagem</button>
+                </div>
+            `);
+            if (promo.level8Cost && level < 8) {
+                cards.push(`
+                    <div class="card-item rarity-${rarity} promo-offer-card">
+                        ${renderPromoBall(promo)}
+                        <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))} Lv. 8</div>
+                        <div class="promo-offer-sub">Já vem no nível máximo.</div>
+                        <div class="promo-offer-price"><span class="promo-offer-new">${promo.level8Cost} gemas</span></div>
+                        <button class="btn-action promo-offer-btn" type="button" onclick="event.stopPropagation(); buyPromoCharacterOffer('${promo.id}', ${promo.level8Cost}, 8)">Comprar no máximo</button>
+                    </div>
+                `);
+            }
+            promoList.insertAdjacentHTML('beforeend', cards.join(''));
         });
     }
 
@@ -4831,6 +5766,7 @@ function renderShop() {
         }
         lifetimeList.appendChild(card);
     }
+    showShopSection(currentShopSection || 'offers');
 }
 
 function buyChip(id, cost) {
@@ -4927,8 +5863,12 @@ function buildBoxDropItem(type) {
 function startGachaQueue(queue) { window.gachaQueue = queue; processNextGacha(); }
 function processNextGacha() {
     if(!window.gachaQueue || window.gachaQueue.length === 0) { 
-        document.getElementById('overlay-gacha-intro').classList.add('hidden'); document.getElementById('overlay-gacha').classList.add('hidden'); 
-        updateUI(); return; 
+        document.getElementById('overlay-gacha-intro').classList.add('hidden'); 
+        document.getElementById('overlay-gacha').classList.add('hidden'); 
+        const continueBtn = document.getElementById('gacha-continue-btn');
+        if (continueBtn) continueBtn.classList.remove('hidden');
+        updateUI(); 
+        return; 
     }
     let item = window.gachaQueue.shift();
     if(item.type === 'instant') { document.getElementById('overlay-gacha-intro').classList.add('hidden'); showGachaScreen(item.title, item.contents); } 
@@ -4938,26 +5878,51 @@ function processNextGacha() {
     }
 }
 
-function tapToOpenBox() { document.getElementById('overlay-gacha-intro').classList.add('hidden'); let item = window.tempBoxData; let title = "Caixa: " + (item.boxType === 'mega' ? 'Mega' : (item.boxType === 'pacote' ? 'Pacote' : 'Normal')); showGachaScreen(title, item.contents); }
+function tapToOpenBox() { document.getElementById('overlay-gacha-intro').classList.add('hidden'); let item = window.tempBoxData; if (!item) return; let title = "Caixa: " + (item.boxType === 'mega' ? 'Mega' : (item.boxType === 'pacote' ? 'Pacote' : 'Normal')); showGachaScreen(title, item.contents); }
 function showGachaScreen(title, contents) {
     const overlay = document.getElementById('overlay-gacha');
     if (typeof title === 'string' && title.startsWith('Caixa:')) awardAchievementStat('boxesOpened', 1);
     const res = document.getElementById('gacha-result');
+    const counter = document.getElementById('gacha-counter');
+    const continueBtn = document.getElementById('gacha-continue-btn');
     document.getElementById('gacha-title').innerHTML = title;
-    res.innerHTML = `<div class="gacha-win-banner">VOCÊ GANHOU!</div>`;
+    if (continueBtn) continueBtn.classList.add('hidden');
+
+    const queue = Array.isArray(contents) ? contents.slice() : [];
+    window.gachaRevealState = { title, queue, index: 0, timer: null, finished: false };
+
     overlay.classList.remove('hidden');
     overlay.style.opacity = '0';
     void overlay.offsetWidth;
     overlay.style.opacity = '1';
-    contents.forEach((txt, i) => {
-        setTimeout(() => {
-            const item = document.createElement('div');
-            item.className = 'gacha-item';
-            item.innerHTML = txt;
-            res.appendChild(item);
-            res.scrollTop = res.scrollHeight;
-        }, i * (pd.settings.skipGacha ? 50 : 300) + 250);
-    });
+
+    const renderStep = () => {
+        const state = window.gachaRevealState;
+        if (!state || state.finished) return;
+
+        if (state.index >= state.queue.length) {
+            state.finished = true;
+            if (counter) counter.textContent = `${state.queue.length}/${state.queue.length}`;
+            res.innerHTML = `<div class="gacha-win-banner">VOCÊ GANHOU!</div><div class="gacha-final-list">${state.queue.map(txt => `<div class="gacha-item">${renderRewardText(txt)}</div>`).join('')}</div>`;
+            if (continueBtn) continueBtn.classList.remove('hidden');
+            return;
+        }
+
+        const raw = state.queue[state.index];
+        if (counter) counter.textContent = `${state.index + 1}/${state.queue.length}`;
+        res.innerHTML = `<div class="gacha-reveal-wrap"><div class="gacha-reveal-card">${renderGachaRevealHtml(raw)}</div></div>`;
+        state.index += 1;
+        const delay = pd.settings.skipGacha ? 260 : 820;
+        state.timer = setTimeout(renderStep, delay);
+    };
+
+    if (res) res.innerHTML = '';
+    if (counter) counter.textContent = queue.length ? `1/${queue.length}` : '0/0';
+    renderStep();
+}
+
+function renderRewardText(txt) {
+    return escapeHtmlText(String(txt || ''));
 }
 
 function processBuyBundle(index, cost) {
@@ -4971,7 +5936,6 @@ function processBuyBundle(index, cost) {
         let instant = []; let q = [];
         if(b.items.coins) { pd.coins += b.items.coins; instant.push(`🪙 +${b.items.coins} Moedas`); }
         if(b.items.evo) { pd.evo += b.items.evo; instant.push(`🧬 +${b.items.evo} Evo`); }
-        if(b.items.passXp) { addPassXp(b.items.passXp); instant.push(`🎫 +${b.items.passXp} XP Passe`); }
         if(b.items.scrap) { pd.sucatas += b.items.scrap; instant.push(`🔩 +${b.items.scrap} Sucatas`); }
         if(b.items.char) { pd.chars[b.items.char] = {level:1, slots:2, chips: [null, null]}; if(b.items.char==='gladiator') pd.chars[b.items.char].mode='shooter'; instant.push(`👤 NOVO PERSONAGEM: ${CHARACTERS[b.items.char].name}!`); }
         if(b.items.chip) { pd.chipsInventory[b.items.chip] = (pd.chipsInventory[b.items.chip]||0)+1; instant.push(`💽 NOVO CHIP: ${CHIPS_DATA[b.items.chip].name}!`); }
@@ -4984,6 +5948,10 @@ function processBuyBundle(index, cost) {
 }
 
 function buyResource(type, amount, cost) {
+    if (type === 'xp') {
+        showAlert('Essa compra foi removida.');
+        return;
+    }
     if(pd.gems < cost) { showAlert("Gemas insuficientes!"); return; }
     const label = type === 'coins' ? `🪙 ${amount} Moedas` : (type === 'evo' ? `🧬 ${amount} Evo` : `🔩 ${amount} Sucatas`);
     showConfirm("Quer comprar essa oferta?", `Deseja comprar ${label} por ${cost} gemas?`, (res) => {
@@ -4993,7 +5961,9 @@ function buyResource(type, amount, cost) {
         if(type==='evo') pd.evo += amount;
         if(type==='scrap') pd.sucatas += amount;
         save();
+        updateUI();
         renderShop();
+        if(!document.getElementById('screen-pass').classList.contains('hidden')) renderPass();
         notify(`Compra realizada!`);
     });
 }
@@ -5500,11 +6470,22 @@ function renderTrail() {
             let title = isPatente ? getPatenteInfo(pd.trail.target.level).name : CHARACTERS[pd.trail.target.id].name;
             let badge = isPatente ? getPatenteBadge(pd.trail.target.level) : '';
             let pct = Math.min(100, (pd.sucatas / cost) * 100);
-            html += `<div class="card-item rarity-legendary" style="max-width: 450px; margin: 0 auto; padding: 30px;">
-                <h3 style="margin-top:0;">Foco Atual: <br>${badge ? `<div style="display:flex; justify-content:center; margin-bottom:10px;">${badge}</div>` : ''}<span style="color:var(--btn-yellow); font-size: 30px;">${title}</span></h3>
-                <div class="pass-bar" style="margin: 20px auto;"><div class="pass-fill" style="width: ${pct}%;"></div></div>
-                <p style="font-size: 24px; font-weight: bold;">${pd.sucatas} / ${cost} 🔩</p>
-                <div style="margin-top:25px;">${pd.sucatas >= cost ? `<button class="btn-action" style="width:100%" onclick="claimTrail()">Desbloquear!</button>` : `<button class="btn-red" style="width:100%; font-size:16px;" onclick="cancelTrail()">Cancelar Progresso</button>`}</div>
+            const progressLabel = `${Math.floor(pct)}% concluído`;
+            html += `<div class="trail-focus-card rarity-legendary">
+                <div class="trail-focus-head">
+                    <div class="trail-focus-badge">${badge || '<span style="font-size:34px;">🔰</span>'}</div>
+                    <div class="trail-focus-copy">
+                        <div class="trail-focus-kicker">Oficina em foco</div>
+                        <h3 class="trail-focus-title">${title}</h3>
+                        <p class="trail-focus-sub">Complete o progresso para desbloquear este alvo e sair da oficina com a recompensa na mão.</p>
+                    </div>
+                </div>
+                <div class="trail-focus-meta">
+                    <div class="meta-line"><strong>${pd.sucatas}</strong> / ${cost} 🔩</div>
+                    <div class="meta-line">${progressLabel}</div>
+                </div>
+                <div class="pass-bar"><div class="pass-fill" style="width: ${pct}%;"></div></div>
+                <div class="trail-focus-actions">${pd.sucatas >= cost ? `<button class="btn-action" onclick="claimTrail()">Desbloquear agora</button>` : `<button class="btn-red" style="font-size:16px;" onclick="cancelTrail()">Cancelar progresso</button>`}</div>
             </div>`;
         } else {
             let opts = getTrailOptions();
@@ -5513,7 +6494,20 @@ function renderTrail() {
                     html += `<h3 style="color:var(--btn-yellow)">Você alcançou a patente máxima!</h3>`;
                 } else {
                     let f = getPatenteInfo(opts.level);
-                    html += `<h3>Próxima Patente:</h3><div class="card-item rarity-legendary" style="max-width: 300px; margin: 20px auto; text-align:center;">${getPatenteBadge(opts.level)}<h2 style="margin-top:12px;">${f.name}</h2><p>Custo: ${f.cost} 🔩</p><button class="btn-action" style="margin-top:10px" onclick="setTrailTarget('patente', ${opts.level}, ${f.cost})">Iniciar Foco</button></div>`;
+                    html += `<h3 style="color:#aaa; text-align:center;">Próxima patente</h3><div class="trail-card trail-focus-card" style="max-width: 420px; margin: 20px auto; text-align:left;">
+                        <div class="trail-focus-head">
+                            <div class="trail-focus-badge">${getPatenteBadge(opts.level) || '<span style="font-size:34px;">🏅</span>'}</div>
+                            <div class="trail-focus-copy">
+                                <div class="trail-focus-kicker">Patente alvo</div>
+                                <h3 class="trail-focus-title" style="font-size:28px;">${f.name}</h3>
+                                <p class="trail-focus-sub">Comece o foco para juntar sucatas e evoluir sua patente com uma apresentação mais limpa.</p>
+                            </div>
+                        </div>
+                        <div class="trail-focus-meta">
+                            <div class="meta-line">Custo: <strong>${f.cost}</strong> 🔩</div>
+                        </div>
+                        <button class="btn-action card-button" style="margin-top:0;" onclick="setTrailTarget('patente', ${opts.level}, ${f.cost})">Iniciar foco</button>
+                    </div>`;
                 }
             } else {
                 const cardsHtml = (opts.chars || []).map(cId => {
@@ -5521,15 +6515,20 @@ function renderTrail() {
                     if(!c) return '';
                     let cost = getTrailCost(c.rarity);
                     return `
-                        <div class="trail-card">
-                            <div class="card-icon">${getCharacterCardEmoji(c)}</div>
-                            <div class="card-subtitle">${c.class}</div>
-                            <div class="card-title">${c.name}</div>
-                            <div class="card-body">${getShortCardText(c.desc, 145)}</div>
-                            <div class="card-footer">
-                                <span class="card-pill">${cost} 🔩</span>
+                        <div class="trail-card trail-focus-card">
+                            <div class="trail-focus-head">
+                                <div class="trail-focus-badge">${getCharacterCardEmoji(c)}</div>
+                                <div class="trail-focus-copy">
+                                    <div class="trail-focus-kicker">${c.class}</div>
+                                    <h3 class="trail-focus-title" style="font-size:24px;">${c.name}</h3>
+                                    <p class="trail-focus-sub">${getShortCardText(c.desc, 120)}</p>
+                                </div>
                             </div>
-                            <button class="btn-action card-button" style="margin-top:12px;" onclick="setTrailTarget('char', '${c.id}', ${cost})">Focar neste!</button>
+                            <div class="trail-focus-meta">
+                                <div class="meta-line">Custo: <strong>${cost}</strong> 🔩</div>
+                                <span class="card-pill">${c.rarity}</span>
+                            </div>
+                            <button class="btn-action card-button" style="margin-top:0;" onclick="setTrailTarget('char', '${c.id}', ${cost})">Focar neste</button>
                         </div>`;
                 }).join('');
                 html += `<h3 style="color:#aaa;">Escolha sua próxima oficina:</h3><div class="menu-grid" id="trail-options" style="margin-top:20px;">${cardsHtml}</div>`;
@@ -5547,13 +6546,15 @@ function renderTrail() {
 // GAME ENGINE
 const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
 let cw = canvas.width = window.innerWidth; let ch = canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { cw = canvas.width = window.innerWidth; ch = canvas.height = window.innerHeight; });
+window.addEventListener('resize', () => { cw = canvas.width = window.innerWidth; ch = canvas.height = window.innerHeight; updateOrientationGate(); });
+window.addEventListener('orientationchange', updateOrientationGate);
 
 let gameLoopId, isPlaying = false, isPaused = false;
 let camera = { x: 0, y: 0 }; let joyVec = { x: 0, y: 0 }; let keys = { w:false, a:false, s:false, d:false, ArrowUp:false, ArrowLeft:false, ArrowDown:false, ArrowRight:false };
 let inputState = { up:false, down:false, left:false, right:false, special:false, pause:false };
 let player, enemies, allies, projectiles, puddles, particles, xpGems, floatingTexts, obstacles, itemsMap;
 let caveVisionBursts;
+let graffitMarks = [];
 let wave, gameTime, waveTimer, enemySpawnTimer, enemiesKilled, inRunXp, inRunLevel, xpToNext;
 
 const joyZone = document.getElementById('joystick-zone'); const joyKnob = document.getElementById('joystick-knob'); let touchId = null;
@@ -5816,14 +6817,14 @@ function startRunAfterShop() {
         x: 0, y: 0, r: (pd.selectedChar === 'hank' || pd.selectedChar === 'yeti') ? 20 : ((pd.selectedChar === 'shiv' || pd.selectedChar === 'zippi') ? 10 : (pd.selectedChar === 'kaisen' ? 13 : (pd.selectedChar === 'booboo' ? 13 : (pd.selectedChar === 'eel' ? 15 : 15)))), baseHp: initialBaseHp, hp: initialBaseHp, baseSpeed: charDef.speed, baseDmg: initialBaseDmg,
         baseFireRate: charDef.fireRate, baseRange: charDef.range, color: charDef.color, weapon: charDef.weapon, cd: 0, shieldTimer: 0,
         zombieTimer: 0, revived: false, elekCycle: false, dashTimer: 0, meleeCd: 0, boldShots: 0, boldReload: 0, specCd: 0, invisTimer: 0,
-        lastMoveAngle: 0, lastAimAngle: 0, tenentCycle: 0, orbitalAngle: 0, boobooReturn: true, pickedCards: [], revivesUsed: 0, qbBar: 0, qbShield: false, isDead: false, flexCombo: 0, flexReload: 0, ninjiDashCd: 0,
+        lastMoveAngle: 0, lastAimAngle: 0, tenentCycle: 0, orbitalAngle: 0, boobooReturn: true, pickedCards: [], revivesUsed: 0, qbBar: 0, qbShield: false, isDead: false, flexCombo: 0, flexReload: 0, ninjiDashCd: 0, majorBriggsKills: 0, majorBriggsStage: 1,
         gooRevived: false, gooCloneSpawned: false, gooFullBaseHp: initialBaseHp, gooFullBaseDmg: initialBaseDmg, gooFullR: (pd.selectedChar === 'hank' || pd.selectedChar === 'yeti') ? 20 : ((pd.selectedChar === 'shiv' || pd.selectedChar === 'zippi') ? 10 : (pd.selectedChar === 'kaisen' ? 13 : (pd.selectedChar === 'eel' ? 15 : 15))),
         inTotem: false, landmineTimer: 0, flameTimer: 0, flameReload: 0, flameTickCd: 0, flexTimer: 0, flexAngle: 0, flexLowHp: false, seaePuddleCd: 0, zippiBubbleHp: pd.selectedChar === 'zippi' ? 80 : 0, zippiBubbleMaxHp: pd.selectedChar === 'zippi' ? 80 : 0, zippiBubbleBroken: false,
         stats: { dmgMult: 1, maxHpMult: 1, speedMult: 1, fireRateMult: 1, rangeMult: 1, extraProj: 0, regen: 0, critChance: 0, critDmg: 2, pierce: 0, projSpdMult: 1, defMult: 1, vamp: 0, coinMult: 1, xpMult: 1, explodeHit: false, waveBuff: false, doubleShotChance: 0, dynamicDef: 0, magnetMult: 1, poisonChance: 0, freezeChance: 0, bounce: 0, enemySpawnMult: 1, bossDmgMult: 1, orbitals: 0, dodgeChance: charDef.baseDodge || 0, landmine: 0, pushChance: 0 }
     };
     updateSpecialButtonUI();
     
-    enemies = []; allies = []; projectiles = []; puddles = []; particles = []; xpGems = []; floatingTexts = []; obstacles = []; itemsMap = []; caveVisionBursts = [];
+    enemies = []; allies = []; projectiles = []; puddles = []; particles = []; xpGems = []; floatingTexts = []; obstacles = []; itemsMap = []; caveVisionBursts = []; graffitMarks = [];
     window.dancersTimer = 20;
 
     if(pd.selectedChar === 'mrsaw') player.stats.orbitals += 2;
@@ -5904,7 +6905,7 @@ function triggerSpecial() {
 }
 
 let lastTime = 0;
-function loop(time) { if(!isPlaying) return; const dt = (time - lastTime) / 1000; lastTime = time; try { if(!isPaused) { update(dt); draw(); } } catch (err) { console.error('Loop error:', err); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.clearRect(0, 0, cw, ch); } gameLoopId = requestAnimationFrame(loop); }
+function loop(time) { if(!isPlaying) return; const dt = (time - lastTime) / 1000; lastTime = time; try { if(!isPaused) { update(dt); draw(); } } catch (err) { console.error('Loop error:', err); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; } gameLoopId = requestAnimationFrame(loop); }
 
 function triggerRevivePrompt() {
     if(player && player.weapon === 'slime' && !player.gooRevived) {
@@ -5997,6 +6998,7 @@ function spawnGooClone() {
 
 function update(dt) {
     if(player.isDead) return;
+    updateGraffitMarks(dt);
     
     let isBossAlive = enemies.some(e => e.isBoss);
     if (!isBossAlive) {
@@ -6191,11 +7193,11 @@ function update(dt) {
         if(picked) {
             if(m.type === 'chest') {
                 if(Math.random() < 0.4) {
-                    runGems += 2; addFloatingText(player.x, player.y, `+2 Gemas`, '#2ecc71');
+                    pd.gems += 2; runGems += 2; addFloatingText(player.x, player.y, `+2 Gemas`, '#2ecc71');
                 } else if(Math.random() < 0.6) {
-                    let s = 15 + Math.floor(Math.random()*20); runScrap += s; addFloatingText(player.x, player.y, `+${s} Sucatas`, '#a5b1c2');
+                    let s = 15 + Math.floor(Math.random()*20); pd.sucatas += s; runScrap += s; addFloatingText(player.x, player.y, `+${s} Sucatas`, '#a5b1c2');
                 } else {
-                    let cDrop = 20 + Math.floor(Math.random()*31); runCoins += cDrop; addFloatingText(player.x, player.y, `+${cDrop} Moedas`, '#f1c40f');
+                    let cDrop = 20 + Math.floor(Math.random()*31); pd.coins += cDrop; addFloatingText(player.x, player.y, `+${cDrop} Moedas`, '#f1c40f'); runCoins += cDrop;
                 }
             } else {
                 if(Math.random() < 0.5) { player.hp = Math.min(player.hp + 20, player.baseHp * player.stats.maxHpMult); addFloatingText(player.x, player.y, "+HP", '#2ecc71'); }
@@ -6260,7 +7262,7 @@ function update(dt) {
             if(player.cd <= 0) {
                 let target = null; let minDist = player.baseRange * player.stats.rangeMult;
                 for(let e of enemies) { let d = dist(player, e); if(d < minDist) { minDist = d; target = e; } }
-                if(target) { fireWeapon(target); player.boldShots++; if(player.boldShots >= 6) { player.boldShots = 0; player.boldReload = 1; } }
+                if(target) { fireWeapon(target); player.boldShots++; if(player.boldShots >= 5) { player.boldShots = 0; player.boldReload = 1; } }
             }
         }
     } else if (player.weapon === 'boomerang') {
@@ -6390,7 +7392,7 @@ function fireWeapon(target) {
     player.cd = player.baseFireRate * player.stats.fireRateMult * (w==='power_shot'? (1 - (1 - dynHpRatio)*0.9) : 1) * ((pd.selectedChar === 'zippi' && player.zippiBubbleHp <= 0) ? 0.88 : 1);
     
     if(w === 'arrow') { player.stats.critChance += 0.25; }
-    let isCrit = Math.random() < player.stats.critChance; let finalDmg = isCrit ? baseDmg * player.stats.critDmg : baseDmg;
+    let isCrit = Math.random() < player.stats.critChance; let finalDmg = (isCrit ? baseDmg * player.stats.critDmg : baseDmg) * (player.graffitAtkMult || 1);
     if(w === 'arrow') { player.stats.critChance -= 0.25; }
 
     let pSpd = 5 * player.stats.projSpdMult;
@@ -6469,6 +7471,78 @@ function fireWeapon(target) {
             return;
         }
         
+        if(w === 'major_briggs') {
+            const stage = getMajorBriggsWeaponStage(enemiesKilled);
+            const spawnOffset = player.r + 8;
+            const sx = player.x + Math.cos(angle) * spawnOffset;
+            const sy = player.y + Math.sin(angle) * spawnOffset;
+            const baseLife = Math.ceil((player.baseRange * player.stats.rangeMult * 1.18) / Math.max(1, pSpd)) + 16;
+            const spread = [0, 0.055, 0.085, 0.12, 0.14, 0.09];
+            const fireShot = (type, shotAngle, damageMult, speedMult = 1, extra = {}) => {
+                createProj(
+                    sx,
+                    sy,
+                    Math.cos(shotAngle) * pSpd * speedMult,
+                    Math.sin(shotAngle) * pSpd * speedMult,
+                    finalDmg * damageMult,
+                    baseLife,
+                    true,
+                    type,
+                    { size: extra.size || (type === 'laser' ? 4 : type === 'heavy' ? 10 : 6), sourceChar: 'major_briggs', ...extra }
+                );
+            };
+
+            if(stage === 1) {
+                fireShot('normal', angle, 1.0, 1.0, { size: 6 });
+            } else if(stage === 2) {
+                fireShot('normal', angle - spread[stage] / 2, 0.72, 1.0, { size: 5 });
+                fireShot('normal', angle + spread[stage] / 2, 0.72, 1.0, { size: 5 });
+            } else if(stage === 3) {
+                fireShot('normal', angle - spread[stage], 0.62, 1.0, { size: 5 });
+                fireShot('normal', angle, 0.62, 1.0, { size: 5 });
+                fireShot('normal', angle + spread[stage], 0.62, 1.0, { size: 5 });
+            } else if(stage === 4) {
+                const offs = [-2, -1, 0, 1, 2].map(i => i * 0.05);
+                offs.forEach(off => fireShot('normal', angle + off, 0.50, 1.0, { size: 5 }));
+            } else if(stage === 5) {
+                fireShot('heavy', angle, 1.1, 0.95, { size: 11 });
+                fireShot('normal', angle - 0.12, 0.56, 1.0, { size: 5 });
+                fireShot('normal', angle + 0.12, 0.56, 1.0, { size: 5 });
+            } else {
+                fireShot('laser', angle - 0.10, 0.45, 4.0, { size: 4 });
+                fireShot('laser', angle, 0.45, 4.0, { size: 4 });
+                fireShot('laser', angle + 0.10, 0.45, 4.0, { size: 4 });
+            }
+            return;
+        }
+        if(w === 'graffit') {
+            const spawnOffset = player.r + 8;
+            const extraShots = Math.max(0, Math.floor(player.stats.extraProj || 0));
+            const totalShots = 1 + extraShots;
+            const spreadStep = totalShots > 1 ? 0.10 : 0;
+            const baseStart = angle - ((totalShots - 1) * spreadStep) / 2;
+
+            for (let j = 0; j < totalShots; j++) {
+                const shotAngle = baseStart + spreadStep * j;
+                const sx = player.x + Math.cos(shotAngle) * spawnOffset;
+                const sy = player.y + Math.sin(shotAngle) * spawnOffset;
+                const speedMul = totalShots > 1 ? 1.06 : 1.1;
+                createProj(
+                    sx, sy,
+                    Math.cos(shotAngle) * pSpd * speedMul,
+                    Math.sin(shotAngle) * pSpd * speedMul,
+                    finalDmg, 42, true, 'graffit_can',
+                    {
+                        size: 11,
+                        sprayColor: '#ff7ad9',
+                        sprayRadius: 135,
+                        trailColor: '#ff7ad9',
+                        spin: (Math.random() * 2 - 1) * 8
+                    }
+                );
+            }
+            return;
+        }
         if(w === 'aura') { createExplosion(player.x, player.y, 80 * player.stats.rangeMult, finalDmg, '#00cec9'); return; }
         if(w === 'dash_hit') { player.dashTimer = 0.3; player.dashAngle = angle; player.cd = 60; return; }
         if(w === 'screws') {
@@ -6919,6 +7993,7 @@ function createProj(x, y, vx, vy, dmg, life, isPlayer, type, extra={}) {
     else if (type === 'bomb' || type === 'buster_rocket') size = 5;
     else if (type === 'lance') size = extra.size || 7;
     else if (type === 'microphone') size = extra.size || 12;
+    else if (type === 'graffit_can') size = extra.size || 11;
     else if (type === 'axel_stone') size = extra.size || 12;
     else if (type === 'axel_shard') size = extra.size || 5;
     let sourceStats = extra.sourceStats || (isPlayer ? player.stats : null);
@@ -7529,7 +8604,7 @@ function updateEnemies(dt) {
 
         if(d < e.size + player.r && player.shieldTimer <= 0 && e.type !== 'kamikaze' && !(pd.selectedChar === 'hank' && e.type === 'velocista')) {
             if(Math.random() > (player.stats.dodgeChance || 0)) {
-                const defMul = Math.max(0.1, player.stats.defMult - (pd.selectedChar === 'quarterback' && player.qbShield ? 0.4 : player.stats.dynamicDef));
+                const defMul = Math.max(0.1, player.stats.defMult - (pd.selectedChar === 'quarterback' && player.qbShield ? 0.4 : player.stats.dynamicDef) - (player.graffitDefFlat || 0));
                 dealPlayerDamage(e.dmg * defMul); addFloatingText(player.x, player.y, `-${Math.floor(e.dmg * defMul)}`, '#e74c3c');
                 e.x -= Math.cos(Math.atan2(player.y - e.y, player.x - e.x)) * 20; e.x = Math.max(-1480, Math.min(1480, e.x));
                 if(player.hp <= 0) { triggerRevivePrompt(); return; }
@@ -7564,6 +8639,7 @@ function updateEnemies(dt) {
                     allies.push({x: e.x, y: e.y, dmg: player.baseDmg * 1.5, speed: 1.2, life: 12, cd: 0, isTurret: false, isZombie: true, radius: 25});
                 }
                 xpGems.push({ x: e.x, y: e.y, val: e.type==='megaboss' ? 1000 : (e.isBoss? 500 : e.type==='gigante'||e.type==='tanque'||e.type==='colosso'? 50 : 10) });
+                if (pd.selectedChar === 'graffit') addGraffitMark(e.x, e.y);
                 if(player.stats.explodeHit) createExplosion(e.x, e.y, 60, player.baseDmg * 0.5);
                 createParticles(e.x, e.y, e.color); enemies.splice(i, 1);
             }
@@ -7610,10 +8686,10 @@ function updateAllies(dt) {
                         } else {
                             createProj(a.x, a.y, Math.cos(ang)*7, Math.sin(ang)*7, a.dmg * 0.9, 50, true, 'laser', { size: 3 });
                         }
-                        a.cd = 0.55;
+                        a.cd = 0.75;
                     } else {
                         createProj(a.x, a.y, Math.cos(ang)*4, Math.sin(ang)*4, a.dmg, 60, true, 'penguin_snowball', {size: 6});
-                        a.cd = 0.9;
+                        a.cd = 1.15;
                     }
                 } else {
                     a.cd -= dt;
@@ -7994,6 +9070,26 @@ function updateProjectiles(dt) {
             p.extra.travelled = (p.extra.travelled || 0) + Math.sqrt(moveX * moveX + moveY * moveY);
             if(p.extra.travelled >= maxRange || p.life <= 0) { projectiles.splice(i, 1); continue; }
         }
+        else if (p.type === 'graffit_can') {
+            const moveX = p.vx * 60 * dt;
+            const moveY = p.vy * 60 * dt;
+            p.extra.spin = (p.extra.spin || 0) + (Number.isFinite(p.extra.spin) ? 0 : 0);
+            p.extra.travelled = (p.extra.travelled || 0) + Math.sqrt(moveX * moveX + moveY * moveY);
+            p.x += moveX;
+            p.y += moveY;
+
+            if(!(pd.settings && pd.settings.noParticles) && ((p.extra.trailTick || 0) + dt >= 0.03)) {
+                p.extra.trailTick = 0;
+                const canAngle = Math.atan2(p.vy, p.vx) + Math.PI;
+                spawnGraffitSprayTrail(p.x, p.y, canAngle, p.extra.trailColor || p.extra.sprayColor || '#ff7ad9');
+            } else {
+                p.extra.trailTick = (p.extra.trailTick || 0) + dt;
+            }
+
+            if(p.extra.travelled >= Math.max(220, player.baseRange * player.stats.rangeMult * 1.1) || p.life <= 0) {
+                projectiles.splice(i, 1); continue;
+            }
+        }
         else { p.x += p.vx * 60 * dt; p.y += p.vy * 60 * dt; }
 
         if(p.type === 'quarterback' && p.extra && p.extra.noHitFrames > 0) p.extra.noHitFrames--;
@@ -8230,6 +9326,60 @@ function updateProjectiles(dt) {
             }
         }
 
+        if(hit && p.type === 'graffit_can') {
+            try {
+                const impactX = Number.isFinite(p.x) ? p.x : 0;
+                const impactY = Number.isFinite(p.y) ? p.y : 0;
+                const sprayRadius = Number.isFinite(p.extra?.sprayRadius) ? p.extra.sprayRadius : 135;
+                const sprayColor = p.extra?.sprayColor || '#ff7ad9';
+                const targetEnemy = hitTarget || null;
+
+                spawnGraffitImpact(impactX, impactY, sprayRadius, sprayColor, targetEnemy);
+
+                for (const e2 of enemies) {
+                    if (!e2 || e2 === targetEnemy) continue;
+                    if (dist({ x: impactX, y: impactY }, e2) <= sprayRadius + (e2.size || 12)) {
+                        const dotDmg = Math.max(1, p.dmg * 0.22);
+                        const currentPoison = e2.poison || { timer: 0, dmg: 0, tickCd: 0 };
+                        e2.poison = { timer: Math.max(currentPoison.timer || 0, 4.5), dmg: Math.max(currentPoison.dmg || 0, dotDmg), tickCd: 0.3 };
+                        addFloatingText(e2.x, e2.y - 8, 'ENVENENANDO!', '#2ecc71', 11);
+                    }
+                }
+            } catch (err) {
+                console.warn('Graffit impact skipped:', err);
+            }
+
+            const canBounce = (p.bounces || 0) > 0;
+            const canPierce = (p.pierce || 0) > 0;
+
+            if (canBounce) {
+                let nextTarget = null;
+                let minDist = 320;
+                for (let e of enemies) {
+                    if (!p.hitIds.has(e)) {
+                        const d = dist(p, e);
+                        if (d < minDist) { minDist = d; nextTarget = e; }
+                    }
+                }
+                if (nextTarget) {
+                    const a = Math.atan2(nextTarget.y - p.y, nextTarget.x - p.x);
+                    const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    p.vx = Math.cos(a) * spd;
+                    p.vy = Math.sin(a) * spd;
+                    p.bounces--;
+                    p.hitIds.clear();
+                    p.hitIds.add(hitTarget);
+                    continue;
+                }
+            }
+
+            if (canPierce) {
+                p.pierce--;
+                continue;
+            }
+
+            projectiles.splice(i, 1); continue;
+        }
         if(hit && p.type === 'zippi_laser') {
             const splitCount = Math.max(3, Number(p.extra.splitCount) || 3);
             const splitSpread = Number(p.extra.splitSpread) || (splitCount >= 5 ? 0.58 : 0.40);
@@ -8386,6 +9536,174 @@ function updateCaveVisionBursts(dt) {
 
 function addFloatingText(x, y, text, color, size=16) { if(pd.settings && pd.settings.showCombatText === false) return; floatingTexts.push({ x, y, text, color, size, life: 1 }); }
 
+const GRAFFIT_MARK_STYLE = {
+    blue: { fill: '#3498db', glow: '#cfefff', label: 'A' },
+    red: { fill: '#e74c3c', glow: '#ffd0c8', label: 'X' },
+    yellow: { fill: '#f1c40f', glow: '#fff2a0', label: '!' },
+    green: { fill: '#2ecc71', glow: '#d2ffe4', label: '+' }
+};
+graffitMarks = [];
+
+function pickGraffitColor() {
+    const colors = ['blue', 'red', 'yellow', 'green'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function addGraffitMark(x, y) {
+    if (graffitMarks.length >= 25) graffitMarks.shift();
+    graffitMarks.push({ x, y, r: 34, color: pickGraffitColor(), seed: Math.random() * 1000, tick: Math.random() * 0.18 });
+}
+
+function spawnGraffitSprayTrail(x, y, angle, sprayColor) {
+    if(pd.settings && pd.settings.noParticles) return;
+    const backAngle = angle + Math.PI;
+    for(let i = 0; i < 3; i++) {
+        const spread = (Math.random() - 0.5) * 0.65;
+        const speed = 0.9 + Math.random() * 2.6;
+        particles.push({
+            x: x + Math.cos(backAngle) * (3 + i * 0.8),
+            y: y + Math.sin(backAngle) * (3 + i * 0.8),
+            vx: Math.cos(backAngle + spread) * speed + (Math.random() - 0.5) * 0.55,
+            vy: Math.sin(backAngle + spread) * speed + (Math.random() - 0.5) * 0.55,
+            life: 0.22 + Math.random() * 0.16,
+            color: i === 0 ? sprayColor : (i === 1 ? '#ffd6f7' : '#ffffff'),
+            type: 'dot'
+        });
+    }
+}
+
+function spawnGraffitImpact(x, y, radius, sprayColor, targetEnemy = null) {
+    if(pd.settings && pd.settings.noParticles) return;
+    const burstCount = 52;
+    const burstGlow = [sprayColor, '#ffd6f7', '#ffb3e6', '#ff85d8', '#ffffff'];
+    for(let j = 0; j < burstCount; j++) {
+        const a = (Math.PI * 2 * j / burstCount) + (Math.random() - 0.5) * 0.22;
+        const sp = 3.2 + Math.random() * 6.4;
+        const c = burstGlow[j % burstGlow.length];
+        particles.push({
+            x,
+            y,
+            vx: Math.cos(a) * sp,
+            vy: Math.sin(a) * sp,
+            life: 0.38 + Math.random() * 0.22,
+            color: c,
+            type: 'dot'
+        });
+    }
+    particles.push({ x, y, r: 0, maxR: radius * 0.72, type: 'expl', life: 0.34, color: sprayColor });
+    particles.push({ x, y, r: 0, maxR: radius * 0.30, type: 'expl', life: 0.18, color: '#ffffff' });
+}
+
+function drawGraffitMark(ctx, m) {
+    const style = GRAFFIT_MARK_STYLE[m.color] || GRAFFIT_MARK_STYLE.green;
+    const pulse = 1 + Math.sin((gameTime || 0) * 4 + (m.seed || 0)) * 0.03;
+    const r = (m.r || 34) * pulse;
+    ctx.save();
+    ctx.translate(m.x, m.y);
+    ctx.rotate(((m.seed || 0) % (Math.PI * 2)) * 0.15 + (m.color === 'red' ? 0.2 : 0));
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = style.fill;
+    ctx.fillStyle = 'rgba(10,10,10,0.18)';
+    ctx.beginPath();
+    ctx.arc(0, 0, r + 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = style.fill;
+    ctx.beginPath();
+    ctx.arc(0, 0, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#000';
+    ctx.stroke();
+
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = style.glow;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.globalAlpha = 0.9;
+    if (m.color === 'blue') {
+        ctx.beginPath();
+        ctx.moveTo(-12, -2); ctx.lineTo(-2, -12); ctx.lineTo(11, -5); ctx.lineTo(2, 12); ctx.closePath();
+        ctx.stroke();
+    } else if (m.color === 'red') {
+        ctx.beginPath();
+        ctx.moveTo(-10, 10); ctx.lineTo(10, -10);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-4, -13); ctx.lineTo(8, -2);
+        ctx.stroke();
+    } else if (m.color === 'yellow') {
+        ctx.beginPath();
+        ctx.moveTo(-12, 10); ctx.lineTo(0, -12); ctx.lineTo(12, 10);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, -2); ctx.lineTo(0, 9);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 14, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = style.glow;
+        ctx.fill();
+    } else {
+        ctx.beginPath();
+        ctx.moveTo(-12, 0); ctx.lineTo(12, 0);
+        ctx.moveTo(0, -12); ctx.lineTo(0, 12);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, 6, 0, Math.PI * 2);
+        ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(style.label, 0, 0.5);
+    ctx.restore();
+}
+
+function updateGraffitMarks(dt) {
+    if (!player || !graffitMarks.length) {
+        if (player) { player.graffitAtkMult = 1; player.graffitDefFlat = 0; player.graffitOnGreen = false; }
+        return;
+    }
+
+    let onBlue = false;
+    let onRed = false;
+    let onGreen = false;
+
+    for (const m of graffitMarks) {
+        const r = (m.r || 34);
+        const onPlayer = dist(player, m) < r + player.r * 0.72;
+        if (onPlayer) {
+            if (m.color === 'blue') onBlue = true;
+            else if (m.color === 'red') onRed = true;
+            else if (m.color === 'green') onGreen = true;
+        }
+
+        m.tick = (Number.isFinite(m.tick) ? m.tick : 0) - dt;
+        if (m.color === 'yellow' && m.tick <= 0) {
+            m.tick = 0.35;
+            for (const e of enemies) {
+                if (dist(e, m) < r + (e.size || 12)) {
+                    const dotDmg = Math.max(2, player.baseDmg * 0.14);
+                    e.hp -= dotDmg;
+                    addFloatingText(e.x, e.y - 8, `-${Math.floor(dotDmg)}`, '#f1c40f', 11);
+                    createParticles(e.x, e.y, '#f1c40f');
+                }
+            }
+        }
+    }
+
+    player.graffitAtkMult = onRed ? 1.25 : 1;
+    player.graffitDefFlat = onBlue ? 0.28 : 0;
+    player.graffitOnGreen = onGreen;
+    if (onGreen) {
+        const heal = player.baseHp * player.stats.maxHpMult * 0.06 * dt;
+        player.hp = Math.min(player.baseHp * player.stats.maxHpMult, player.hp + heal);
+    }
+}
+
 function drawShape(cCtx, x, y, size, shape, color, isBoss=false, spriteId=null) {
     cCtx.fillStyle = color; cCtx.beginPath();
     if(isBoss) { for(let i=0; i<8; i++){ let a = i * Math.PI / 4 + Math.PI/8; if(i===0) cCtx.moveTo(x+Math.cos(a)*size, y+Math.sin(a)*size); else cCtx.lineTo(x+Math.cos(a)*size, y+Math.sin(a)*size); } } 
@@ -8445,6 +9763,7 @@ function draw() {
         else if (p.type === 'nucleon_puddle') { ctx.fillStyle = `rgba(46, 204, 113, 0.5)`; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); }
         else { ctx.fillStyle = `rgba(231, 76, 60, ${0.4 * (p.life/4)})`; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); }
     });
+    graffitMarks.forEach(m => drawGraffitMark(ctx, m));
     xpGems.forEach(g => { ctx.fillStyle = g.val > 10 ? '#3498db' : '#2ecc71'; ctx.beginPath(); ctx.arc(g.x, g.y, g.val>10?6:4, 0, Math.PI*2); ctx.fill(); });
     if((player.weapon === 'flex_hammer' && player.flexTimer && player.flexTimer > 0) || (player.flameTimer && player.flameTimer > 0)) {
         let angle = player.lastMoveAngle;
@@ -8740,6 +10059,34 @@ function draw() {
             ctx.stroke();
             ctx.restore();
         }
+        else if(p.type === 'graffit_can') {
+            const canColor = p.extra?.sprayColor || '#ff7ad9';
+            const spin = Number.isFinite(p.extra?.spin) ? p.extra.spin : 0;
+            ctx.save();
+            ctx.translate(px, py);
+            ctx.rotate(Math.atan2(p.vy, p.vx) + Math.sin((gameTime || 0) * 14 + spin) * 0.08);
+            ctx.shadowBlur = 16;
+            ctx.shadowColor = canColor;
+            const bodyGrad = ctx.createLinearGradient(-10, -7, 10, 7);
+            bodyGrad.addColorStop(0, '#6d7380');
+            bodyGrad.addColorStop(0.45, '#2b2f36');
+            bodyGrad.addColorStop(1, '#101318');
+            ctx.fillStyle = bodyGrad;
+            ctx.fillRect(-9, -6, 18, 12);
+            ctx.fillStyle = canColor;
+            ctx.fillRect(-6, -3, 12, 6);
+            ctx.fillStyle = '#f5f6fa';
+            ctx.fillRect(-8, -5, 16, 1.8);
+            ctx.beginPath();
+            ctx.arc(6, 0, 3.2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#1b1f27';
+            ctx.fillRect(3, -1, 8, 2);
+            ctx.strokeStyle = '#0b0d12';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(-9, -6, 18, 12);
+            ctx.restore();
+        }
         else if(p.type === 'lunch_mix') { drawLunchSauceProjectile(ctx, p, LUNCH_SAUCE_STATS.mix); }
         else if(p.type === 'lunch_sauce' || p.type === 'lunch_ketchup' || p.type === 'lunch_mayo' || p.type === 'lunch_mustard') { drawLunchSauceProjectile(ctx, p, LUNCH_SAUCE_STATS[p.extra?.sauceType || 'ketchup']); }
         else if(p.type === 'chess_piece') { ctx.fillStyle = '#fff'; ctx.font = '20px Arial'; let icon = '♙'; if(p.extra.chessType==='king') icon='♔'; if(p.extra.chessType==='queen') icon='♕'; if(p.extra.chessType==='rook') icon='♖'; if(p.extra.chessType==='bishop') icon='♗'; if(p.extra.chessType==='knight') icon='♘'; ctx.fillText(icon, p.x-8, p.y+8); }
@@ -8888,27 +10235,13 @@ function updateGameHud() {
 function gameOver(isQuit) {
     isPlaying = false; cancelAnimationFrame(gameLoopId); joyZone.style.display = 'none'; document.getElementById('btn-special').style.display = 'none';
 
-    const medalsThisRun = isQuit ? 0 : Math.max(0, Math.floor(Number(pd.run?.medals) || 0));
-    const coinsThisRun = isQuit ? 0 : Math.max(0, Math.floor(Number(runCoins) || 0));
-    const gemsThisRun = isQuit ? 0 : Math.max(0, Math.floor(Number(runGems) || 0));
-    const scrapThisRun = isQuit ? 0 : Math.max(0, Math.floor(Number(runScrap) || 0));
+    const medalsThisRun = Math.max(0, Math.floor(Number(pd.run?.medals) || 0));
 
-    if (isQuit) {
-        bankRunMedals({ quit: true });
-        runCoins = 0;
-        runGems = 0;
-        runScrap = 0;
-        runMedals = 0;
-    } else {
-        bankRunMedals({ quit: false });
-    }
+    if (isQuit) bankRunMedals({ quit: true });
+    else bankRunMedals({ quit: false });
 
     let passXpGained = 0; let winText = "Vitória Diária: Cancelada (Quit)";
     if(!isQuit) {
-        pd.coins += coinsThisRun;
-        pd.gems += gemsThisRun;
-        pd.sucatas += scrapThisRun;
-        pd.missions.coins += coinsThisRun;
         awardAchievementStat('wins', 1);
         if (window.isHardcoreMode) awardAchievementStat('hardcoreWins', 1);
         if (pd.settings.ultraHardcore) awardAchievementStat('uhcWins', 1);
@@ -8933,15 +10266,16 @@ function gameOver(isQuit) {
             startGachaQueue(q);
         } else { winText = `Vitória Diária: Limite Atingido (${maxWins}/${maxWins})`; }
     }
+    pd.missions.coins += runCoins || 0;
     pd.achievements.stats.bestWave = Math.max(Number(pd.achievements?.stats?.bestWave) || 0, Math.max(0, wave));
     save();
 
     document.getElementById('go-wave').innerHTML = `Waves Sobrevividas: ${wave}`; 
     document.getElementById('go-xp').innerHTML = `XP do Passe Ganho: ${passXpGained} 🎫`; 
-    document.getElementById('go-coins').innerHTML = `🪙 Moedas obtidas: <strong>${coinsThisRun}</strong>`;
-    document.getElementById('go-gems').innerHTML = `💎 Gemas obtidas: <strong>${gemsThisRun}</strong>`;
-    document.getElementById('go-scrap').innerHTML = `🔩 Sucatas obtidas: <strong>${scrapThisRun}</strong>`;
-    document.getElementById('go-medals').innerHTML = `🏅 Medalhas obtidas: <strong>${medalsThisRun}</strong>`;
+    document.getElementById('go-coins').innerHTML = `🪙 Moedas obtidas: <strong>${runCoins || 0}</strong>`;
+    document.getElementById('go-gems').innerHTML = `💎 Gemas obtidas: <strong>${runGems || 0}</strong>`;
+    document.getElementById('go-scrap').innerHTML = `🔩 Sucatas obtidas: <strong>${runScrap || 0}</strong>`;
+    document.getElementById('go-medals').innerHTML = `🏅 Medalhas obtidas: <strong>${medalsThisRun || 0}</strong>`;
     document.getElementById('go-daily').innerHTML = winText;
     document.getElementById('overlay-gameover').classList.remove('hidden'); document.getElementById('game-hud').classList.add('hidden'); document.getElementById('exp-bar-container').classList.add('hidden');
 }
@@ -8950,12 +10284,14 @@ let runCoins = 0; let runGems = 0; let runScrap = 0; let runMedals = 0;
 function returnToMenu() { document.getElementById('overlay-gameover').classList.add('hidden'); showScreen('screen-main'); playMusic('menu'); ctx.clearRect(0, 0, cw, ch); joyZone.style.display='none'; const dpad = document.getElementById('dpad-zone'); if(dpad) dpad.style.display='none'; }
 try {
     load();
+    updateOrientationGate();
 } catch (e) {
     console.error('Falha na inicialização do save:', e);
     updateUI();
     updateSettingsUI();
     updateNicknameDisplay();
     showScreen('screen-main');
+    updateOrientationGate();
 }
 checkChipCrafting();
 setInterval(() => { checkChipCrafting(); if(!document.getElementById('screen-trail')?.classList.contains('hidden')) renderTrail(); }, 1000);
