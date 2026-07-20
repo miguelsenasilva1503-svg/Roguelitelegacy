@@ -1227,31 +1227,31 @@
         -webkit-user-drag: none;
     }
     .event-hero-card .char-sprite {
-        width: 92px;
-        height: 92px;
+        width: 128px;
+        height: 128px;
     }
     .event-mission-head .char-sprite {
-        width: 82px;
-        height: 82px;
-    }
-    .promo-offer-card .char-sprite {
         width: 118px;
         height: 118px;
+    }
+    .promo-offer-card .char-sprite {
+        width: 160px;
+        height: 160px;
         margin: 0 auto 8px;
     }
     .shop-char-sprite {
-        width: 88px;
-        height: 88px;
+        width: 124px;
+        height: 124px;
         margin: 0 auto 10px;
     }
     .gacha-drop-sprite {
-        width: 76px;
-        height: 76px;
+        width: 108px;
+        height: 108px;
         border-radius: 22px;
         margin: 0;
     }
     .char-sprite--shiv {
-        transform: scale(0.84);
+        transform: scale(0.76);
         transform-origin: center;
     }
 
@@ -9834,8 +9834,8 @@ function drawShape(cCtx, x, y, size, shape, color, isBoss=false, spriteId=null) 
     const sprite = spriteId ? getSpriteImage(spriteId) : null;
     if (sprite && sprite.complete && sprite.naturalWidth > 0) {
         const resolvedId = getCharacterSpriteId(spriteId);
-        const spriteW = size * (resolvedId === 'shiv' ? 1.88 : 2.2);
-        const spriteH = size * (resolvedId === 'shiv' ? 1.03 : 1.2);
+        const spriteW = size * (resolvedId === 'shiv' ? 2.35 : 3.2);
+        const spriteH = size * (resolvedId === 'shiv' ? 1.28 : 1.75);
         cCtx.drawImage(sprite, x - spriteW / 2, y - spriteH / 2, spriteW, spriteH);
         return;
     }
