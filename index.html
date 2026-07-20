@@ -257,6 +257,37 @@
         border-radius: 999px;
         margin-top: auto;
     }
+
+    .char-sprite, .promo-sprite, .detail-sprite img, .event-sprite {
+        display: block;
+        object-fit: contain;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        filter: drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+        user-select: none;
+        pointer-events: none;
+    }
+    .char-sprite { width: 140px; height: 76px; margin: 0 auto 12px; }
+    .char-sprite--menu { width: 154px; height: 84px; }
+    .char-sprite--detail { width: 300px; height: 165px; margin: 0 auto 10px; }
+    .char-sprite--hero { width: 170px; height: 94px; }
+    .char-sprite--promo { width: 168px; height: 92px; }
+    .char-sprite--shiv { width: 122px; height: 66px; }
+    .promo-sprite { width: 168px; height: 92px; }
+    .promo-sprite--shiv { width: 126px; height: 68px; }
+    .detail-sprite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 150px;
+        margin: 0 0 10px;
+    }
+    .detail-sprite.hidden { display: none; }
+    .detail-sprite img { width: 300px; height: 165px; }
+    .event-sprite { width: 170px; height: 94px; }
+    .event-sprite--hero { width: 180px; height: 100px; }
     .trail-card .card-footer { justify-content: flex-start; }
 
     #joystick-zone { position: absolute; bottom: 30px; left: 30px; width: 120px; height: 120px; background: rgba(0,0,128,0.2); border-radius: 50%; z-index: 5; display: none; touch-action: none; border: 3px solid rgba(0,0,128,0.4); }
@@ -1215,46 +1246,6 @@
         font-weight: 900;
         min-height: 44px;
     }
-    .char-sprite {
-        display: block;
-        object-fit: contain;
-        object-position: center;
-        background: transparent;
-        border: 0;
-        filter: drop-shadow(0 7px 12px rgba(0,0,0,0.28));
-        flex: 0 0 auto;
-        user-select: none;
-        -webkit-user-drag: none;
-    }
-    .event-hero-card .char-sprite {
-        width: 128px;
-        height: 128px;
-    }
-    .event-mission-head .char-sprite {
-        width: 118px;
-        height: 118px;
-    }
-    .promo-offer-card .char-sprite {
-        width: 160px;
-        height: 160px;
-        margin: 0 auto 8px;
-    }
-    .shop-char-sprite {
-        width: 124px;
-        height: 124px;
-        margin: 0 auto 10px;
-    }
-    .gacha-drop-sprite {
-        width: 108px;
-        height: 108px;
-        border-radius: 22px;
-        margin: 0;
-    }
-    .char-sprite--shiv {
-        transform: scale(0.76);
-        transform-origin: center;
-    }
-
     .event-major-icon,
     .event-graffit-ball,
     .promo-offer-ball {
@@ -1833,6 +1824,7 @@
         <h1 id="detail-name" style="margin:0 0 5px 0; font-size: 45px;">Name</h1>
         <div id="detail-class" style="color:#aaa; font-weight:bold; font-size:16px; margin-bottom:15px; text-transform:uppercase;">Classe</div>
         <div id="detail-title" style="color: var(--btn-yellow); font-size: 15px; font-weight: 900; margin-bottom: 14px; min-height: 20px;"></div>
+        <div id="detail-sprite" class="detail-sprite hidden"></div>
         
         <div class="char-detail-box">
             <table class="char-table">
@@ -1973,7 +1965,7 @@
         <h3>Major Briggs</h3>
         <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
             <div class="event-hero-card">
-                <img class="char-sprite" src="sprites/major_briggs.png" alt="Major Briggs" aria-hidden="true">
+                <div class="event-major-icon" aria-hidden="true"></div>
                 <div>
                     <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Major Briggs</h4>
                     <p style="margin:6px 0 0; color:#d9e2ea;">20 missões não entrelaçadas. Fez, conta.</p>
@@ -1989,7 +1981,7 @@
         <h3>Graffit</h3>
         <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
             <div class="event-hero-card">
-                <img class="char-sprite" src="sprites/graffit.png" alt="Graffit" aria-hidden="true">
+                <div class="event-graffit-ball" aria-hidden="true"></div>
                 <div>
                     <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Graffit</h4>
                     <p style="margin:6px 0 0; color:#d9e2ea;">22 missões não entrelaçadas. Fez, conta.</p>
@@ -2858,7 +2850,6 @@ function getGachaRewardRenderData(rawText) {
             rarity,
             rarityLabel,
             ballColor: char?.color || '#8e44ad',
-            id: char?.id || null,
             title: 'Novo personagem',
             amount: 'Desbloqueado'
         };
@@ -2885,9 +2876,9 @@ function getGachaRewardRenderData(rawText) {
 function renderGachaRevealHtml(rawText) {
     const data = getGachaRewardRenderData(rawText);
     if (data.type === 'char') {
-        const sprite = data.id ? renderCharacterSprite(data.id, 'gacha-drop-sprite', data.name) : '';
+        const ballStyle = data.ballColor ? ` style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 48%), ${data.ballColor};"` : '';
         return `<div class="gacha-drop-card gacha-drop-card-char">
-            ${sprite}
+            <div class="gacha-drop-ball"${ballStyle}></div>
             <div class="gacha-drop-body">
                 <div class="gacha-drop-title">${escapeHtmlText(data.title)}</div>
                 <div class="gacha-drop-name">${escapeHtmlText(decodeHtmlEntities(data.name))}</div>
@@ -3405,13 +3396,73 @@ const CHARACTER_TITLES = {
     eel: 'Chocado',
     flex: 'Fio desencapado',
     kaisen: 'Monitoramento familiar',
-    graffit: 'Vândalo',
     vampyrus: 'Sangue-suga',
     cybertron: '100% máquina',
     frost: '"Você quer brincar na neve?"',
     yeti: 'Avalanche',
     echo: 'Abridor de fraturas'
 };
+
+
+const CHARACTER_SPRITES = {
+    strike: 'sprites/strike.png',
+    fasty: 'sprites/fasty.png',
+    cherry: 'sprites/cherry.png',
+    bold: 'sprites/bold.png',
+    kayo: 'sprites/kayo.png',
+    bombman: 'sprites/bombeiro.png',
+    power: 'sprites/pow.png',
+    grenade: 'sprites/grenade.png',
+    vesper: 'sprites/vesper.png',
+    shiv: 'sprites/shiv.png',
+    critik: 'sprites/critik.png',
+    tenent: 'sprites/tenent.png',
+    healy: 'sprites/healy.png',
+    rex: 'sprites/rex.png',
+    necro: 'sprites/necro.png',
+    goo: 'sprites/goo.png',
+    plasma: 'sprites/plasma.png',
+    meekah: 'sprites/meekah.png',
+    owen: 'sprites/owen.png',
+    robin: 'sprites/robin.png'
+};
+
+const CHARACTER_SPRITE_CACHE = new Map();
+function getCharacterSpritePath(id) {
+    return CHARACTER_SPRITES[id] || '';
+}
+function getCharacterSpriteMarkup(id, variant = 'menu') {
+    const path = getCharacterSpritePath(id);
+    if (!path) return '';
+    const variantClass = variant === 'detail' ? 'detail' : (variant === 'hero' ? 'hero' : (variant === 'promo' ? 'promo' : 'menu'));
+    const smallClass = id === 'shiv' ? ' char-sprite--shiv' : '';
+    return `<img class="char-sprite char-sprite--${variantClass}${smallClass}" src="${path}" alt="" aria-hidden="true">`;
+}
+function getCharacterSpriteImage(id) {
+    const path = getCharacterSpritePath(id);
+    if (!path) return null;
+    if (!CHARACTER_SPRITE_CACHE.has(id)) {
+        const img = new Image();
+        img.src = path;
+        CHARACTER_SPRITE_CACHE.set(id, img);
+    }
+    return CHARACTER_SPRITE_CACHE.get(id);
+}
+function drawCharacterSprite(cCtx, x, y, size, spriteId, opts = {}) {
+    const img = getCharacterSpriteImage(spriteId);
+    if (!img || !img.complete || !img.naturalWidth) return false;
+    const ratio = img.naturalWidth / img.naturalHeight;
+    const scale = Number.isFinite(opts.scale) ? opts.scale : 1;
+    const widthMult = Number.isFinite(opts.widthMult) ? opts.widthMult : 8.0;
+    const spriteScale = (spriteId === 'shiv' ? 0.82 : 1) * scale;
+    const w = Math.max(24, size * widthMult * spriteScale);
+    const h = w / ratio;
+    cCtx.save();
+    if (Number.isFinite(opts.opacity)) cCtx.globalAlpha = opts.opacity;
+    cCtx.drawImage(img, x - w / 2, y - h / 2, w, h);
+    cCtx.restore();
+    return true;
+}
 
 const CHARACTER_TITLE_THRESHOLD = 275;
 
@@ -3625,26 +3676,6 @@ function syncCharacterProgressState() {
 
 function getTitleLabel(charId) {
     return CHARACTER_TITLES[charId] || '';
-}
-
-const CHARACTER_SPRITE_ALIASES = {
-    major: 'major_briggs',
-};
-const CHARACTER_SPRITE_IDS = new Set([
-    'strike','fasty','cherry','bold','kayo','bombeiro','pow','grenade','vesper','shiv','critik','tenent','healy','rex','necro','goo','plasma','meekah','owen','robin','major_briggs','graffit'
-]);
-function getCharacterSpriteId(charId) {
-    return CHARACTER_SPRITE_ALIASES[charId] || charId;
-}
-function canUseCharacterSprite(charId) {
-    const spriteId = getCharacterSpriteId(charId);
-    return CHARACTER_SPRITE_IDS.has(spriteId) || CHARACTER_SPRITE_IDS.has(charId) || spriteId === charId;
-}
-function renderCharacterSprite(charId, className = '', altText = '') {
-    const spriteId = getCharacterSpriteId(charId);
-    const alt = altText || (CHARACTERS[charId]?.name || charId || 'personagem');
-    const extraClass = charId === 'shiv' ? ' char-sprite--shiv' : '';
-    return `<img class="char-sprite${extraClass}${className ? ' ' + className : ''}" src="sprites/${spriteId}.png" alt="${escapeHtmlText(decodeHtmlEntities(alt))}">`;
 }
 
 function getUnlockedTitles() {
@@ -4540,7 +4571,7 @@ function renderEventMissionCard(sectionId, mission) {
     const ballClass = getEventBallClass(sectionId);
     return `<div class="mission-card event-mission-card ${done ? 'event-mission-done' : 'event-mission-lock'} ${done ? 'completed' : ''}">
         <div class="event-mission-head">
-            ${renderCharacterSprite(sectionId, "gacha-drop-sprite", sectionId === "major" ? "Major Briggs" : "Graffit")}
+            <div class="${ballClass}" aria-hidden="true"></div>
             <div class="event-mission-copy">
                 <div class="mission-title">${escapeHtmlText(decodeHtmlEntities(mission.title))}</div>
                 <div class="mission-desc">${escapeHtmlText(decodeHtmlEntities(mission.desc))}</div>
@@ -4568,7 +4599,11 @@ function darkenHexColor(hex, factor = 0.28) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 function renderPromoBall(promo) {
-    return renderCharacterSprite(promo.id, 'gacha-drop-sprite', promo.label);
+    const sprite = getCharacterSpriteMarkup(promo.id, 'promo');
+    if (sprite) return sprite;
+    const ballColor = getPromoBallColor(promo);
+    const darker = darkenHexColor(ballColor, 0.36);
+    return `<div class="promo-offer-ball" style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.10) 48%), linear-gradient(180deg, ${ballColor}, ${darker});"></div>`;
 }
 function renderEventPromoOfferCard(promo, mode) {
     const c = CHARACTERS[promo.id];
@@ -4577,10 +4612,10 @@ function renderEventPromoOfferCard(promo, mode) {
     const currentLevel = Number(pd.chars?.[promo.id]?.level) || 0;
     if (owned) return '';
     if (mode === 'level8' && currentLevel >= 8) return '';
-    const ball = renderPromoBall(promo);
+    const art = getCharacterSpriteMarkup(promo.id, 'promo') || renderPromoBall(promo);
     if (mode === 'level8') {
         return `<div class="card-item rarity-${promo.rarity} promo-offer-card">
-            ${ball}
+            ${art}
             <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))} Lv. 8</div>
             <div class="promo-offer-sub">Já vem no nível máximo.</div>
             <div class="promo-offer-price"><span class="promo-offer-new">${promo.level8Cost} gemas</span></div>
@@ -4588,7 +4623,7 @@ function renderEventPromoOfferCard(promo, mode) {
         </div>`;
     }
     return `<div class="card-item rarity-${promo.rarity} promo-offer-card">
-        ${ball}
+        ${art}
         <div class="promo-offer-title">${escapeHtmlText(decodeHtmlEntities(promo.label))}</div>
         <div class="promo-offer-sub">Oferta normal do evento.</div>
         <div class="promo-offer-price"><span class="promo-offer-old">${promo.oldCost} gemas</span><span class="promo-offer-new">${promo.promoCost} gemas</span></div>
@@ -5293,7 +5328,7 @@ let sort = document.getElementById('char-filter-sort') ? document.getElementById
         const owned = !!pd.chars[c.id]; const lvl = owned ? pd.chars[c.id].level : 0; const isSel = pd.selectedChar === c.id;
         const div = document.createElement('div'); div.className = `card-item rarity-${c.rarity}`; div.style.cursor = 'pointer'; if(isSel) div.style.borderColor = 'var(--btn-green)';
         let banTag = bannedSet.has(c.id) ? `<div style="position:absolute;top:5px;right:5px;font-size:24px;">🚫</div>` : '';
-        let hasSprite = renderCharacterSprite(c.id, 'shop-char-sprite', c.name);
+        let hasSprite = getCharacterSpriteMarkup(c.id, 'menu') || `<div style="width:78px;height:78px;background:${c.color};border-radius:50%;margin:0 auto 10px;border:3px solid #fff;"></div>`;
         let html = `${banTag}${hasSprite}<h4>${c.name}</h4><div style="font-size:12px;color:#aaa">${c.class}</div>`;
         if(owned) {
             const medals = pd.chars[c.id]?.medals || { total: 0, run: 0 };
@@ -5380,6 +5415,12 @@ function showCharDetail(id) {
             const titleText = getTitleLabel(id);
             titleEl.innerHTML = titleText ? `🏷️ ${escapeHtmlText(titleText)}` : '';
             titleEl.style.display = titleText ? 'block' : 'none';
+        }
+        const detailSpriteEl = document.getElementById('detail-sprite');
+        if (detailSpriteEl) {
+            const spriteMarkup = getCharacterSpriteMarkup(id, 'detail');
+            detailSpriteEl.innerHTML = spriteMarkup;
+            detailSpriteEl.classList.toggle('hidden', !spriteMarkup);
         }
 
         document.getElementById('detail-dmg').innerHTML = `${Math.floor(displayDmg * statMult)}${bonusDmg > 0 ? ` <span style="color:var(--btn-green)">(+${Math.floor(bonusDmg)})</span>` : ""}`;
@@ -5830,7 +5871,7 @@ function renderShop() {
         shopChars.forEach(c => {
             const div = document.createElement('div');
             div.className = `card-item rarity-${c.rarity}`;
-            let hasSprite = renderCharacterSprite(c.id, 'shop-char-sprite', c.name);
+            let hasSprite = `<div style="width:40px;height:40px;background:${c.color};border-radius:50%;margin:0 auto; border:3px solid #fff;"></div>`;
             div.innerHTML = `${hasSprite}<h5>${c.name}</h5><button style="padding:5px;font-size:12px;background:var(--gem)" type="button" onclick="event.stopPropagation(); buyChar('${c.id}')">💎 ${c.cost}</button>`;
             charList.appendChild(div);
         });
@@ -9815,28 +9856,9 @@ function updateGraffitMarks(dt) {
     }
 }
 
-const SPRITE_IMAGE_CACHE = new Map();
-function getSpriteImage(spriteId) {
-    if (!spriteId) return null;
-    const resolvedId = getCharacterSpriteId(spriteId);
-    if (!resolvedId) return null;
-    let img = SPRITE_IMAGE_CACHE.get(resolvedId);
-    if (!img) {
-        img = new Image();
-        img.decoding = 'async';
-        img.src = `sprites/${resolvedId}.png`;
-        SPRITE_IMAGE_CACHE.set(resolvedId, img);
-    }
-    return img;
-}
-
 function drawShape(cCtx, x, y, size, shape, color, isBoss=false, spriteId=null) {
-    const sprite = spriteId ? getSpriteImage(spriteId) : null;
-    if (sprite && sprite.complete && sprite.naturalWidth > 0) {
-        const resolvedId = getCharacterSpriteId(spriteId);
-        const spriteW = size * (resolvedId === 'shiv' ? 2.35 : 3.2);
-        const spriteH = size * (resolvedId === 'shiv' ? 1.28 : 1.75);
-        cCtx.drawImage(sprite, x - spriteW / 2, y - spriteH / 2, spriteW, spriteH);
+    if (spriteId && getCharacterSpriteImage(spriteId) && getCharacterSpriteImage(spriteId).complete && getCharacterSpriteImage(spriteId).naturalWidth) {
+        drawCharacterSprite(cCtx, x, y, size, spriteId, { widthMult: 9.5 });
         return;
     }
     cCtx.fillStyle = color; cCtx.beginPath();
@@ -9960,9 +9982,7 @@ function draw() {
         } else if (a.gooClone) {
             const hpRatio = Math.max(0, Math.min(1, (a.hp || 1) / (a.cloneMaxHp || a.maxHp || 1)));
             const rr = a.r || 14;
-            ctx.fillStyle = '#00b894'; ctx.beginPath(); ctx.arc(a.x, a.y, rr, 0, Math.PI*2); ctx.fill();
-            ctx.strokeStyle = '#0a3d2f'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(a.x, a.y, rr, 0, Math.PI*2); ctx.stroke();
-            ctx.fillStyle = 'rgba(255,255,255,0.22)'; ctx.beginPath(); ctx.arc(a.x - rr*0.25, a.y - rr*0.28, rr*0.38, 0, Math.PI*2); ctx.fill();
+            drawShape(ctx, a.x, a.y, rr, 'circle', '#00b894', false, 'goo');
             ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(a.x - rr, a.y - rr - 13, rr*2, 4); ctx.fillStyle = '#2ecc71'; ctx.fillRect(a.x - rr, a.y - rr - 13, rr*2*hpRatio, 4);
         } else if (a.type === 'heal_aura') { 
             ctx.fillStyle = 'rgba(46, 204, 113, 0.3)'; ctx.beginPath(); ctx.arc(a.x, a.y, 40, 0, Math.PI*2); ctx.fill(); 
