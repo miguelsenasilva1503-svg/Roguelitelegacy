@@ -658,51 +658,6 @@
     .title-picker-none {
         background: rgba(127,140,141,0.25);
     }
-
-    .account-transfer-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        flex: 1;
-        overflow: hidden;
-    }
-    .account-transfer-section {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.10);
-        border-radius: 16px;
-        padding: 12px;
-    }
-    .account-transfer-section h3 {
-        margin: 0 0 10px 0;
-        font-size: 16px;
-        color: var(--btn-yellow);
-        text-align: left;
-    }
-    .account-code-area {
-        width: 100%;
-        min-height: 132px;
-        resize: vertical;
-        border-radius: 14px;
-        border: 2px solid rgba(255,255,255,0.14);
-        background: rgba(0,0,0,0.35);
-        color: #fff;
-        font-family: monospace;
-        font-size: 13px;
-        line-height: 1.35;
-        padding: 12px;
-        outline: none;
-    }
-    .account-code-area:focus {
-        border-color: var(--btn-yellow);
-        box-shadow: 0 0 0 2px rgba(241,196,15,0.12);
-    }
-    .account-transfer-actions {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 8px;
-    }
     .summary-term {
         font-weight: 900;
         cursor: pointer;
@@ -1583,32 +1538,6 @@
     </div>
 </div>
 
-<div id="overlay-account-transfer" class="overlay hidden" style="z-index: 9997;">
-    <div class="popup-box" style="max-width: 860px; width: 94%; max-height: 88vh; overflow: hidden; display: flex; flex-direction: column;">
-        <h2 id="account-transfer-title" style="color: var(--btn-green); margin-bottom: 4px;">Importar / Exportar Conta</h2>
-        <p id="account-transfer-desc" style="color: #ddd; font-size: 14px; margin: 0 0 10px 0;">Exporte sua conta em um código grande ou cole um código para restaurar tudo.</p>
-        <div class="account-transfer-wrap">
-            <div id="account-export-panel" class="account-transfer-section">
-                <h3>Exportar conta</h3>
-                <textarea id="account-export-box" class="account-code-area" readonly></textarea>
-                <div class="account-transfer-actions">
-                    <button class="btn-action" style="min-width: 200px;" onclick="copyAccountCode()">Copiar código</button>
-                    <button class="btn-menu" style="min-width: 200px;" onclick="refreshExportAccountCode()">Gerar outro código</button>
-                    <button class="btn-menu" style="min-width: 200px;" onclick="closeAccountTransfer()">Voltar</button>
-                </div>
-            </div>
-            <div id="account-import-panel" class="account-transfer-section hidden">
-                <h3>Importar conta</h3>
-                <textarea id="account-import-box" class="account-code-area" placeholder="Cole aqui o código exportado"></textarea>
-                <div class="account-transfer-actions">
-                    <button class="btn-action" style="min-width: 200px;" onclick="importAccountFromBox()">Carregar conta</button>
-                    <button class="btn-menu" style="min-width: 200px;" onclick="closeAccountTransfer()">Voltar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="screen-main" class="screen">
     <button class="btn-top-corner btn-profile" onclick="openProfile()">👤 Perfil</button>
     <button class="btn-top-corner btn-settings" onclick="showScreen('screen-settings')">⚙️ Config</button>
@@ -1768,8 +1697,6 @@
         <div class="settings-section">
             <div class="settings-section-title">Conta</div>
             <div class="settings-grid">
-                <button class="btn-menu settings-option" style="background:#16a085; border-color:#1abc9c !important;" onclick="openAccountTransfer('export')">📤 Exportar Conta</button>
-                <button class="btn-menu settings-option" style="background:#2980b9; border-color:#3498db !important;" onclick="openAccountTransfer('import')">📥 Importar Conta</button>
             </div>
         </div>
 
@@ -1948,7 +1875,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="screen-event" class="screen scrollable hidden">
     <button class="btn-top-corner btn-back" onclick="showScreen('screen-main')">⬅️ Voltar</button>
@@ -2751,7 +2677,6 @@ function renderChipCraftingPanel() {
         </div>`;
 }
 
-
 const CARDS = [
     { id: 'dmg', name: '+10% Dano', desc: 'Aumenta o dano base', apply: (s) => s.dmgMult += 0.1 },
     { id: 'hp', name: '+15% Vida M&aacute;x', desc: 'Aumenta vida m&aacute;xima', apply: (s) => { s.maxHpMult += 0.15; player.hp += player.baseHp * 0.15; } },
@@ -3403,7 +3328,6 @@ const CHARACTER_TITLES = {
     echo: 'Abridor de fraturas'
 };
 
-
 const CHARACTER_SPRITES = {
     strike: 'sprites/strike.png',
     fasty: 'sprites/fasty.png',
@@ -3457,9 +3381,16 @@ function drawCharacterSprite(cCtx, x, y, size, spriteId, opts = {}) {
     const spriteScale = (spriteId === 'shiv' ? 0.82 : 1) * scale;
     const w = Math.max(24, size * widthMult * spriteScale);
     const h = w / ratio;
+    const flipX = Boolean(opts.flipX || (opts.autoFlip && playerFacingLeft));
     cCtx.save();
     if (Number.isFinite(opts.opacity)) cCtx.globalAlpha = opts.opacity;
-    cCtx.drawImage(img, x - w / 2, y - h / 2, w, h);
+    if (flipX) {
+        cCtx.translate(x, y);
+        cCtx.scale(-1, 1);
+        cCtx.drawImage(img, -w / 2, -h / 2, w, h);
+    } else {
+        cCtx.drawImage(img, x - w / 2, y - h / 2, w, h);
+    }
     cCtx.restore();
     return true;
 }
@@ -3530,10 +3461,6 @@ function highlightSummaryText(text, excludeTerms = []) {
     result += escapeHtmlText(raw.slice(lastIndex));
     return result;
 }
-
-
-
-
 
 function renderLunchSummary(text) {
     const raw = decodeHtmlEntities(String(text || '')).replace(/\r\n/g, '\n');
@@ -3781,130 +3708,6 @@ function makeAccountExportPayload() {
     };
 }
 
-function exportAccountCode() {
-    try {
-        return ACCOUNT_BACKUP_PREFIX + base64UrlEncodeString(JSON.stringify(makeAccountExportPayload()));
-    } catch (e) {
-        console.warn('Falha ao exportar conta:', e);
-        return '';
-    }
-}
-
-function refreshExportAccountCode() {
-    const box = document.getElementById('account-export-box');
-    if (!box) return;
-    const code = exportAccountCode();
-    box.value = code || 'Erro ao gerar o código da conta.';
-    box.focus();
-    box.select();
-    if (navigator.clipboard && code) {
-        navigator.clipboard.writeText(code).catch(() => {});
-    }
-}
-
-function openAccountTransfer(mode = 'export') {
-    const overlay = document.getElementById('overlay-account-transfer');
-    const exportPanel = document.getElementById('account-export-panel');
-    const importPanel = document.getElementById('account-import-panel');
-    const exportBox = document.getElementById('account-export-box');
-    const importBox = document.getElementById('account-import-box');
-    const title = document.getElementById('account-transfer-title');
-    const desc = document.getElementById('account-transfer-desc');
-    if (!overlay || !exportPanel || !importPanel || !exportBox || !importBox) return;
-
-    refreshExportAccountCode();
-    importBox.value = '';
-
-    const isImport = mode === 'import';
-    exportPanel.classList.toggle('hidden', isImport);
-    importPanel.classList.toggle('hidden', !isImport);
-
-    if (title) title.textContent = isImport ? 'Importar Conta' : 'Exportar Conta';
-    if (desc) desc.textContent = isImport
-        ? 'Cole o código da conta e toque em carregar para restaurar tudo. O sistema valida formato e checksum.'
-        : 'Copie o código abaixo para salvar a conta inteira e levar para outro dispositivo. Cada exportação sai com um código diferente.';
-
-    overlay.classList.remove('hidden');
-
-    setTimeout(() => {
-        if (isImport) {
-            importBox.focus();
-            importBox.select?.();
-        } else {
-            exportBox.focus();
-            exportBox.select?.();
-        }
-    }, 0);
-}
-
-function closeAccountTransfer() {
-    const overlay = document.getElementById('overlay-account-transfer');
-    if (overlay) overlay.classList.add('hidden');
-}
-
-function copyAccountCode() {
-    const box = document.getElementById('account-export-box');
-    if (!box) return;
-    const code = box.value.trim();
-    if (!code) {
-        showAlert('Nenhum código para copiar.');
-        return;
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(code).then(() => {
-            showAlert('Código copiado para a área de transferência.');
-        }).catch(() => {
-            box.focus();
-            box.select();
-            const ok = document.execCommand && document.execCommand('copy');
-            showAlert(ok ? 'Código copiado para a área de transferência.' : 'Não foi possível copiar automaticamente.');
-        });
-    } else {
-        box.focus();
-        box.select();
-        const ok = document.execCommand && document.execCommand('copy');
-        showAlert(ok ? 'Código copiado para a área de transferência.' : 'Não foi possível copiar automaticamente.');
-    }
-}
-
-function importAccountCode(input) {
-    const raw = String(input || '').trim();
-    if (!raw) {
-        showAlert('Cole um código válido para importar.');
-        return false;
-    }
-
-    try {
-        const payload = readAccountBackupPayload(raw);
-        const importedSave = extractSaveFromBackupPayload(payload);
-        const normalizedSave = normalizeSaveData(importedSave);
-
-        pd = normalizedSave;
-        safeStorageSet('rogueLegacySave', JSON.stringify(normalizedSave));
-        safeStorageSet('rogueLegacyBackup', JSON.stringify({
-            v: 2,
-            game: 'RogueliteLegacy',
-            exportedAt: Date.now(),
-            checksum: accountBackupChecksum(normalizedSave),
-            save: cloneAccountValue(normalizedSave)
-        }));
-        save();
-        closeAccountTransfer();
-        showScreen('screen-main');
-        showAlert('Conta importada com sucesso!');
-        return true;
-    } catch (e) {
-        console.warn('Falha ao importar conta:', e);
-        showAlert(e && e.message && /Checksum/i.test(e.message) ? 'Código alterado ou corrompido.' : 'Código inválido ou corrompido.');
-        return false;
-    }
-}
-
-function importAccountFromBox() {
-    const box = document.getElementById('account-import-box');
-    if (!box) return;
-    importAccountCode(box.value);
-}
 function equipTitle(titleId) {
     syncCharacterProgressState();
     if (titleId && (!CHARACTER_TITLES[titleId] || (pd.chars?.[titleId]?.medals?.total || 0) < CHARACTER_TITLE_THRESHOLD)) {
@@ -4047,7 +3850,6 @@ function renderProfile() {
 }
 
 function openProfile() {
-
 
     renderProfile();
     document.getElementById('overlay-profile')?.classList.remove('hidden');
@@ -4469,7 +4271,6 @@ function updateUI() {
 }
 checkChipCrafting();
 
-
 let currentEventSection = 'major';
 
 const EVENT_CHARACTER_PROGRESS = {
@@ -4760,8 +4561,6 @@ const WEEKLY_MISSION_TEMPLATES = [
     { kind: 'damage', label: (n, meta) => `Cause ${n} de dano com ${characterMissionName(meta.charId)}`, min: 30000, max: 90000, rewards: [{ type: 'box', kind: 'mega', amount: 1 }] }
 ];
 
-
-
 function enemyMissionName(type) {
     const map = {
         ninja: 'ninjas',
@@ -4980,7 +4779,6 @@ function getDailyRerollState() {
     if (typeof pd.missions.rerolls.used !== 'number' || !isFinite(pd.missions.rerolls.used)) pd.missions.rerolls.used = 0;
     return pd.missions.rerolls;
 }
-
 
 function getAchievementStats() {
     if (!pd.achievements || typeof pd.achievements !== 'object') pd.achievements = { stats: {}, claimed: [] };
@@ -5213,7 +5011,6 @@ function collectMissionReward(index) {
     showScreen('screen-pass');
     notify(`+${m.rewardXp} XP do Passe${overflowBoxes ? ` • +${overflowBoxes} caixa(s) acumulada(s)` : ''}`);
 }
-
 
 function rerollMission(index) {
     ensureMissionState();
@@ -5799,7 +5596,6 @@ function renderShop() {
         });
     }
 
-
     const renderBoxGrid = (targetId, type) => {
         const list = document.getElementById(targetId);
         if (!list) return;
@@ -5955,7 +5751,6 @@ function rollChip() {
     pd.chipsInventory[id] = (pd.chipsInventory[id] || 0) + 1;
     return `💽 Chip Encontrado: ${CHIPS_DATA[id].name}`;
 }
-
 
 function getOwnedCharacterIdsForMedals() {
     return Object.keys(pd.chars || {}).filter(id => !!pd.chars[id]);
@@ -6213,7 +6008,6 @@ function claimDailyReward() {
     let c = []; for(let i=0; i<pulls; i++) c.push(buildBoxDropItem(type)); q.push({ type: 'box', boxType: type, contents: c });
     save(); renderShop(); startGachaQueue(q);
 }
-
 
 const PASS_MAX_LEVEL = Number.MAX_SAFE_INTEGER;
 const PASS_XP_PER_TIER = 300;
@@ -6512,7 +6306,6 @@ function getShortCardText(text, maxLen = 120) {
     return raw.length > maxLen ? raw.slice(0, maxLen - 1).trim() + '…' : raw;
 }
 
-
 function renderPass() {
     maybeResetPassSeason();
     ensurePassSeed();
@@ -6552,7 +6345,6 @@ function renderPass() {
         futureList.innerHTML = nextCards.join('');
     }
 }
-
 
 function claimPass() {
     maybeResetPassSeason();
@@ -6694,7 +6486,6 @@ function renderTrail() {
     }
 }
 
-
 // GAME ENGINE
 const canvas = document.getElementById('gameCanvas'); const ctx = canvas.getContext('2d');
 let cw = canvas.width = window.innerWidth; let ch = canvas.height = window.innerHeight;
@@ -6704,6 +6495,7 @@ window.addEventListener('orientationchange', updateOrientationGate);
 let gameLoopId, isPlaying = false, isPaused = false;
 let camera = { x: 0, y: 0 }; let joyVec = { x: 0, y: 0 }; let keys = { w:false, a:false, s:false, d:false, ArrowUp:false, ArrowLeft:false, ArrowDown:false, ArrowRight:false };
 let inputState = { up:false, down:false, left:false, right:false, special:false, pause:false };
+let playerFacingLeft = false;
 let player, enemies, allies, projectiles, puddles, particles, xpGems, floatingTexts, obstacles, itemsMap;
 let caveVisionBursts;
 let graffitMarks = [];
@@ -7277,7 +7069,7 @@ function update(dt) {
 
     let dx = 0, dy = 0;
     if(inputState.up) dy -= 1; if(inputState.down) dy += 1; if(inputState.left) dx -= 1; if(inputState.right) dx += 1;
-    if(dx !== 0 || dy !== 0) { let len = Math.sqrt(dx*dx + dy*dy); dx /= len; dy /= len; player.lastMoveAngle = Math.atan2(dy, dx); } else if (joyVec.x !== 0 || joyVec.y !== 0) { dx = joyVec.x; dy = joyVec.y; player.lastMoveAngle = Math.atan2(dy, dx); }
+    if(dx !== 0 || dy !== 0) { let len = Math.sqrt(dx*dx + dy*dy); dx /= len; dy /= len; player.lastMoveAngle = Math.atan2(dy, dx); playerFacingLeft = dx < 0; } else if (joyVec.x !== 0 || joyVec.y !== 0) { dx = joyVec.x; dy = joyVec.y; player.lastMoveAngle = Math.atan2(dy, dx); if (dx !== 0) playerFacingLeft = dx < 0; }
 
     if(pd.selectedChar === 'seae') {
         if(player.seaePuddleCd > 0) player.seaePuddleCd -= dt;
@@ -8169,7 +7961,6 @@ function createProj(x, y, vx, vy, dmg, life, isPlayer, type, extra={}) {
     projectiles.push({ x, y, vx, vy, dmg, life, isPlayer, size, type, pierce, bounces, extra: { noHitFrames: 0, sourceChar: isPlayer ? (extra.sourceChar || pd.selectedChar) : extra.sourceChar, ...extra }, hitIds: new Set(), returnPhase: false, bounceCount: 0 });
 }
 
-
 function isCyberBombProjectile(p) {
     return p && p.type === 'bomb' && p.extra && (p.extra.bombKind === 'ice' || p.extra.bombKind === 'fire');
 }
@@ -8235,7 +8026,6 @@ function triggerLunchSauceMix(enemy, projectile, hitPoint = null) {
         particles.push({ x: centerX, y: centerY, r: 0, maxR: Math.max(26, radius * 0.28), type: 'expl', life: 0.35, color: LUNCH_SAUCE_STATS.mix.color });
     }
 }
-
 
 function registerLunchSauceHit(enemy, sauceType, projectile) {
     if (!enemy || !sauceType) return;
@@ -8343,7 +8133,6 @@ function drawLunchSauceProjectile(ctx, p, config) {
 
     ctx.restore();
 }
-
 
 function findEelRicochetTarget(sourceEnemy, sourceProjectile) {
     let best = null;
@@ -8466,7 +8255,6 @@ function applyEelShock(e, semi = false, dmg = 1, sourceX = null, sourceY = null,
 
     return true;
 }
-
 
 function getNearestEnemyFrom(x, y, maxDist = Infinity) {
     let target = null;
@@ -9858,7 +9646,7 @@ function updateGraffitMarks(dt) {
 
 function drawShape(cCtx, x, y, size, shape, color, isBoss=false, spriteId=null) {
     if (spriteId && getCharacterSpriteImage(spriteId) && getCharacterSpriteImage(spriteId).complete && getCharacterSpriteImage(spriteId).naturalWidth) {
-        drawCharacterSprite(cCtx, x, y, size, spriteId, { widthMult: 9.5 });
+        drawCharacterSprite(cCtx, x, y, size, spriteId, { widthMult: 10.2, autoFlip: true });
         return;
     }
     cCtx.fillStyle = color; cCtx.beginPath();
