@@ -1215,6 +1215,46 @@
         font-weight: 900;
         min-height: 44px;
     }
+    .char-sprite {
+        display: block;
+        object-fit: contain;
+        object-position: center;
+        background: transparent;
+        border: 0;
+        filter: drop-shadow(0 7px 12px rgba(0,0,0,0.28));
+        flex: 0 0 auto;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    .event-hero-card .char-sprite {
+        width: 92px;
+        height: 92px;
+    }
+    .event-mission-head .char-sprite {
+        width: 82px;
+        height: 82px;
+    }
+    .promo-offer-card .char-sprite {
+        width: 118px;
+        height: 118px;
+        margin: 0 auto 8px;
+    }
+    .shop-char-sprite {
+        width: 88px;
+        height: 88px;
+        margin: 0 auto 10px;
+    }
+    .gacha-drop-sprite {
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        margin: 0;
+    }
+    .char-sprite--shiv {
+        transform: scale(0.84);
+        transform-origin: center;
+    }
+
     .event-major-icon,
     .event-graffit-ball,
     .promo-offer-ball {
@@ -1290,6 +1330,56 @@
         font-size: 12px;
         line-height: 1.35;
         margin-top: 8px;
+    }
+    .promo-offer-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+    .promo-offer-title {
+        font-size: 20px;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.05;
+        text-shadow: 2px 2px 0 #000;
+        margin-top: 2px;
+    }
+    .promo-offer-sub {
+        font-size: 13px;
+        color: #d9e2ea;
+        line-height: 1.35;
+        min-height: 18px;
+    }
+    .promo-offer-price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 2px;
+    }
+    .promo-offer-old {
+        color: #cfd8dc;
+        font-size: 12px;
+        opacity: 0.82;
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: rgba(255,255,255,0.92);
+        text-underline-offset: 3px;
+    }
+    .promo-offer-new {
+        color: var(--btn-yellow);
+        font-weight: 900;
+        font-size: 16px;
+    }
+    .promo-offer-btn {
+        margin-top: auto;
+        width: 100%;
+        border-radius: 999px;
+        padding: 12px 14px;
+        font-size: 14px;
     }
     .emoji-nav-chars,
     .emoji-nav-shop,
@@ -1883,7 +1973,7 @@
         <h3>Major Briggs</h3>
         <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
             <div class="event-hero-card">
-                <div class="event-major-icon" aria-hidden="true"></div>
+                <img class="char-sprite" src="sprites/major_briggs.png" alt="Major Briggs" aria-hidden="true">
                 <div>
                     <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Major Briggs</h4>
                     <p style="margin:6px 0 0; color:#d9e2ea;">20 missões não entrelaçadas. Fez, conta.</p>
@@ -1899,7 +1989,7 @@
         <h3>Graffit</h3>
         <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:14px;">
             <div class="event-hero-card">
-                <div class="event-graffit-ball" aria-hidden="true"></div>
+                <img class="char-sprite" src="sprites/graffit.png" alt="Graffit" aria-hidden="true">
                 <div>
                     <h4 style="margin:0; font-size:22px; color:var(--btn-yellow);">Graffit</h4>
                     <p style="margin:6px 0 0; color:#d9e2ea;">22 missões não entrelaçadas. Fez, conta.</p>
@@ -2768,6 +2858,7 @@ function getGachaRewardRenderData(rawText) {
             rarity,
             rarityLabel,
             ballColor: char?.color || '#8e44ad',
+            id: char?.id || null,
             title: 'Novo personagem',
             amount: 'Desbloqueado'
         };
@@ -2794,9 +2885,9 @@ function getGachaRewardRenderData(rawText) {
 function renderGachaRevealHtml(rawText) {
     const data = getGachaRewardRenderData(rawText);
     if (data.type === 'char') {
-        const ballStyle = data.ballColor ? ` style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 48%), ${data.ballColor};"` : '';
+        const sprite = data.id ? renderCharacterSprite(data.id, 'gacha-drop-sprite', data.name) : '';
         return `<div class="gacha-drop-card gacha-drop-card-char">
-            <div class="gacha-drop-ball"${ballStyle}></div>
+            ${sprite}
             <div class="gacha-drop-body">
                 <div class="gacha-drop-title">${escapeHtmlText(data.title)}</div>
                 <div class="gacha-drop-name">${escapeHtmlText(decodeHtmlEntities(data.name))}</div>
@@ -2818,9 +2909,9 @@ const DEFAULT_KEYBINDS = { up: 'w', down: 's', left: 'a', right: 'd', special: '
 const DEFAULT_SETTINGS = { skipGacha: false, controlMode: 'auto', mobileControlLayout: 'joystick', ultraHardcore: false, uhcDark: false, noParticles: false, showCombatText: true, showHpBar: false, screenZoom: 1, musicVolume: 0.7, mapChoice: -1, keybinds: { ...DEFAULT_KEYBINDS } };
 
 const MUSIC_TRACKS = {
-    menu: 'soundtracks/legacy_awaits.mp3',
-    classic: 'soundtracks/roguish_journey.mp3',
-    hardcore: 'soundtracks/roguish_journey.mp3',
+    menu: 'soundtracks/street_awaits.mp3',
+    classic: 'soundtracks/bad_journey.mp3',
+    hardcore: 'soundtracks/bad_journey.mp3',
     ultraHardcore: 'soundtracks/fatal_finale.mp3'
 };
 
@@ -3283,7 +3374,9 @@ const CHARACTER_TITLES = {
     critik: 'Enferrujado',
     tenent: 'General',
     healy: 'Hora da vacina',
-    rex: 'Headshot',
+    rex: 'Parei família, é máfia!',
+    major_briggs: 'Colecionador nato',
+    graffit: 'Vândalo',
     necro: 'Necromancia',
     goo: 'Gosmento',
     ari: 'Minerador nato',
@@ -3312,7 +3405,7 @@ const CHARACTER_TITLES = {
     eel: 'Chocado',
     flex: 'Fio desencapado',
     kaisen: 'Monitoramento familiar',
-    graffit: 'Arte rebelde',
+    graffit: 'Vândalo',
     vampyrus: 'Sangue-suga',
     cybertron: '100% máquina',
     frost: '"Você quer brincar na neve?"',
@@ -3532,6 +3625,26 @@ function syncCharacterProgressState() {
 
 function getTitleLabel(charId) {
     return CHARACTER_TITLES[charId] || '';
+}
+
+const CHARACTER_SPRITE_ALIASES = {
+    major: 'major_briggs',
+};
+const CHARACTER_SPRITE_IDS = new Set([
+    'strike','fasty','cherry','bold','kayo','bombeiro','pow','grenade','vesper','shiv','critik','tenent','healy','rex','necro','goo','plasma','meekah','owen','robin','major_briggs','graffit'
+]);
+function getCharacterSpriteId(charId) {
+    return CHARACTER_SPRITE_ALIASES[charId] || charId;
+}
+function canUseCharacterSprite(charId) {
+    const spriteId = getCharacterSpriteId(charId);
+    return CHARACTER_SPRITE_IDS.has(spriteId) || CHARACTER_SPRITE_IDS.has(charId) || spriteId === charId;
+}
+function renderCharacterSprite(charId, className = '', altText = '') {
+    const spriteId = getCharacterSpriteId(charId);
+    const alt = altText || (CHARACTERS[charId]?.name || charId || 'personagem');
+    const extraClass = charId === 'shiv' ? ' char-sprite--shiv' : '';
+    return `<img class="char-sprite${extraClass}${className ? ' ' + className : ''}" src="sprites/${spriteId}.png" alt="${escapeHtmlText(decodeHtmlEntities(alt))}">`;
 }
 
 function getUnlockedTitles() {
@@ -4427,7 +4540,7 @@ function renderEventMissionCard(sectionId, mission) {
     const ballClass = getEventBallClass(sectionId);
     return `<div class="mission-card event-mission-card ${done ? 'event-mission-done' : 'event-mission-lock'} ${done ? 'completed' : ''}">
         <div class="event-mission-head">
-            <div class="${ballClass}" aria-hidden="true"></div>
+            ${renderCharacterSprite(sectionId, "gacha-drop-sprite", sectionId === "major" ? "Major Briggs" : "Graffit")}
             <div class="event-mission-copy">
                 <div class="mission-title">${escapeHtmlText(decodeHtmlEntities(mission.title))}</div>
                 <div class="mission-desc">${escapeHtmlText(decodeHtmlEntities(mission.desc))}</div>
@@ -4455,9 +4568,7 @@ function darkenHexColor(hex, factor = 0.28) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 function renderPromoBall(promo) {
-    const ballColor = getPromoBallColor(promo);
-    const darker = darkenHexColor(ballColor, 0.36);
-    return `<div class="promo-offer-ball" style="background: radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), rgba(255,255,255,0.10) 48%), linear-gradient(180deg, ${ballColor}, ${darker});"></div>`;
+    return renderCharacterSprite(promo.id, 'gacha-drop-sprite', promo.label);
 }
 function renderEventPromoOfferCard(promo, mode) {
     const c = CHARACTERS[promo.id];
@@ -5182,7 +5293,7 @@ let sort = document.getElementById('char-filter-sort') ? document.getElementById
         const owned = !!pd.chars[c.id]; const lvl = owned ? pd.chars[c.id].level : 0; const isSel = pd.selectedChar === c.id;
         const div = document.createElement('div'); div.className = `card-item rarity-${c.rarity}`; div.style.cursor = 'pointer'; if(isSel) div.style.borderColor = 'var(--btn-green)';
         let banTag = bannedSet.has(c.id) ? `<div style="position:absolute;top:5px;right:5px;font-size:24px;">🚫</div>` : '';
-        let hasSprite = `<div style="width:60px;height:60px;background:${c.color};border-radius:50%;margin:0 auto 10px;border:3px solid #fff;"></div>`;
+        let hasSprite = renderCharacterSprite(c.id, 'shop-char-sprite', c.name);
         let html = `${banTag}${hasSprite}<h4>${c.name}</h4><div style="font-size:12px;color:#aaa">${c.class}</div>`;
         if(owned) {
             const medals = pd.chars[c.id]?.medals || { total: 0, run: 0 };
@@ -5719,7 +5830,7 @@ function renderShop() {
         shopChars.forEach(c => {
             const div = document.createElement('div');
             div.className = `card-item rarity-${c.rarity}`;
-            let hasSprite = `<div style="width:40px;height:40px;background:${c.color};border-radius:50%;margin:0 auto; border:3px solid #fff;"></div>`;
+            let hasSprite = renderCharacterSprite(c.id, 'shop-char-sprite', c.name);
             div.innerHTML = `${hasSprite}<h5>${c.name}</h5><button style="padding:5px;font-size:12px;background:var(--gem)" type="button" onclick="event.stopPropagation(); buyChar('${c.id}')">💎 ${c.cost}</button>`;
             charList.appendChild(div);
         });
@@ -9704,7 +9815,30 @@ function updateGraffitMarks(dt) {
     }
 }
 
+const SPRITE_IMAGE_CACHE = new Map();
+function getSpriteImage(spriteId) {
+    if (!spriteId) return null;
+    const resolvedId = getCharacterSpriteId(spriteId);
+    if (!resolvedId) return null;
+    let img = SPRITE_IMAGE_CACHE.get(resolvedId);
+    if (!img) {
+        img = new Image();
+        img.decoding = 'async';
+        img.src = `sprites/${resolvedId}.png`;
+        SPRITE_IMAGE_CACHE.set(resolvedId, img);
+    }
+    return img;
+}
+
 function drawShape(cCtx, x, y, size, shape, color, isBoss=false, spriteId=null) {
+    const sprite = spriteId ? getSpriteImage(spriteId) : null;
+    if (sprite && sprite.complete && sprite.naturalWidth > 0) {
+        const resolvedId = getCharacterSpriteId(spriteId);
+        const spriteW = size * (resolvedId === 'shiv' ? 1.88 : 2.2);
+        const spriteH = size * (resolvedId === 'shiv' ? 1.03 : 1.2);
+        cCtx.drawImage(sprite, x - spriteW / 2, y - spriteH / 2, spriteW, spriteH);
+        return;
+    }
     cCtx.fillStyle = color; cCtx.beginPath();
     if(isBoss) { for(let i=0; i<8; i++){ let a = i * Math.PI / 4 + Math.PI/8; if(i===0) cCtx.moveTo(x+Math.cos(a)*size, y+Math.sin(a)*size); else cCtx.lineTo(x+Math.cos(a)*size, y+Math.sin(a)*size); } } 
     else { cCtx.arc(x, y, size, 0, Math.PI*2); }
